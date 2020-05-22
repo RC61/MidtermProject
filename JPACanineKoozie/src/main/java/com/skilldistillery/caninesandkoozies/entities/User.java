@@ -1,6 +1,7 @@
 package com.skilldistillery.caninesandkoozies.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -57,6 +59,9 @@ public class User {
 	@OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
+	
+	@OneToMany(mappedBy= "user")
+	private List<Dog> dogs;
 	
 	
 
@@ -207,6 +212,20 @@ public class User {
 		this.address = address;
 	}
 	
+	
+	
+	public List<Dog> getDogs() {
+		return dogs;
+	}
+
+
+
+	public void setDogs(List<Dog> dogs) {
+		this.dogs = dogs;
+	}
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

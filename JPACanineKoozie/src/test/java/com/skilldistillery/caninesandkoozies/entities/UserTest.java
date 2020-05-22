@@ -46,7 +46,9 @@ class UserTest {
 		assertEquals("admin", user.getUsername());
 		assertEquals("admin", user.getPassword());
 		assertEquals("Englewood", user.getAddress().getCity());
+		assertEquals("Baxter", user.getDogs().get(0).getName());
 		assertTrue(user.getEnabled());
+//		assertEquals(2, user.getDogs().size());
 	}
 
 }

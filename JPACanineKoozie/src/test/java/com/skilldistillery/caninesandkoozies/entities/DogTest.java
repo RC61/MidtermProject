@@ -46,6 +46,7 @@ class DogTest {
 		assertEquals("Shihtzu", dog.getBreed());
 		assertEquals("small", dog.getSize());
 		assertEquals(null, dog.getDogPicture());
+		assertEquals("Tabatha", dog.getUser().getFname());
 	}
 
 }
