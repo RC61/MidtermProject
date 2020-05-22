@@ -45,6 +45,7 @@ class UserTest {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
 		assertEquals("admin", user.getPassword());
+		assertEquals("Englewood", user.getAddress().getCity());
 		assertTrue(user.getEnabled());
 	}
 
