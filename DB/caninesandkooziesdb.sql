@@ -262,8 +262,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `caninesandkooziesdb`;
-INSERT INTO `event` (`id`, `name`, `event_date_time`, `dog_size_preference`, `single_only_preference`, `picture_url`, `description`, `create_date`, `update_date`, `venue_id`, `creator_id`) VALUES (1, 'Wine and Pup', '2020-06-01 16:00:00', 'small', 1, NULL, 'Drink wine and bring pups', '2020-05-22', NULL, 1, 2);
-INSERT INTO `event` (`id`, `name`, `event_date_time`, `dog_size_preference`, `single_only_preference`, `picture_url`, `description`, `create_date`, `update_date`, `venue_id`, `creator_id`) VALUES (2, 'iPupAs', '2020-07-01 17:00:00', 'none', 0, 'https://i.imgur.com/vTI4oDl.jpg', 'Bring your pups (all welcome) and join us in an ipa socialization event! Bring a friend to join in on the fun. There will be small snacks provided in the venue. All riverblend IPAs and well drinks will be 50% off.', '2020-05-22', NULL, 2, 3);
+INSERT INTO `event` (`id`, `name`, `event_date_time`, `dog_size_preference`, `single_only_preference`, `picture_url`, `description`, `create_date`, `update_date`, `venue_id`, `creator_id`) VALUES (1, 'Wine and Pup', '2020-06-01 16:00:00', 'small', 1, NULL, 'Drink wine and bring pups', '2020-05-22 12:00:00', NULL, 1, 2);
+INSERT INTO `event` (`id`, `name`, `event_date_time`, `dog_size_preference`, `single_only_preference`, `picture_url`, `description`, `create_date`, `update_date`, `venue_id`, `creator_id`) VALUES (2, 'iPupAs', '2020-07-01 17:00:00', 'none', 0, 'https://i.imgur.com/vTI4oDl.jpg', 'Bring your pups (all welcome) and join us in an ipa socialization event! Bring a friend to join in on the fun. There will be small snacks provided in the venue. All riverblend IPAs and well drinks will be 50% off.', '2020-05-22 14:00:00', NULL, 2, 3);
+INSERT INTO `event` (`id`, `name`, `event_date_time`, `dog_size_preference`, `single_only_preference`, `picture_url`, `description`, `create_date`, `update_date`, `venue_id`, `creator_id`) VALUES (3, 'Doggy Labor Day', '2020-09-07 14:00:00', 'none', 0, 'https://i.imgur.com/LzMS8Mu.jpg', 'Labor Day is around the corner and we have a special event for you. Spend some time golfing and sunbathing in the beautiful Wellshire Golf Course. Bring Your Own Drinks and Bring Your Own Dogs and we will bring the snacks.', '2020-05-22 14:06:00', NULL, 4, 4);
 
 COMMIT;
 
@@ -273,7 +274,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `caninesandkooziesdb`;
-INSERT INTO `comment` (`id`, `create_date`, `description`, `event_id`, `user_id`) VALUES (1, '2020-05-22', 'can\'t wait!', 1, 2);
+INSERT INTO `comment` (`id`, `create_date`, `description`, `event_id`, `user_id`) VALUES (1, '2020-05-22 12:00:00', 'can\'t wait!', 1, 2);
+INSERT INTO `comment` (`id`, `create_date`, `description`, `event_id`, `user_id`) VALUES (2, '2020-05-22 14:30:00', 'So excited to bring Baxter. Max is coming too!', 2, 2);
+INSERT INTO `comment` (`id`, `create_date`, `description`, `event_id`, `user_id`) VALUES (3, '2020-05-22 14:30:00', 'I\'m not going Chad your dog ripped my pants last time', 3, 5);
 
 COMMIT;
 
@@ -284,6 +287,11 @@ COMMIT;
 START TRANSACTION;
 USE `caninesandkooziesdb`;
 INSERT INTO `user_event` (`user_id`, `event_id`, `rating`) VALUES (1, 1, 3);
+INSERT INTO `user_event` (`user_id`, `event_id`, `rating`) VALUES (2, 2, NULL);
+INSERT INTO `user_event` (`user_id`, `event_id`, `rating`) VALUES (3, 2, NULL);
+INSERT INTO `user_event` (`user_id`, `event_id`, `rating`) VALUES (4, 3, NULL);
+INSERT INTO `user_event` (`user_id`, `event_id`, `rating`) VALUES (5, 3, NULL);
+INSERT INTO `user_event` (`user_id`, `event_id`, `rating`) VALUES (2, 3, NULL);
 
 COMMIT;
 
