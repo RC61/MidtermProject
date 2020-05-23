@@ -39,6 +39,9 @@ public class UserDAOImpl implements UserDAO{
 		updatedUser.setAddress(user.getAddress());
 		updatedUser.setAlcoholPreference(user.getAlcoholPreference());
 		updatedUser.setEmail(user.getEmail());
+		updatedUser.setUsername(user.getUsername());
+		updatedUser.setPassword(user.getPassword());
+		updatedUser.setUserPicture(user.getUserPicture());
 		return updatedUser;
 	}
 	
@@ -65,6 +68,7 @@ public class UserDAOImpl implements UserDAO{
 		updatedDog.setName(dog.getName());
 		updatedDog.setSize(dog.getSize());
 		updatedDog.setDogPicture(dog.getDogPicture());
+		updatedDog.setBreed(dog.getBreed());
 		return updatedDog;
 	}
 	
