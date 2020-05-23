@@ -1,6 +1,7 @@
 package com.skilldistillery.caninesandkoozies.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -48,6 +49,8 @@ class CommentTest {
 		assertEquals(14, comment.getCommentCreateDate().getHour());
 		assertEquals(30, comment.getCommentCreateDate().getMinute());
 		assertEquals("I'm not going Chad your dog ripped my pants last time", comment.getDescription());
+		assertEquals("Toni", comment.getUser().getFname());
+		assertEquals("Papp", comment.getUser().getLname());
 	}
 
 }
