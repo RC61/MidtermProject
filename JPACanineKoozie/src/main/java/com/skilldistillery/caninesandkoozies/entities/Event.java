@@ -1,14 +1,16 @@
 package com.skilldistillery.caninesandkoozies.entities;
 
-import java.sql.Time;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -43,15 +45,20 @@ public class Event {
 	@UpdateTimestamp
 	@Column(name="update_date")
 	private LocalDateTime updateDate;
-	
-	@Column(name="venue_id")
-	private int venueId;
-	
-	@Column(name="creator_id")
-	private int creatorId;
 
+	@OneToMany(mappedBy="event")
+	private List<Comment> comments;
 	
+	@ManyToOne
+	@JoinColumn(name="venue_id")
+	private Venue venue;
 	
+	@ManyToOne
+	@JoinColumn(name="creator_id")
+	private User userCreated;
+	
+	@OneToMany(mappedBy="event")
+	private List<UserEvent> userEvents;
 	
 	public Event() {
 		super();
@@ -70,8 +77,40 @@ public class Event {
 		this.description = description;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
-		this.venueId = venueId;
-		this.creatorId = creatorId;
+	}
+	
+	
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public Venue getVenue() {
+		return venue;
+	}
+
+	public void setVenue(Venue venue) {
+		this.venue = venue;
+	}
+
+	public User getUserCreated() {
+		return userCreated;
+	}
+
+	public void setUserCreated(User userCreated) {
+		this.userCreated = userCreated;
+	}
+
+	public List<UserEvent> getUserEvents() {
+		return userEvents;
+	}
+
+	public void setUserEvents(List<UserEvent> userEvents) {
+		this.userEvents = userEvents;
 	}
 
 	public boolean isSingleOnlyPreference() {
@@ -146,27 +185,12 @@ public class Event {
 		this.updateDate = updateDate;
 	}
 
-	public int getVenueId() {
-		return venueId;
-	}
-
-	public void setVenueId(int venueId) {
-		this.venueId = venueId;
-	}
-
-	public int getCreatorId() {
-		return creatorId;
-	}
-
-	public void setCreatorId(int creatorId) {
-		this.creatorId = creatorId;
-	}
-
 	@Override
 	public String toString() {
 		return "Event [id=" + id + ", name=" + name + ", eventDateTime=" + eventDateTime + ", dogSizePreference="
-				+ dogSizePreference + ", pictureURL=" + pictureURL + ", description=" + description + ", createDate="
-				+ createDate + ", updateDate=" + updateDate + ", venueId=" + venueId + ", creatorId=" + creatorId + "]";
+				+ dogSizePreference + ", singleOnlyPreference=" + singleOnlyPreference + ", pictureURL=" + pictureURL
+				+ ", description=" + description + ", createDate=" + createDate + ", updateDate=" + updateDate
+				+ ", comments=" + comments + ", venue=" + venue + ", userCreated=" + userCreated + "]";
 	}
 	
 	

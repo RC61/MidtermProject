@@ -53,7 +53,14 @@ public class EventTest {
 		assertEquals("Drink wine and bring pups", event.getDescription());
 		assertEquals(2020, event.getCreateDate().getYear());
 		assertEquals(null, event.getUpdateDate());
-		assertEquals(1, event.getVenueId());
-		assertEquals(2, event.getCreatorId());
+	}
+	
+	@Test
+	void test_Event_relationship_mapping() {
+		assertNotNull(event);
+		assertEquals("can't wait!", event.getComments().get(0).getDescription());
+		assertEquals("admin", event.getUserEvents().get(0).getUser().getFname());
+		assertEquals("Sample Venue", event.getVenue().getName());
+		assertEquals("Tabatha", event.getUserCreated().getFname());
 	}
 }
