@@ -56,6 +56,7 @@ public class VenueTest {
 	void test_relationship_mapping() {
 		assertNotNull(venue);
 		assertEquals("678 Venue Lane", venue.getAddress().getStreet());
+		assertEquals("Wine and Pup", venue.getEvents().get(0).getName());
 	}
 
 }
