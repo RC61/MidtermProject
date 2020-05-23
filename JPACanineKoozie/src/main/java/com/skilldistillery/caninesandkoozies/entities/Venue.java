@@ -1,5 +1,6 @@
 package com.skilldistillery.caninesandkoozies.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -46,6 +47,27 @@ public class Venue {
 		this.alcoholProvided = alcoholProvided;
 		this.pictureURL = pictureURL;
 		this.venueLink = venueLink;
+	}
+	
+	public void addEvent(Event event) {
+		if (events == null) {
+			events = new ArrayList<>();
+		}
+		
+		if (!events.contains(event)) {
+			events.add(event);
+			if (event.getVenue() != null) {
+				event.getVenue().getEvents().remove(event);
+			}
+			event.setVenue(this);
+		}
+	}
+	
+	public void removeEvent(Event event) {
+		event.setVenue(null);
+		if (events != null) {
+			events.remove(event);
+		}
 	}
 
 	public List<Event> getEvents() {
