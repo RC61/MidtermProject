@@ -125,5 +125,12 @@ public class UserDAOImpl implements UserDAO{
 		System.out.println(stillContains);
 		return !stillContains;
 }
+
+	@Override
+	public User getUserByUsernameAndPassword(String username, String password) {
+		String jpql = "SELECT u from User u WHERE u.username =:un and u.password =:p";
+		User user = em.createQuery(jpql, User.class).setParameter("un", username).setParameter("p", password).getSingleResult();
+		return user;
+	}
 }
 

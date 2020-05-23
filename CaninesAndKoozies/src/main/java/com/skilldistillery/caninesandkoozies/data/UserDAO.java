@@ -16,6 +16,7 @@ public interface UserDAO {
 	public boolean deleteDog(int id);
 	public List<Dog> findAllUserDogs(int id);
 	
+	public User getUserByUsernameAndPassword(String username, String password);
 	
 	// DO I KEEP THIS SHIT
 	public Event createEvent(Event newEvent);
