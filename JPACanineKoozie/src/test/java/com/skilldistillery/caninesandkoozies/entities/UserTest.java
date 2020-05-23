@@ -47,7 +47,10 @@ class UserTest {
 		assertEquals("tabathaf", user.getPassword());
 		assertEquals("Denver", user.getAddress().getCity());
 		assertEquals("Baxter", user.getDogs().get(0).getName());
-		assertEquals("", user.getEvents().get(0).getEventDateTime());
+		assertEquals(2020, user.getUserEvents().get(0).getEvent().getEventDateTime().getYear());
+		assertEquals(7, user.getUserEvents().get(0).getEvent().getEventDateTime().getMonthValue());
+		assertEquals(1, user.getUserEvents().get(0).getEvent().getEventDateTime().getDayOfMonth());
+		assertEquals(17, user.getUserEvents().get(0).getEvent().getEventDateTime().getHour());
 		assertTrue(user.getEnabled());
 	}
 
