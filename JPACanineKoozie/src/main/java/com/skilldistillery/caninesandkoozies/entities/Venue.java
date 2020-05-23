@@ -3,6 +3,7 @@ package com.skilldistillery.caninesandkoozies.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class Venue {
 	@OneToMany(mappedBy="venue")
 	private List<Event> events;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="address_id")
 	private Address address;
 
