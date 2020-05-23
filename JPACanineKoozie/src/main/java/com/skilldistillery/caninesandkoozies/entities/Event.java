@@ -1,6 +1,7 @@
 package com.skilldistillery.caninesandkoozies.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -79,7 +80,47 @@ public class Event {
 		this.updateDate = updateDate;
 	}
 	
+	public void addUserEvent(UserEvent userEvent) {
+		if (userEvents == null) {
+			userEvents = new ArrayList<>();
+		}
+		
+		if (!userEvents.contains(userEvent)) {
+			userEvents.add(userEvent);
+			if(userEvent.getEvent() != null) {
+				userEvent.getEvent().getUserEvents().remove(userEvent);
+			}
+			userEvent.setEvent(this);
+		}
+	}
 	
+	public void removeUserEvent(UserEvent userEvent) {
+		userEvent.setEvent(null);
+		if(userEvents != null) {
+			userEvents.remove(userEvent);
+		}
+	}
+	
+	public void addComment(Comment comment) {
+		if(comments == null) {
+			comments = new ArrayList<>();
+		}
+		
+		if(!comments.contains(comment)) {
+			comments.add(comment);
+			if(comment.getEvent() != null) {
+				comment.getEvent().getComments().remove(comment);
+			}
+			comment.setEvent(this);
+		}
+	}
+	
+	public void removeComment(Comment comment) {
+		comment.setEvent(null);
+		if (comments != null) {
+			comments.remove(comment);
+		}
+	}
 
 	public List<Comment> getComments() {
 		return comments;
