@@ -17,7 +17,6 @@ public class UserEventId implements Serializable {
 	private int eventId;
 	
 	
-
 	public UserEventId() {
 		super();
 	}

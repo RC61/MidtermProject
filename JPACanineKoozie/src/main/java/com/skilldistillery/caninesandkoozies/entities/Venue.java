@@ -1,10 +1,15 @@
 package com.skilldistillery.caninesandkoozies.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Venue {
@@ -23,10 +28,12 @@ public class Venue {
 	@Column(name="venue_link")
 	private String venueLink;
 	
-	@Column(name="address_id")
-	private int addressId;
+	@OneToMany(mappedBy="venue")
+	private List<Event> events;
 	
-	
+	@OneToOne
+	@JoinColumn(name="address_id")
+	private Address address;
 
 	public Venue() {
 		super();
@@ -39,7 +46,22 @@ public class Venue {
 		this.alcoholProvided = alcoholProvided;
 		this.pictureURL = pictureURL;
 		this.venueLink = venueLink;
-		this.addressId = addressId;
+	}
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public int getId() {
@@ -82,18 +104,11 @@ public class Venue {
 		this.venueLink = venueLink;
 	}
 
-	public int getAddressId() {
-		return addressId;
-	}
-
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
-	}
 
 	@Override
 	public String toString() {
 		return "Venue [id=" + id + ", name=" + name + ", alcoholProvided=" + alcoholProvided + ", pictureURL="
-				+ pictureURL + ", venueLink=" + venueLink + ", addressId=" + addressId + "]";
+				+ pictureURL + ", venueLink=" + venueLink +"]";
 	}
 	
 	

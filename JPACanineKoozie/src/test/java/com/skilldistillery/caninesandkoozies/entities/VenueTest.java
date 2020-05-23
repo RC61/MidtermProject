@@ -43,15 +43,19 @@ public class VenueTest {
 	}
 
 	@Test
-	void test_Event_entity_mapping() {
+	void test_Venue_entity_mapping() {
 		assertNotNull(venue);
 		assertEquals(1, venue.getId());
 		assertEquals("Sample Venue", venue.getName());
 		assertTrue(venue.isAlcoholProvided());
 		assertEquals(null, venue.getPictureURL());
 		assertEquals(null, venue.getVenueLink());
-		assertEquals(2, venue.getAddressId());
-		
+	}
+	
+	@Test
+	void test_relationship_mapping() {
+		assertNotNull(venue);
+		assertEquals("678 Venue Lane", venue.getAddress().getStreet());
 	}
 
 }

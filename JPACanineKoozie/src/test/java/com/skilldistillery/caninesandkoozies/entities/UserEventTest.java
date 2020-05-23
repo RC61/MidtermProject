@@ -44,7 +44,6 @@ class UserEventTest {
 	void test_Event_entity_mapping() {
 		assertNotNull(userEvent);
 		assertEquals(3, userEvent.getRating());
-		
 	}
 
 }

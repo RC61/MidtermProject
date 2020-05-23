@@ -2,6 +2,9 @@ package com.skilldistillery.caninesandkoozies.entities;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +16,15 @@ public class UserEvent {
 	
 	private Integer rating;
 	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	@MapsId(value="userId")
+	private User user;
 	
+	@ManyToOne
+	@JoinColumn(name="event_id")
+	@MapsId(value="eventId")
+	private Event event;
 
 	public UserEvent() {
 		super();
@@ -23,6 +34,24 @@ public class UserEvent {
 		super();
 		this.id = id;
 		this.rating = rating;
+	}
+
+	
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Event getEvent() {
+		return event;
+	}
+
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 
 	public UserEventId getId() {
