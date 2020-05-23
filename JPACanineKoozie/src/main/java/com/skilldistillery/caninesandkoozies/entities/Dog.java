@@ -22,12 +22,13 @@ public class Dog {
 	private String dogPicture;
 	
 	@ManyToOne
-	@JoinColumn (name="user_id")
+	@JoinColumn(name="user_id")
 	private User user;
 
 	public Dog() {
 		super();
 	}
+
 
 	public Dog(int id, String name, String breed, String size, String dogPicture, User user) {
 		super();
@@ -38,6 +39,7 @@ public class Dog {
 		this.dogPicture = dogPicture;
 		this.user = user;
 	}
+
 
 	public int getId() {
 		return id;
