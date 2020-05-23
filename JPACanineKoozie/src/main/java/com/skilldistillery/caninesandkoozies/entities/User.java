@@ -66,6 +66,9 @@ public class User {
 	@OneToMany(mappedBy = "userCreated")
 	private List<Event> events;
 	
+	@OneToMany(mappedBy="user")
+	private List<UserEvent> userEvents;
+	
 
 	public User() {
 		super();
@@ -234,6 +237,17 @@ public class User {
 
 	public void setEvents(List<Event> events) {
 		this.events = events;
+	}
+	
+
+	public List<UserEvent> getUserEvents() {
+		return userEvents;
+	}
+
+
+
+	public void setUserEvents(List<UserEvent> userEvents) {
+		this.userEvents = userEvents;
 	}
 
 
