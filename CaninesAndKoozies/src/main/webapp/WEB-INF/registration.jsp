@@ -54,7 +54,7 @@
     			<label><input type="radio" name="relationshipStatus" value="in a relationship">In a Relationship</label>
    				<label><input type="radio" name="relationshipStatus" value="married">Married</label><br>
 				
-				></td>
+				</td>
 			</tr>
 			<tr>
 				<td>Alcohol Preference:</td>
