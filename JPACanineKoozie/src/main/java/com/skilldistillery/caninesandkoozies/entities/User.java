@@ -63,8 +63,11 @@ public class User {
 	@OneToMany(mappedBy= "user")
 	private List<Dog> dogs;
 	
-//	@OneToMany(mappedBy = "userCreated")
-//	private List<Event> events;
+	@OneToMany(mappedBy = "userCreated")
+	private List<Event> events;
+	
+	@OneToMany(mappedBy="user")
+	private List<UserEvent> userEvents;
 	
 
 	public User() {
@@ -223,6 +226,28 @@ public class User {
 
 	public void setDogs(List<Dog> dogs) {
 		this.dogs = dogs;
+	}
+
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+	
+
+	public List<UserEvent> getUserEvents() {
+		return userEvents;
+	}
+
+
+
+	public void setUserEvents(List<UserEvent> userEvents) {
+		this.userEvents = userEvents;
 	}
 
 
