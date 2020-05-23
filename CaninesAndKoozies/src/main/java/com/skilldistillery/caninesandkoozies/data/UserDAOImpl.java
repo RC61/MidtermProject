@@ -9,9 +9,10 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.caninesandkoozies.entities.Dog;
+import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
 
-import antlr.debug.Event;
+
 
 
 @Service
@@ -76,14 +77,16 @@ public class UserDAOImpl implements UserDAO{
 		return false;
 	}
 	
-	// COME BACK TO FINISH ME
+
 	@Override
-	public List<Dog> findAllUserDogs() {
-//		String jpql = "SELECT "
-		return null;
+	public List<Dog> findAllUserDogs(int id) {
+		String jpql = "SELECT d from Dog d where d.user =:id";
+		List<Dog> dogs;
+		dogs = em.createQuery(jpql, Dog.class).getResultList();
+		return dogs;
 	}
 
-	
+
 	@Override
 	public Event createEvent(Event newEvent) {
 		em.persist(newEvent);
@@ -91,11 +94,27 @@ public class UserDAOImpl implements UserDAO{
 		return newEvent;
 	}
 
-	// FINISH ME
 	@Override
 	public Event updateEvent(int id, Event event) {
 		Event updatedEvent = em.find(Event.class, id);
-		return null;
+		
+		updatedEvent.setDescription(event.getDescription());
+		updatedEvent.setVenue(event.getVenue());
+		updatedEvent.setEventDateTime(event.getEventDateTime());
+		updatedEvent.setDogSizePreference(event.getDogSizePreference());
+		updatedEvent.setName(event.getName());
+		updatedEvent.setPictureURL(event.getPictureURL());
+		updatedEvent.setSingleOnlyPreference(event.isSingleOnlyPreference());
+		
+		return updatedEvent;
+	}
+
+	@Override
+	public List<Event> findAllCreatedEvents(int id) {
+		String jpql = "SELECT e from Event e where e.userCreated =:id";
+		List<Event> events;
+		events = em.createQuery(jpql, Event.class).getResultList();
+		return events;
 	}
 
 	@Override
@@ -105,13 +124,6 @@ public class UserDAOImpl implements UserDAO{
 		boolean stillContains = em.contains(em.find(Event.class, id));
 		System.out.println(stillContains);
 		return !stillContains;
-	}
-
-	//FINISH ME
-	@Override
-	public List<Event> findAllCreatedEvents() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
+}
+
