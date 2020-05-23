@@ -1,6 +1,7 @@
 package com.skilldistillery.caninesandkoozies.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -54,7 +55,7 @@ public class User {
 	@UpdateTimestamp
 	@Column(name= "update_date")
 	private LocalDateTime updateDate;
-	
+
 
 	@OneToOne
     @JoinColumn(name = "address_id")
@@ -70,6 +71,9 @@ public class User {
 	private List<UserEvent> userEvents;
 	
 
+	
+	
+	
 	public User() {
 		super();
 	}
@@ -96,6 +100,8 @@ public class User {
 		this.updateDate = updateDate;
 		this.address = address;
 	}
+	
+	
 
 	public int getId() {
 		return id;
@@ -227,6 +233,29 @@ public class User {
 	public void setDogs(List<Dog> dogs) {
 		this.dogs = dogs;
 	}
+	
+	public void addDog(Dog dog) {
+		if (dogs == null) {
+			dogs = new ArrayList<>(); }
+		if (!dogs.contains(dog)); {
+			dogs.add(dog);
+			if (dog.getUser() != null) {
+				dog.getUser().getDogs().remove(dog);
+			}
+			dog.setUser(this);
+		}
+	}
+	
+	public void removeDog(Dog dog) {
+		dog.setUser(null);
+		if (dogs != null) {
+			dogs.remove(dog);
+		}
+	}
+	
+
+	
+
 
 
 	public List<Event> getEvents() {
@@ -239,6 +268,26 @@ public class User {
 		this.events = events;
 	}
 	
+	// EVENT USER IS CREATING
+	public void addEvent(Event event) {
+		if (events == null) {
+			events = new ArrayList<>(); }
+		if (!events.contains(event)); {
+			events.add(event);
+			if (event.getUserCreated() != null) {
+				event.getUserCreated().getEvents().remove(event);
+			}
+		}
+	}
+	
+	public void removeEvent(Event event) {
+		event.setUserCreated(null);
+		if (events != null) {
+			events.remove(event);
+		}
+	}
+	
+	
 
 	public List<UserEvent> getUserEvents() {
 		return userEvents;
@@ -249,6 +298,28 @@ public class User {
 	public void setUserEvents(List<UserEvent> userEvents) {
 		this.userEvents = userEvents;
 	}
+	
+	// EVENT USER IS ATTENDING
+	public void addUserEvent(UserEvent userEvent) {
+		if (userEvents == null) {
+			userEvents = new ArrayList<>(); }
+		if (!userEvents.contains(userEvent)); {
+			userEvents.add(userEvent);
+			if (userEvent.getUser() != null) {
+				userEvent.getUser().getUserEvents().remove(userEvent);
+			}
+		}
+	}
+	
+	public void removeUserEvent(UserEvent userEvent) {
+		userEvent.setUser(null);
+		if (userEvents != null) {
+			userEvents.remove(userEvent);
+		}
+	}
+	
+	
+
 
 
 
