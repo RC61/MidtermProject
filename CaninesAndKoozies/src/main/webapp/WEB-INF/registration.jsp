@@ -49,7 +49,12 @@
 				<td>Relationship Status:</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="relationshipStatus" size="30" /></td>
+				<td>  
+				<label><input type="radio" name="relationshipStatus" value="single">Single</label>
+    			<label><input type="radio" name="relationshipStatus" value="in a relationship">In a Relationship</label>
+   				<label><input type="radio" name="relationshipStatus" value="married">Married</label><br>
+				
+				></td>
 			</tr>
 			<tr>
 				<td>Alcohol Preference:</td>
@@ -65,5 +70,7 @@
 			</tr>
 
 		</table>
+		
+		<input type="submit" class="button" value="Submit" />
 </body>
 </html>
