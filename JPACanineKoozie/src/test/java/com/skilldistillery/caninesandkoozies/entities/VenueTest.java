@@ -1,6 +1,8 @@
 package com.skilldistillery.caninesandkoozies.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,11 +14,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+public class VenueTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Venue venue;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,23 +33,25 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 2);
+		venue = em.find(Venue.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		venue = null;
 	}
 
 	@Test
-	void test_User_entity_mapping() {
-		assertNotNull(user);
-		assertEquals("tabathaf", user.getUsername());
-		assertEquals("tabathaf", user.getPassword());
-		assertEquals("Denver", user.getAddress().getCity());
-		assertEquals("Baxter", user.getDogs().get(0).getName());
-		assertTrue(user.getEnabled());
+	void test_Event_entity_mapping() {
+		assertNotNull(venue);
+		assertEquals(1, venue.getId());
+		assertEquals("Sample Venue", venue.getName());
+		assertTrue(venue.isAlcoholProvided());
+		assertEquals(null, venue.getPictureURL());
+		assertEquals(null, venue.getVenueLink());
+		assertEquals(2, venue.getAddressId());
+		
 	}
 
 }
