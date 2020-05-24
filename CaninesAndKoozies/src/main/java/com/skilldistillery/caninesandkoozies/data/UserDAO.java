@@ -11,6 +11,8 @@ public interface UserDAO {
 	public User createUser(User newUser);
 	public User updateUser(int id, User user);
 	public boolean deleteUser(int id);
+	public User findUserById(int id);
+	
 	public Dog createDog(Dog newDog);
 	public Dog updateDog(int id, Dog dog);
 	public boolean deleteDog(int id);
