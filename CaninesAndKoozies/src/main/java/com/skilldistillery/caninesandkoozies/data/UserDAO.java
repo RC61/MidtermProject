@@ -2,13 +2,14 @@ package com.skilldistillery.caninesandkoozies.data;
 
 import java.util.List;
 
+import com.skilldistillery.caninesandkoozies.entities.Address;
 import com.skilldistillery.caninesandkoozies.entities.Dog;
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
 
 
 public interface UserDAO {
-	public User createUser(User newUser);
+	public User createUser(User newUser, Address address);
 	public User updateUser(int id, User user);
 	public boolean deleteUser(int id);
 	public User findUserById(int id);

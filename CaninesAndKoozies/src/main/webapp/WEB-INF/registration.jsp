@@ -7,7 +7,7 @@
 <title>Registration</title>
 </head>
 <body>
-	<form action="register.do" method="POST">
+	<form action="registerUser.do" method="POST">
 
 		<table>
 			<tr>
@@ -32,18 +32,37 @@
 				<td>First Name:</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="fName" size="30" /></td>
+				<td><input type="text" name="fname" size="30" /></td>
 			</tr>
 			<tr>
 				<td>Last Name:</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="lName" size="30" /></td>
+				<td><input type="text" name="lname" size="30" /></td>
 			<tr>
 				<td>Birthday:</td>
 			</tr>
 			<tr>
 				<td><input type="text" name="birthDate" size="30" /></td>
+			</tr>
+			<tr>
+				<td>Address:</td>
+			</tr>
+			<tr>
+				<td>
+				<label><input type="text" name="street" size="30" />Street</label></td>
+			</tr>
+			<tr>
+				<td>
+				<label><input type="text" name="city" size="30" />City</label></td>
+			</tr>
+			<tr>
+				<td>
+				<label><input type="text" name="state" size="30" />State</label></td>
+			</tr>
+			<tr>
+				<td>
+				<label><input type="text" name="zipCode" size="30" />Zip Code</label></td>
 			</tr>
 			<tr>
 				<td>Relationship Status:</td>
@@ -74,6 +93,8 @@
 			<tr>
 				<td><input type="text" name="userPicture" size="30" /></td>
 			</tr>
+			
+			<input type="hidden" name="enabled" value="1"/>
 
 		</table>
 		
