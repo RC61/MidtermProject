@@ -29,8 +29,4 @@ public class HomeController {
 		return mv;
 	}
 	
-//	@RequestMapping(path = {"/", "home.do"})
-//	private String home() {
-//		return "index";
-//	}
 }
