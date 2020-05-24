@@ -19,12 +19,15 @@ public class EventDAOImpl implements EventDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	public Event createEvent(Event event) {
-
-		event.setUserCreated(em.find(User.class, event.getUserCreated()));
-		event.setVenue(em.find(Venue.class, event.getVenue()));
-
+	public Event createEvent(Event event, User user, int venueId) {
+		
+		user.addEvent(event);
+		
 		em.persist(event);
+		
+		event.setUserCreated(user);
+		event.setVenue(em.find(Venue.class, venueId));
+
 		em.flush();
 		em.close();
 

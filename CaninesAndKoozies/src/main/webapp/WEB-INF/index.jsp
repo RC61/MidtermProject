@@ -23,6 +23,11 @@
 			<input type = "submit" value = "submit">
 		</form>
 		
+		<form action = "createEvent.do" method = "GET">
+			<input type = "submit" value = "Create event">
+			
+		</form>
+		
 		<form action = "logout.do" method = "GET">
 			<input type = "submit" value = "Logout">
 			
