@@ -136,5 +136,10 @@ public class UserDAOImpl implements UserDAO{
 		User user = em.createQuery(jpql, User.class).setParameter("un", username).setParameter("p", password).getSingleResult();
 		return user;
 	}
+
+	@Override
+	public User findUserById(int id){
+		return em.find(User.class, id);
+		}
 }
 
