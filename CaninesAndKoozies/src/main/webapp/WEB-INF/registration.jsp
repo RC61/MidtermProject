@@ -49,17 +49,16 @@
 				<td>Address:</td>
 			</tr>
 			<tr>
-				<td><label><input type="text" name="street" size="30" />Street</label></td>
+				<td><label>Street<input type="text" name="street" size="30" /></label></td>
 			</tr>
 			<tr>
-				<td><label><input type="text" name="city" size="30" />City</label></td>
+				<td><label>City<input type="text" name="city" size="30" /></label></td>
 			</tr>
 			<tr>
-				<td><label><input type="text" name="state" size="30" />State</label></td>
+				<td><label>State<input type="text" name="state" size="30" /></label></td>
 			</tr>
 			<tr>
-				<td><label><input type="text" name="zipCode" size="30" />Zip
-						Code</label></td>
+				<td><label>Zip Code<input type="text" name="zipCode" size="30" /></label></td>
 			</tr>
 			<tr>
 				<td>Relationship Status:</td>
@@ -96,9 +95,8 @@
 			<input type="hidden" name="enabled" value="1" />
 
 		</table>
-		<form action="registerUsersDog.do" method="POST">
 			<input type="submit" class="button" value="Submit" /> <input
-				type="hidden" name="user" value="${user.id}" />
+				type="hidden" name="user" value="${user}" />
 		</form>
 </body>
 </html>
