@@ -13,6 +13,7 @@ public interface UserDAO {
 	public User updateUser(int id, User user);
 	public boolean deleteUser(int id);
 	public User findUserById(int id);
+	public List<User> findUserByKeyword(String keyword);
 	
 	public Dog createDog(Dog newDog);
 	public Dog updateDog(int id, Dog dog);
