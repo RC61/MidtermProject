@@ -142,7 +142,7 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public User getUserByUsernameAndPassword(String username, String password) {
-		String jpql = "SELECT u from User u WHERE u.username =:un and u.password =:p";
+		String jpql = "SELECT u FROM User u WHERE u.username =:un and u.password =:p";
 		User user = em.createQuery(jpql, User.class).setParameter("un", username).setParameter("p", password).getSingleResult();
 		return user;
 	}
@@ -151,5 +151,15 @@ public class UserDAOImpl implements UserDAO{
 	public User findUserById(int id){
 		return em.find(User.class, id);
 		}
+
+	@Override
+	public List<User> findUserByKeyword(String keyword) {
+		List<User> resultPool = null;
+		String jpql = "SELECT search FROM User search WHERE search.username like :key or search.fname like :key or search.lname like :key";
+		resultPool = em.createQuery(jpql, User.class).setParameter("key", keyword).getResultList();
+		return resultPool;
+	}
+
+
 }
 
