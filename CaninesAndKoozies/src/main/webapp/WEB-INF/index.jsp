@@ -23,11 +23,26 @@
 			<input type = "submit" value = "submit">
 		</form>
 		
+		<form action = "logout.do" method = "GET">
+			<input type = "submit" value = "Logout">
+			
+		</form>
+		
 		<c:choose>
 		<c:when test = "${! empty user.userEvents }">
 		
 			<c:forEach var = "userEvent" items = "${user.userEvents}" >
 				<h3>${userEvent.event.name}</h3>
+				
+				<c:choose>
+					<c:when test="${! empty userEvent.event.pictureURL}">
+						<img src ="${userEvent.event.pictureURL}">
+					</c:when>
+					<c:otherwise>
+						No image found for event
+					</c:otherwise>
+				</c:choose>	
+				
 			</c:forEach>
 		
 		</c:when>
@@ -61,6 +76,14 @@
 		
 			<c:forEach var = "event" items = "${events}" >
 				<h3>${event.name}</h3>
+				<c:choose>
+					<c:when test="${! empty event.pictureURL}">
+						<img src ="${event.pictureURL}">
+					</c:when>
+					<c:otherwise>
+						No image found for event
+					</c:otherwise>
+				</c:choose>	
 			</c:forEach>
 		
 		</c:when>
