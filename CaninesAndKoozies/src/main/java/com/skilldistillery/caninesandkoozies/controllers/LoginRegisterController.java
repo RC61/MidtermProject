@@ -1,5 +1,7 @@
 package com.skilldistillery.caninesandkoozies.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skilldistillery.caninesandkoozies.data.EventDAOImpl;
 import com.skilldistillery.caninesandkoozies.data.UserDAOImpl;
+import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
 
 @Controller
@@ -16,6 +20,9 @@ public class LoginRegisterController {
 	
 	@Autowired
 	private UserDAOImpl userDAOImpl;
+	
+	@Autowired
+	private EventDAOImpl eventDAOImpl;
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST, params = {"username", "password"})
 	public ModelAndView login(String username, String password, HttpSession session) {
@@ -39,11 +46,15 @@ public class LoginRegisterController {
 	}
 	
 	@RequestMapping(path = "logout.do")
-	public String logout(HttpSession session) {
+	public ModelAndView logout(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
 		User currentUser = (User) session.getAttribute("user");
 		if(currentUser != null) {
 			session.removeAttribute("user");
 		}
-		return "index";
+		List<Event> events = eventDAOImpl.findAllEvents();
+		mv.addObject("events", events);
+		mv.setViewName("index");
+		return mv;
 	}
 }
