@@ -18,4 +18,6 @@ public interface EventDAO {
 	public List<Event> eventsBySinglesOnlyPreference(Boolean singlesOnly);
 	
 	public List<Event> eventsByDogSizePreference(String dogSizePref);
+	
+	public List<Event> findEventsByKeyword(String keyword);
 }
