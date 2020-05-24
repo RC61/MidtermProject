@@ -15,14 +15,13 @@ public class RegistrationForUserAndDogController {
 	
 	@Autowired
 	private UserDAOImpl userDAOImpl;
-	@Autowired
-	private AddressDAOImpl addressDAOImpl;
+//	@Autowired
+//	private AddressDAOImpl addressDAOImpl;
 	
 	@RequestMapping(path = "registerUser.do")
 	public ModelAndView registerUser(User user, Address address) {
 		ModelAndView mv = new ModelAndView();
-		Address createdAddress = addressDAOImpl.createAddress(address);
-		User createdUser = userDAOImpl.createUser(user);
+		User createdUser = userDAOImpl.createUser(user, address);
 		mv.addObject("user", createdUser);
 		mv.setViewName("registrationDog");
 

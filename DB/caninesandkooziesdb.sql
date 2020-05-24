@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `picture_url` VARCHAR(8000) NULL,
   `create_date` DATETIME NOT NULL,
   `update_date` DATETIME NULL,
-  `address_id` INT NOT NULL,
+  `address_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_user_address1`

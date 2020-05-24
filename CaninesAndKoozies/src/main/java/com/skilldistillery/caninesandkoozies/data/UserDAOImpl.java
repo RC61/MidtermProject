@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.caninesandkoozies.entities.Address;
 import com.skilldistillery.caninesandkoozies.entities.Dog;
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
@@ -22,10 +23,15 @@ public class UserDAOImpl implements UserDAO{
 	@PersistenceContext
 	private EntityManager em;
 
+	
 	@Override
-	public User createUser(User newUser) {
+	public User createUser(User newUser, Address address) {
+		
 		em.persist(newUser);
+		em.persist(address);
+		newUser.setAddress(address);
 		em.flush();
+		
 		return newUser;
 	}
 	

@@ -32,13 +32,13 @@
 				<td>First Name:</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="fName" size="30" /></td>
+				<td><input type="text" name="fname" size="30" /></td>
 			</tr>
 			<tr>
 				<td>Last Name:</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="lName" size="30" /></td>
+				<td><input type="text" name="lname" size="30" /></td>
 			<tr>
 				<td>Birthday:</td>
 			</tr>
@@ -93,6 +93,8 @@
 			<tr>
 				<td><input type="text" name="userPicture" size="30" /></td>
 			</tr>
+			
+			<input type="hidden" name="enabled" value="1"/>
 
 		</table>
 		
