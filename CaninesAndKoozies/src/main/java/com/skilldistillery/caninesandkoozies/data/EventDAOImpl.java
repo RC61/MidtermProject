@@ -94,4 +94,12 @@ public class EventDAOImpl implements EventDAO {
 		return !stillContains;
 	}
 
+	@Override
+	public List<Event> findEventsByKeyword(String keyword) {
+		List<Event> resultPool = null;
+		String jpql = "Select search from Event search where search.venue like :key or search.name like :key or search.eventDateTime like :key or search.userCreated like :key";
+		resultPool = em.createQuery(jpql, Event.class).setParameter("key", keyword).getResultList();
+		return resultPool;
+	}
+
 }
