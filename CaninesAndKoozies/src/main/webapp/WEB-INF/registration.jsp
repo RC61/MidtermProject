@@ -60,7 +60,13 @@
 				<td>Alcohol Preference:</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="alcoholPreference" size="30" /></td>
+				<td>
+				<label><input type="checkbox" name="alcoholPreference" value="beer"/>Beer</label>
+     			<label><input type="checkbox" name="alcoholPreference" value="wine" />Wine</label>
+    			<label><input type="checkbox" name="alcoholPreference" value="spirits" />Spirits</label>
+     			<label><input type="checkbox" name="alcoholPreference" value="no preference" />No Preference</label>
+     			<label><input type="checkbox" name="alcoholPreference" value="non drinker" />Non-drinker</label>
+				</td>
 			</tr>
 			<tr>
 				<td>Upload Your Picture:</td>
