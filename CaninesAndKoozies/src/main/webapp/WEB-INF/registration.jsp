@@ -49,42 +49,41 @@
 				<td>Address:</td>
 			</tr>
 			<tr>
-				<td>
-				<label><input type="text" name="street" size="30" />Street</label></td>
+				<td><label><input type="text" name="street" size="30" />Street</label></td>
 			</tr>
 			<tr>
-				<td>
-				<label><input type="text" name="city" size="30" />City</label></td>
+				<td><label><input type="text" name="city" size="30" />City</label></td>
 			</tr>
 			<tr>
-				<td>
-				<label><input type="text" name="state" size="30" />State</label></td>
+				<td><label><input type="text" name="state" size="30" />State</label></td>
 			</tr>
 			<tr>
-				<td>
-				<label><input type="text" name="zipCode" size="30" />Zip Code</label></td>
+				<td><label><input type="text" name="zipCode" size="30" />Zip
+						Code</label></td>
 			</tr>
 			<tr>
 				<td>Relationship Status:</td>
 			</tr>
 			<tr>
-				<td>  
-				<label><input type="radio" name="relationshipStatus" value="single">Single</label>
-    			<label><input type="radio" name="relationshipStatus" value="in a relationship">In a Relationship</label>
-   				<label><input type="radio" name="relationshipStatus" value="married">Married</label><br>
-				
+				<td><label><input type="radio"
+						name="relationshipStatus" value="single">Single</label> <label><input
+						type="radio" name="relationshipStatus" value="in a relationship">In
+						a Relationship</label> <label><input type="radio"
+						name="relationshipStatus" value="married">Married</label><br>
+
 				</td>
 			</tr>
 			<tr>
 				<td>Alcohol Preference:</td>
 			</tr>
 			<tr>
-				<td>
-				<label><input type="checkbox" name="alcoholPreference" value="beer"/>Beer</label>
-     			<label><input type="checkbox" name="alcoholPreference" value="wine" />Wine</label>
-    			<label><input type="checkbox" name="alcoholPreference" value="spirits" />Spirits</label>
-     			<label><input type="checkbox" name="alcoholPreference" value="no preference" />No Preference</label>
-     			<label><input type="checkbox" name="alcoholPreference" value="non drinker" />Non-drinker</label>
+				<td><label><input type="checkbox"
+						name="alcoholPreference" value="beer" />Beer</label> <label><input
+						type="checkbox" name="alcoholPreference" value="wine" />Wine</label> <label><input
+						type="checkbox" name="alcoholPreference" value="spirits" />Spirits</label>
+					<label><input type="checkbox" name="alcoholPreference"
+						value="no preference" />No Preference</label> <label><input
+						type="checkbox" name="alcoholPreference" value="non drinker" />Non-drinker</label>
 				</td>
 			</tr>
 			<tr>
@@ -93,11 +92,13 @@
 			<tr>
 				<td><input type="text" name="userPicture" size="30" /></td>
 			</tr>
-			
-			<input type="hidden" name="enabled" value="1"/>
+
+			<input type="hidden" name="enabled" value="1" />
 
 		</table>
-		
-		<input type="submit" class="button" value="Submit" />
+		<form action="registerUsersDog.do" method="POST">
+			<input type="submit" class="button" value="Submit" /> <input
+				type="hidden" name="user" value="${user.id}" />
+		</form>
 </body>
 </html>

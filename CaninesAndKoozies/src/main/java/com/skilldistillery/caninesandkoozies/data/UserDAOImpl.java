@@ -1,5 +1,6 @@
 package com.skilldistillery.caninesandkoozies.data;
 
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -62,8 +63,11 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public Dog createDog(Dog newDog) {
+		newDog.setUser(em.find(User.class, newDog.getUser()));
 		em.persist(newDog);
 		em.flush();
+		em.close();
+		
 		return newDog;
 	}
 	
