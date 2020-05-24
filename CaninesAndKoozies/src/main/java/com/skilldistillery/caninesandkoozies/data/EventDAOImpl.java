@@ -93,6 +93,10 @@ public class EventDAOImpl implements EventDAO {
 
 		return !stillContains;
 	}
+	
+	public Event findEventById(int id) {
+		return em.find(Event.class, id);
+	}
 
 	@Override
 	public List<Event> findEventsByKeyword(String keyword) {

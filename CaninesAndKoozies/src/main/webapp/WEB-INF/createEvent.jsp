@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<form method="POST">
+<form action ="forwardEventForCreation.do" method="POST">
 
 		<table>
 			<tr>
@@ -58,16 +58,17 @@
 				<td> 
 					<c:forEach items = "${venues }" var = "venue">
 					
-						<label><input type="radio"name="venue" value="${venue.name }">${venue.name }</label>
+						<label><input type="radio" name="venueName" value="${venue.name }">${venue.name }</label>
 						<input type="hidden" value = "${venue.id}" name = "id">
 					</c:forEach>
   				</td>
 			</tr>
+			<tr><td>Please describe your event:</td>
+			</tr>
+			<tr><td><input type = "text" name = "description"></td></tr>
 			
 		</table>
-		</form>
-		<form action="forwardEventForCreation.do" method="POST">
-			<input type="submit" class="button" value="Submit" />
+		<input type="submit" class="button" value="Submit" />
 		</form>
 </body>
 </html>

@@ -20,4 +20,6 @@ public interface EventDAO {
 	public List<Event> eventsByDogSizePreference(String dogSizePref);
 	
 	public List<Event> findEventsByKeyword(String keyword);
+	
+	public Event findEventById(int id);
 }
