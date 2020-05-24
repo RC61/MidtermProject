@@ -37,4 +37,13 @@ public class LoginRegisterController {
 
 		return mv;
 	}
+	
+	@RequestMapping(path = "logout.do")
+	public String logout(HttpSession session) {
+		User currentUser = (User) session.getAttribute("user");
+		if(currentUser != null) {
+			session.removeAttribute("user");
+		}
+		return "index";
+	}
 }

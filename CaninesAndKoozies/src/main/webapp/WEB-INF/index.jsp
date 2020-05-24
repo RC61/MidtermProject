@@ -23,6 +23,11 @@
 			<input type = "submit" value = "submit">
 		</form>
 		
+		<form action = "logout.do" method = "GET">
+			<input type = "submit" value = "Logout">
+			
+		</form>
+		
 		<c:choose>
 		<c:when test = "${! empty user.userEvents }">
 		
