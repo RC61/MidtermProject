@@ -19,25 +19,18 @@ public class HomeController {
 	@Autowired
 	private EventDAOImpl eventDAOImpl;
 	
-//	@RequestMapping(path = {"/", "home.do"})
-//	public ModelAndView home(HttpSession session) {
-//		
-//		ModelAndView mv = new ModelAndView();
-//		List<Event> events = eventDAOImpl.findAllEvents();
-//		mv.addObject("events", events);
-//		mv.setViewName("index");
-//		User loggedInUser = (User) session.getAttribute("user");
-//		if(loggedInUser != null) {
-//			mv.addObject("user", loggedInUser);
-//		}
-//		
-//		return mv;
-//	}
 	
 	@RequestMapping(path = {"/", "home.do"})
-	private String homehome() {
-		return "index";
+	private ModelAndView homehome() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("index");
+		List<Event> events = eventDAOImpl.findAllEvents();
+		mv.addObject("events" , events);
+		return mv;
 	}
 	
-	
+//	@RequestMapping(path = {"/", "home.do"})
+//	private String home() {
+//		return "index";
+//	}
 }
