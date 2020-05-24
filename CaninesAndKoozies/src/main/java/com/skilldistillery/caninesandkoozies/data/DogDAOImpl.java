@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.caninesandkoozies.entities.Dog;
+import com.skilldistillery.caninesandkoozies.entities.User;
 
 
 @Service
@@ -19,9 +20,12 @@ public class DogDAOImpl implements DogDAO{
 	private EntityManager em;
 	
 	@Override
-	public Dog createDog(Dog newDog) {
+	public Dog createDog(Dog newDog, User user) {
+	user.addDog(newDog);
 	em.persist(newDog);
+	newDog.setUser(user);
 	em.flush();
+	
 	return newDog;
 }
 
