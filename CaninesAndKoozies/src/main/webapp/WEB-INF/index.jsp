@@ -41,10 +41,14 @@
 				
 				<c:choose>
 					<c:when test="${! empty userEvent.event.pictureURL}">
-						<img src ="${userEvent.event.pictureURL}">
+						<a href="searchId.do?id=${userEvent.event.id}">
+							<img src ="${userEvent.event.pictureURL}">
+						</a>
 					</c:when>
 					<c:otherwise>
-						No image found for event
+						<a href="searchId.do?id=${userEvent.event.id}">
+							<img src = "https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
+						</a>
 					</c:otherwise>
 				</c:choose>	
 				

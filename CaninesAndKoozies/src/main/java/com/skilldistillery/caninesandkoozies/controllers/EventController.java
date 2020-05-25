@@ -51,18 +51,8 @@ public class EventController {
 		
 		Event newEvent = eventDAOImpl.createEvent(event, loggedInUser, id);
 		mv.addObject("event", newEvent);
-		mv.setViewName("index");
+		mv.setViewName("eventDetails");
 		
-		
-		return mv;
-	}
-	
-	@RequestMapping(path = "viewCreatedEvent.do")
-	public ModelAndView eventCreated(Event event, HttpSession session) {
-		ModelAndView mv = new ModelAndView();
-		
-//		mv.addObject("event", event);
-		mv.setViewName("index");
 		
 		return mv;
 	}
