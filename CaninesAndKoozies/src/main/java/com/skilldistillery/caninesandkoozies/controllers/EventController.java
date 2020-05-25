@@ -114,7 +114,8 @@ public class EventController {
 		ModelAndView mv = new ModelAndView();
 		User loggedInUser = (User) session.getAttribute("user");
 		UserEvent userEvent = userDAOImpl.addEventToUserEventList(loggedInUser, id);
-
+		mv.addObject("userEvent", userEvent);
+		mv.setViewName("eventDetails");
 		return mv;
 
 	}

@@ -14,6 +14,7 @@ import com.skilldistillery.caninesandkoozies.entities.Dog;
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
 import com.skilldistillery.caninesandkoozies.entities.UserEvent;
+import com.skilldistillery.caninesandkoozies.entities.UserEventId;
 
 
 
@@ -142,11 +143,14 @@ public class UserDAOImpl implements UserDAO{
 }
 	
 	public UserEvent addEventToUserEventList(User user, int id) {
-		em.find(User.class, user.getId());
+		UserEventId ueid = new UserEventId();
 		UserEvent userEvent = new UserEvent();
+		ueid.setUserId(user.getId());
+		ueid.setEventId(id);
 		userEvent.setUser(user);
 		Event event = em.find(Event.class, id);
 		userEvent.setEvent(event);
+		
 		user.addUserEvent(userEvent);
 		event.addUserEvent(userEvent);
 		em.persist(userEvent);
