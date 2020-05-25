@@ -38,7 +38,7 @@ public class SearchController {
 		List<Event> events = eventDAOImpl.findEventsByKeyword(keyword);
 		List<User> users = userDAOImpl.findUserByKeyword(keyword);
 		
-		mv.addObject("user", users);
+		mv.addObject("users", users);
 		mv.addObject("events", events);
 		
 		mv.setViewName("searchResults");
