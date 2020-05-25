@@ -26,7 +26,7 @@
 				<td>Event Date and Time:</td>
 			</tr>
 			<tr>
-				<td>HALP ANTHONY IDK HOW TO DO DIS</td>
+				<td>${event.eventDateTime }</td>
 			</tr>
 			<tr>
 				<td>Dog Size Preference:</td>
