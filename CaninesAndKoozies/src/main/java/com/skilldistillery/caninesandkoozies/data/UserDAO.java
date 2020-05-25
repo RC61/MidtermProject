@@ -28,7 +28,7 @@ public interface UserDAO {
 	public Event updateEvent(int id, Event event);
 	public boolean deleteEvent(int id);
 	public List<Event> findAllCreatedEvents(int id);
-	public List<UserEvent> addEventToUserEventList(User user, int id);
+	public UserEvent addEventToUserEventList(User user, int id);
 	
 	// HOW DO I WRITE THIS SHIT FOR EVENTS THE USER WILL ATTEND
 }
