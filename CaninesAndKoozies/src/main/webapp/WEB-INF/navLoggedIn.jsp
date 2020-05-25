@@ -14,6 +14,7 @@
 					<div class="dropdown-content">
 						<a href="viewYourProfile.do">Your Profile</a> 
 						<a href="viewYourProfile.do">Create Event Stub (Create Event Stub)</a>
+						<a href="viewAllEvents.do">Browse Events</a>
 						<a href="logout.do">Logout</a>
 
 					</div>
@@ -22,6 +23,7 @@
 		</c:when>
 		<c:otherwise>
 			<a href="register.do">Register</a>
+			<a href="viewAllEvents.do">Browse Events</a>
 		</c:otherwise>
 	</c:choose>
 </nav>

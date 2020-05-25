@@ -1,6 +1,7 @@
 package com.skilldistillery.caninesandkoozies.data;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,6 +14,7 @@ import com.skilldistillery.caninesandkoozies.entities.Address;
 import com.skilldistillery.caninesandkoozies.entities.Dog;
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
+import com.skilldistillery.caninesandkoozies.entities.UserEvent;
 
 
 
@@ -139,6 +141,15 @@ public class UserDAOImpl implements UserDAO{
 		System.out.println(stillContains);
 		return !stillContains;
 }
+	
+	public List<UserEvent> addEventToUserEventList(User user, int id) {
+		List<UserEvent> events = new ArrayList<>();
+		Event event = em.find(Event.class, id);
+		UserEvent userEvent = new UserEvent();
+		userEvent.setEvent(event);
+		events.add(userEvent);
+		return events;
+	}
 
 	@Override
 	public User getUserByUsernameAndPassword(String username, String password) {

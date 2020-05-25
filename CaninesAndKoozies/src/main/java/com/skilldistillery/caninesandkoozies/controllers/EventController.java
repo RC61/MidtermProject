@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.caninesandkoozies.data.EventDAOImpl;
+import com.skilldistillery.caninesandkoozies.data.UserDAOImpl;
 import com.skilldistillery.caninesandkoozies.data.VenueDAOImpl;
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
+import com.skilldistillery.caninesandkoozies.entities.UserEvent;
 import com.skilldistillery.caninesandkoozies.entities.Venue;
 
 @Controller
@@ -23,6 +25,9 @@ public class EventController {
 	
 	@Autowired
 	private VenueDAOImpl venueDAOImpl;
+	
+	@Autowired
+	private UserDAOImpl userDAOImpl;
 	
 	@RequestMapping(path = "createEvent.do")
 	public ModelAndView createEvent(HttpSession session) {
@@ -99,6 +104,17 @@ public class EventController {
 		mv.addObject("result", printOut);
 		mv.setViewName("resultEventDelete");
 		return mv;
+	}
+	
+	@RequestMapping(path="signUpForEvent.do")
+	public ModelAndView signUpForEvent(int id, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		User loggedInUser = (User) session.getAttribute("user");
+		List<UserEvent> usersEvents = userDAOImpl.addEventToUserEventList(loggedInUser, id);
+		mv.addObject(usersEvents);
+		mv.addObject("user", loggedInUser);
+		return mv;
+
 	}
 
 }
