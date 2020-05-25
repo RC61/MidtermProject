@@ -14,7 +14,9 @@
 				<div class="card">
 					<c:forEach var="event" items="${events }">
 						<h1>${event.name }</h1>
+						<a href="searchId.do?id=${event.id}">
 						<img src=${event.pictureURL } style="width: 100%">
+						</a>
 					</c:forEach>
 				</div>
 			</div>

@@ -21,8 +21,7 @@
 			</div>
 		</c:when>
 		<c:otherwise>
-			<a href="login.do">Login</a>
-			<a href="registerUser.do">Register</a>
+			<a href="register.do">Register</a>
 		</c:otherwise>
 	</c:choose>
 </nav>
