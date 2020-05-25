@@ -113,9 +113,8 @@ public class EventController {
 	public ModelAndView signUpForEvent(int id, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		User loggedInUser = (User) session.getAttribute("user");
-		List<UserEvent> usersEvents = userDAOImpl.addEventToUserEventList(loggedInUser, id);
-		mv.addObject(usersEvents);
-		mv.addObject("user", loggedInUser);
+		UserEvent userEvent = userDAOImpl.addEventToUserEventList(loggedInUser, id);
+
 		return mv;
 
 	}

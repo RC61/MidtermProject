@@ -116,7 +116,10 @@
 		</c:choose>
 		<c:choose>
 		<c:when test="${event.userCreated != user && ! empty user }">
-		
+		<form action="signUpForEvent.do" method = "POST">
+		<input type="submit" value="Sign Up For Event">
+		<input type = "hidden" value = "${event.id }" name = "id">
+		</form>
 		</c:when>
 		</c:choose>
 </body>
