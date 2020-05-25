@@ -32,6 +32,7 @@ public class SearchController {
 		
 		List<Event> events = eventDAOImpl.findEventsByKeyword(keyword);
 		
+		
 		mv.addObject("events", events);
 //		mv.setViewName("");
 		

@@ -24,7 +24,7 @@
 				<td>Event Date and Time:</td>
 			</tr>
 			<tr>
-				<td><input type="datetime-local" name="eventDateTime" /></td>
+				<td><input type="datetime-local" name="eventDate" /></td>
 			</tr>
 			<tr>
 				<td>Dog Size Preference:</td>

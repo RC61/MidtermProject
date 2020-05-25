@@ -118,6 +118,6 @@
 		<c:when test="${event.userCreated != user && ! empty user }">
 		
 		</c:when>
-		</choose:>
+		</c:choose>
 </body>
 </html>

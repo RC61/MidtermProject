@@ -22,14 +22,16 @@ public class EventDAOImpl implements EventDAO {
 	public Event createEvent(Event event, User user, int venueId) {
 		
 		user.addEvent(event);
-		
-		em.persist(event);
+//		event.setUserCreated(user);
+//		em.persist(event);
 		
 		event.setUserCreated(user);
-		event.setVenue(em.find(Venue.class, venueId));
-
+		Venue venue = em.find(Venue.class, venueId);
+		event.setVenue(venue);
+		venue.addEvent(event);
+		em.persist(venue);
 		em.flush();
-		em.close();
+//		em.close();
 
 		return event;
 	}
