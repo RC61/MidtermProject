@@ -14,7 +14,8 @@
 <form action ="forwardEventForUpdate.do" method="POST">
 
 	
-
+		<input type = "hidden" value = "${event.id }" name = "id">
+		<input type = "hidden" value = "${event.createDate }" name = "createDate">
 		<table>
 			<tr>
 				<td>Event Name:</td>

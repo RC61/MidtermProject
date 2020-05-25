@@ -69,9 +69,8 @@ public class EventController {
 		
 		Event toUpdate = eventDAOImpl.findEventById(id);
 		
-		Event updated = eventDAOImpl.updateEvent(toUpdate);
 
-		mv.addObject("event", updated);
+		mv.addObject("event", toUpdate);
 		mv.setViewName("updateEvent");
 		
 		return mv;
@@ -80,10 +79,11 @@ public class EventController {
 	@RequestMapping(path="forwardEventForUpdate.do")
 	public ModelAndView forwardUpdate(Event event, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		Event updated = eventDAOImpl.updateEvent(event);
 		
 		User loggedInUser = (User) session.getAttribute("user");
 		mv.addObject("user", loggedInUser);
-		mv.addObject("event", event);
+		mv.addObject("event", updated);
 		mv.setViewName("eventDetails");
 		
 		return mv;
