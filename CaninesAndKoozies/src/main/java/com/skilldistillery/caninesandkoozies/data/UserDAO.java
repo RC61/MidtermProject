@@ -6,6 +6,7 @@ import com.skilldistillery.caninesandkoozies.entities.Address;
 import com.skilldistillery.caninesandkoozies.entities.Dog;
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
+import com.skilldistillery.caninesandkoozies.entities.UserEvent;
 
 
 public interface UserDAO {
@@ -27,6 +28,7 @@ public interface UserDAO {
 	public Event updateEvent(int id, Event event);
 	public boolean deleteEvent(int id);
 	public List<Event> findAllCreatedEvents(int id);
+	public List<UserEvent> addEventToUserEventList(User user, int id);
 	
 	// HOW DO I WRITE THIS SHIT FOR EVENTS THE USER WILL ATTEND
 }

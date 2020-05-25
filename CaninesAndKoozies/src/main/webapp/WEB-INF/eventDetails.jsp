@@ -114,5 +114,10 @@
 				</form>
 			</c:when>
 		</c:choose>
+		<c:choose>
+		<c:when test="${event.userCreated != user && ! empty user }">
+		
+		</c:when>
+		</choose:>
 </body>
 </html>
