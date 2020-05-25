@@ -147,6 +147,7 @@ public class UserDAOImpl implements UserDAO{
 		Event event = em.find(Event.class, id);
 		UserEvent userEvent = new UserEvent();
 		userEvent.setEvent(event);
+		user.addUserEvent(userEvent);
 		events.add(userEvent);
 		return events;
 	}
