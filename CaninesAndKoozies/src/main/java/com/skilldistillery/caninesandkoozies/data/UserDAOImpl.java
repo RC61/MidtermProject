@@ -1,6 +1,7 @@
 package com.skilldistillery.caninesandkoozies.data;
 
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -28,8 +29,9 @@ public class UserDAOImpl implements UserDAO{
 
 	
 	@Override
-	public User createUser(User newUser, Address address) {
-		
+	public User createUser(User newUser, String bday, Address address) {
+		LocalDate ld = LocalDate.parse(bday);
+		newUser.setBirthDate(ld);
 		em.persist(newUser);
 		em.persist(address);
 		newUser.setAddress(address);
@@ -96,9 +98,9 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public List<Dog> findAllUserDogs(int id) {
-		String jpql = "SELECT d from Dog d where d.user =:id";
+		String jpql = "SELECT d from Dog d where d.user.id =:id";
 		List<Dog> dogs;
-		dogs = em.createQuery(jpql, Dog.class).getResultList();
+		dogs = em.createQuery(jpql, Dog.class).setParameter("id", id).getResultList();
 		return dogs;
 	}
 

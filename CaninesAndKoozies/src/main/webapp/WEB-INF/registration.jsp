@@ -43,7 +43,7 @@
 				<td>Birthday:</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="birthDate" size="30" /></td>
+				<td><input type="date" name="birthday" size="30" /></td>
 			</tr>
 			<tr>
 				<td>Address:</td>

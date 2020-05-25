@@ -28,10 +28,10 @@ public class RegistrationForUserAndDogController {
 	@Autowired 
 	private EventDAOImpl eventDAOImpl;
 
-	@RequestMapping(path = "registerUser.do")
-	public ModelAndView registerUser(User user, Address address, HttpSession session) {
+	@RequestMapping(path = "registerUser.do", params = "birthday")
+	public ModelAndView registerUser(String birthday, User user, Address address, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		User createdUser = userDAOImpl.createUser(user, address);
+		User createdUser = userDAOImpl.createUser(user, birthday, address);
 		session.setAttribute("user", createdUser);
 		mv.addObject("user", createdUser);
 		mv.setViewName("registrationDog");
@@ -55,10 +55,11 @@ public class RegistrationForUserAndDogController {
 	public ModelAndView viewProfile(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		User dogUser = (User)session.getAttribute("user");
-		List<Dog> dogs = dogUser.getDogs();
-		List<Event> events = dogUser.getEvents();
+//		List<Dog> dogs = dogUser.getDogs();
+		List<Dog> dogs = userDAOImpl.findAllUserDogs(dogUser.getId());
+//		List<Event> events = dogUser.getEvents();
 		mv.addObject("dogs", dogs);
-		mv.addObject("events", events);
+//		mv.addObject("events", events);
 		mv.setViewName("userAndDogProfileView");
 		return mv;
 	}
