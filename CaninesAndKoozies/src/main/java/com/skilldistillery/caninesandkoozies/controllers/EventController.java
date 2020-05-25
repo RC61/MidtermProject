@@ -58,14 +58,47 @@ public class EventController {
 	}
 	
 	@RequestMapping(path = "updateEvent.do")
-	public ModelAndView updateEvent(int id, Event event) {
+	public ModelAndView updateEvent(int id) {
 		ModelAndView mv = new ModelAndView();
+		
+		
+		Event toUpdate = eventDAOImpl.findEventById(id);
+		
+		Event updated = eventDAOImpl.updateEvent(toUpdate);
 
-		mv.addObject("event", event);
+		mv.addObject("event", updated);
 		mv.setViewName("updateEvent");
 		
 		return mv;
 	}
 	
+	@RequestMapping(path="forwardEventForUpdate.do")
+	public ModelAndView forwardUpdate(Event event, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		
+		User loggedInUser = (User) session.getAttribute("user");
+		mv.addObject("user", loggedInUser);
+		mv.addObject("event", event);
+		mv.setViewName("eventDetails");
+		
+		return mv;
+	}
+	
+	@RequestMapping(path="deleteEvent.do")
+	public ModelAndView deleteEvent(int id) {
+		ModelAndView mv = new ModelAndView();
+		
+		boolean result = eventDAOImpl.destroy(id);
+		String printOut;
+		if (result == true) {
+			printOut = "Your event has been deleted.";
+		}
+		else {
+			printOut = "We cannot delete your event at this time,";
+		}
+		mv.addObject("result", printOut);
+		mv.setViewName("resultEventDelete");
+		return mv;
+	}
 
 }
