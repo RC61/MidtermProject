@@ -10,7 +10,7 @@ import com.skilldistillery.caninesandkoozies.entities.UserEvent;
 
 
 public interface UserDAO {
-	public User createUser(User newUser, Address address);
+	public User createUser(User newUser, String bday, Address address);
 	public User updateUser(int id, User user);
 	public boolean deleteUser(int id);
 	public User findUserById(int id);

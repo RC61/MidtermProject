@@ -1,5 +1,6 @@
 package com.skilldistillery.caninesandkoozies.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,7 @@ public class User {
 	private String lname;
 	
 	@Column(name= "birth_date")
-	private String birthDate;
+	private LocalDate birthDate;
 	
 	@Column(name= "relationship_status")
 	private String relationshipStatus;
@@ -82,7 +83,7 @@ public class User {
 	
 
 	public User(int id, String username, String password, Boolean enabled, String role, String fname, String lname,
-			String birthDate, String relationshipStatus, String email, String alcoholPreference, String userPicture,
+			LocalDate birthDate, String relationshipStatus, String email, String alcoholPreference, String userPicture,
 			LocalDateTime createDate, LocalDateTime updateDate, Address address) {
 		super();
 		this.id = id;
@@ -160,11 +161,11 @@ public class User {
 		this.lname = lname;
 	}
 
-	public String getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(String birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 
