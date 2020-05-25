@@ -23,6 +23,7 @@ public class CommentDAOImpl implements CommentDAO {
 		return em.find(Comment.class, id);
 	}
 	
+	@Override
 	public Comment createComment(Event event, Comment comment) {
 		event.addComment(comment);
 		
@@ -34,6 +35,7 @@ public class CommentDAOImpl implements CommentDAO {
 		return comment;
 	}
 	
+	@Override
 	public List<Comment> findAllEventComments(int id){
 		List<Comment> comments;
 		
@@ -44,6 +46,7 @@ public class CommentDAOImpl implements CommentDAO {
 		return comments;
 	}
 	
+	@Override
 	public Comment updateComment(Comment comment) {
 		Comment updatedComment = em.find(Comment.class, comment.getId());
 		
@@ -59,6 +62,7 @@ public class CommentDAOImpl implements CommentDAO {
 		return updatedComment;
 	}
 	
+	@Override
 	public boolean destroyComment(int id) {
 		Comment comment = em.find(Comment.class, id);
 		
