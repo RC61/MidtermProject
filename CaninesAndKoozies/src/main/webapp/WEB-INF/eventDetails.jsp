@@ -11,6 +11,10 @@
 </head>
 <body>
 
+
+
+<input type = "hidden" value = "${event.createDate}">
+
 <table>
 			<tr>
 				<td>Event Name:</td>
@@ -95,6 +99,20 @@
 						
 			</c:otherwise>
 		</c:choose>	
-
+		
+		<c:choose>
+			<c:when test="${event.userCreated == user && ! empty user }">
+			<h3>CREATOR OPTIONS:</h3>
+				<form action = "updateEvent.do" method = "GET">
+					<input type = "submit" value = "Update event">
+					<input type = "hidden" value = "${event.id }" name = "id">
+				</form>
+				<form action = "deleteEvent.do" method = "GET">
+					<input type = "submit" value = "Delete event">
+					<input type = "hidden" value = "${event.id }" name = "id">
+					
+				</form>
+			</c:when>
+		</c:choose>
 </body>
 </html>
