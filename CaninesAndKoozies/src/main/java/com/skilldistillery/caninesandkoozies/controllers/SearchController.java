@@ -8,13 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.caninesandkoozies.data.EventDAOImpl;
+import com.skilldistillery.caninesandkoozies.data.UserDAOImpl;
 import com.skilldistillery.caninesandkoozies.entities.Event;
+import com.skilldistillery.caninesandkoozies.entities.User;
 
 @Controller
 public class SearchController {
 	
 	@Autowired
-	public EventDAOImpl eventDAOImpl;
+	private EventDAOImpl eventDAOImpl;
+	
+	@Autowired
+	private UserDAOImpl userDAOImpl;
 	
 	@RequestMapping(path="searchId.do")
 	public ModelAndView searchId(int id) {
@@ -31,10 +36,12 @@ public class SearchController {
 		ModelAndView mv = new ModelAndView();
 		
 		List<Event> events = eventDAOImpl.findEventsByKeyword(keyword);
+		List<User> users = userDAOImpl.findUserByKeyword(keyword);
 		
-		
+		mv.addObject("user", users);
 		mv.addObject("events", events);
-//		mv.setViewName("");
+		
+		mv.setViewName("searchResults");
 		
 		return mv;
 	}
