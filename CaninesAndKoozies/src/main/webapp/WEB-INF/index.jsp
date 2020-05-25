@@ -10,6 +10,7 @@
 <title>Canines and Koozies</title>
 </head>
 <body>
+<%@ include file="navLoggedIn.jsp" %>
 <h1>Canines and Koozies</h1>
 
 

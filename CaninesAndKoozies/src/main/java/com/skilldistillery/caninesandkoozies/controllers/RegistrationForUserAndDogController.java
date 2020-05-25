@@ -66,13 +66,10 @@ public class RegistrationForUserAndDogController {
 	@RequestMapping(path="viewAllEvents.do", method = RequestMethod.GET)
 	public ModelAndView viewAllEvents(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		User loggedInUser = (User)session.getAttribute("user");
-		List <Event> allEvents = loggedInUser.getEvents();
-		if (allEvents.size() == 0) {
 			List<Event> allExistingEvents = eventDAOImpl.findAllEvents();
 			mv.addObject("events", allExistingEvents);
 			mv.setViewName("browseEvents");
-		}
+		
 		return mv;
 	}
 }
