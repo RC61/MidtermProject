@@ -1,5 +1,6 @@
 package com.skilldistillery.caninesandkoozies.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -48,10 +49,12 @@ public class EventController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "forwardEventForCreation.do", params = "id")
-	public ModelAndView eventForward(Event event, HttpSession session, int id) {
+	@RequestMapping(path = "forwardEventForCreation.do", params = {"id", "eventDate"})
+	public ModelAndView eventForward(String eventDate, Event event, HttpSession session, int id) {
+		System.err.println(eventDate);
 		ModelAndView mv = new ModelAndView();
-		
+		LocalDateTime eventTime = LocalDateTime.parse(eventDate);
+		System.err.println(eventTime);
 		User loggedInUser = (User) session.getAttribute("user");
 		
 		Event newEvent = eventDAOImpl.createEvent(event, loggedInUser, id);

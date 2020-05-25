@@ -46,7 +46,7 @@ public class EventTest {
 		assertNotNull(event);
 		assertEquals(1, event.getId());
 		assertEquals("Wine and Pup", event.getName());
-		assertEquals(2020, event.getEventDateTime().getYear());
+		assertEquals("2020-06-01T16:00", event.getEventDateTime().toString());
 		assertEquals("small", event.getDogSizePreference());
 		assertTrue(event.isSingleOnlyPreference());
 		assertEquals(null, event.getPictureURL());
