@@ -9,7 +9,10 @@
 <link rel="stylesheet" type="text/css" href="css/myStyles.css"> 
 </head>
 <body>
-<p class="errorBody"> You fucking broke it, mate.</p>
+<p class="errorBody"> <strong>Uh Oh!</strong> Looks like there was an error</p>
+
+<form action="home.do" method=GET>
+<input type="submit" value="Back to Homepage">
 	
 </body>
 </html>
