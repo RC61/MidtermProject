@@ -143,15 +143,16 @@ public class UserDAOImpl implements UserDAO{
 }
 	
 	public UserEvent addEventToUserEventList(User user, int id) {
+		User managedUser = em.find(User.class, user.getId());
 		UserEventId ueid = new UserEventId();
 		UserEvent userEvent = new UserEvent();
 		ueid.setUserId(user.getId());
 		ueid.setEventId(id);
-		userEvent.setUser(user);
+		userEvent.setUser(managedUser);
 		Event event = em.find(Event.class, id);
 		userEvent.setEvent(event);
-		
-		user.addUserEvent(userEvent);
+		userEvent.setId(ueid);
+		managedUser.addUserEvent(userEvent);
 		event.addUserEvent(userEvent);
 		em.persist(userEvent);
 //		List<UserEvent> events = new ArrayList<>();
