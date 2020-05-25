@@ -65,7 +65,7 @@ public class User {
 	@OneToMany(mappedBy= "user")
 	private List<Dog> dogs;
 	
-	@OneToMany(mappedBy = "userCreated")
+	@OneToMany(mappedBy = "userCreated", fetch = FetchType.EAGER)
 	private List<Event> events;
 	
 	@OneToMany(mappedBy="user")
