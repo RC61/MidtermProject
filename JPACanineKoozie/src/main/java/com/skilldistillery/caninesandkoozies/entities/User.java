@@ -381,4 +381,17 @@ public class User {
 			return false;
 		return true;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+				+ ", role=" + role + ", fname=" + fname + ", lname=" + lname + ", birthDate=" + birthDate
+				+ ", relationshipStatus=" + relationshipStatus + ", email=" + email + ", alcoholPreference="
+				+ alcoholPreference + ", userPicture=" + userPicture + ", createDate=" + createDate + ", updateDate="
+				+ updateDate + ", address=" + address + "]";
+	}
+	
+	
 }
