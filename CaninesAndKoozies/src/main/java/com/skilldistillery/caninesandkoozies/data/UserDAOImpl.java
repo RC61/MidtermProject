@@ -135,9 +135,9 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public List<Event> findAllCreatedEvents(int id) {
-		String jpql = "SELECT e from Event e where e.userCreated =:id";
+		String jpql = "SELECT e from Event e where e.userCreated.id =:id";
 		List<Event> events;
-		events = em.createQuery(jpql, Event.class).getResultList();
+		events = em.createQuery(jpql, Event.class).setParameter("id", id).getResultList();
 		return events;
 	}
 
