@@ -1,5 +1,6 @@
 package com.skilldistillery.caninesandkoozies.controllers;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,32 @@ public class UserAndDogProfileController {
 		mv.setViewName("dogDeleted");
 		return mv;
 		
+	}
+	
+	@RequestMapping(path="createDogPage.do")
+	public ModelAndView createDogPage(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		User loggedInUser = (User) session.getAttribute("user");
+		if (loggedInUser != null) {
+			mv.addObject("user", loggedInUser);
+			mv.setViewName("createDogPage");
+		}
+		else {
+			mv.setViewName("index");
+		}
+		
+		return mv;
+	}
+	
+	@RequestMapping(path="createDog.do")
+	public ModelAndView createDog(HttpSession session, Dog dog) {
+		ModelAndView mv = new ModelAndView();
+		User loggedInUser = (User) session.getAttribute("user");
+		Dog newDog = dogDAOImpl.createDog(dog, loggedInUser);
+		mv.addObject("user", loggedInUser);
+		mv.addObject("dog", newDog);
+		mv.setViewName("userAndDogProfileView");
+		return mv;
 	}
 
 }
