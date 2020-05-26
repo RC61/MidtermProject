@@ -104,6 +104,12 @@ public class UserDAOImpl implements UserDAO{
 		return dogs;
 	}
 
+	public List<Event> findAllUsersEvents(int id) {
+		String jpql = "SELECT e from Event e JOIN UserEvent ue ON e.id = ue.event.id JOIN User u on u.id = ue.user.id WHERE u.id = :id ";
+		List<Event>events;
+		events=em.createQuery(jpql, Event.class).setParameter("id", id).getResultList();
+		return events;
+		}
 
 	@Override
 	public Event createEvent(Event newEvent) {
