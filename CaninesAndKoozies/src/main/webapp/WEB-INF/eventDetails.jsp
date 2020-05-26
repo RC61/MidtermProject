@@ -80,8 +80,19 @@
 			<tr>
 				<td> 
 					<c:forEach items = "${event.comments }" var = "comment">
-						<p>${comment.description}</p>
+						<p>${comment.user.username} says ${comment.description}</p>
 					</c:forEach>
+					
+					<c:choose>
+						<c:when test="${! empty user }">
+							<form action = "addComment.do" method = "POST" >
+								<input type = "text" placeholder = "Add a Comment" name = "description">
+								<input type = "hidden" value = "${user.id}" name = "userId">
+								<input type = "hidden" value = "${event.id}" name = "eventId">
+								<input type = "submit" value = "Submit">
+							</form>
+						</c:when>
+					</c:choose>
   				</td>
 			</tr>
 			

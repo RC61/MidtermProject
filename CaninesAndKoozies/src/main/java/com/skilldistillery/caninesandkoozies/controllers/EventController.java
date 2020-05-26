@@ -51,13 +51,10 @@ public class EventController {
 	
 	@RequestMapping(path = "forwardEventForCreation.do", params = {"id", "eventDate"})
 	public ModelAndView eventForward(String eventDate, Event event, HttpSession session, int id) {
-		System.err.println(eventDate);
 		ModelAndView mv = new ModelAndView();
-		LocalDateTime eventTime = LocalDateTime.parse(eventDate);
-		System.err.println(eventTime);
 		User loggedInUser = (User) session.getAttribute("user");
-		
-		Event newEvent = eventDAOImpl.createEvent(event, loggedInUser, id);
+		Venue venue = venueDAOImpl.findVenueById(id);
+		Event newEvent = eventDAOImpl.createEvent(event, loggedInUser, venue, eventDate);
 		mv.addObject("event", newEvent);
 		mv.setViewName("eventDetails");
 		

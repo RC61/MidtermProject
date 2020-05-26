@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.caninesandkoozies.entities.Comment;
 import com.skilldistillery.caninesandkoozies.entities.Event;
+import com.skilldistillery.caninesandkoozies.entities.User;
 
 @Service
 @Transactional
@@ -24,15 +25,22 @@ public class CommentDAOImpl implements CommentDAO {
 	}
 	
 	@Override
-	public Comment createComment(Event event, Comment comment) {
-		event.addComment(comment);
+	public Comment createComment(String description, int userId, int eventId) {
+		Event event = em.find(Event.class, eventId);
+		User user = em.find(User.class, userId);
 		
-		em.persist(comment);
+		Comment newComment = new Comment(description, event, user);
+		
+		em.persist(newComment);
+		em.flush();
+		
+		event.addComment(newComment);
+		user.addComment(newComment);
 		
 		em.flush();
 		em.close();
 		
-		return comment;
+		return newComment;
 	}
 	
 	@Override
