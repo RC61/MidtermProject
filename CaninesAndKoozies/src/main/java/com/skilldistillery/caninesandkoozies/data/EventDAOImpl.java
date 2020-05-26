@@ -47,7 +47,6 @@ public class EventDAOImpl implements EventDAO {
 		List<Event> events;
 		events = em.createQuery(jpql, Event.class).getResultList();
 
-		em.close();
 		return events;
 	}
 
@@ -67,24 +66,30 @@ public class EventDAOImpl implements EventDAO {
 		return events;
 	}
 
-	public Event updateEvent(Event event) {
+	public Event updateEvent(String eventDate, String createDate, Event event, int userCreatedId) {
+		
+		LocalDateTime timey = LocalDateTime.parse(eventDate);
+		LocalDateTime createTimey = LocalDateTime.parse(createDate);
+		
+		User user = em.find(User.class, userCreatedId);
 
 		Event updatedEvent = em.find(Event.class, event.getId());
+		Venue venue = em.find(Venue.class, event.getVenue().getId());
+		//add if statement null check
 		updatedEvent.setName(event.getName());
-		updatedEvent.setEventDateTime(event.getEventDateTime());
+		updatedEvent.setEventDateTime(timey);
 		updatedEvent.setDogSizePreference(event.getDogSizePreference());
 		updatedEvent.setSingleOnlyPreference(event.isSingleOnlyPreference());
 		updatedEvent.setPictureURL(event.getPictureURL());
 		updatedEvent.setDescription(event.getDescription());
-		updatedEvent.setCreateDate(event.getCreateDate());
+		updatedEvent.setCreateDate(createTimey);
 		updatedEvent.setUpdateDate(event.getUpdateDate());
 		updatedEvent.setComments(event.getComments());
-		updatedEvent.setVenue(event.getVenue());
-		updatedEvent.setUserCreated(event.getUserCreated());
+		updatedEvent.setVenue(venue);
+		updatedEvent.setUserCreated(user);
 		updatedEvent.setUserEvents(event.getUserEvents());
 
 		em.flush();
-		em.close();
 
 		return updatedEvent;
 	}
@@ -97,7 +102,6 @@ public class EventDAOImpl implements EventDAO {
 		boolean stillContains = em.contains(event);
 
 		em.flush();
-		em.close();
 
 		return !stillContains;
 	}

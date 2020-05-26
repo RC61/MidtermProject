@@ -53,8 +53,6 @@ public class EventController {
 	public ModelAndView eventForward(String eventDate, Event event, HttpSession session, int venueId) {
 		ModelAndView mv = new ModelAndView();
 		User loggedInUser = (User) session.getAttribute("user");
-//		Venue venue = venueDAOImpl.findVenueById(id);
-		System.out.println(event);
 		Event newEvent = eventDAOImpl.createEvent(event, loggedInUser, venueId, eventDate);
 		mv.addObject("event", newEvent);
 		mv.setViewName("eventDetails");
@@ -88,9 +86,9 @@ public class EventController {
 	}
 	
 	@RequestMapping(path="forwardEventForUpdate.do")
-	public ModelAndView forwardUpdate(Event event, HttpSession session) {
+	public ModelAndView forwardUpdate(String eventDate, String createDateToParse, Event event, HttpSession session, Integer userCreatedId) {
 		ModelAndView mv = new ModelAndView();
-		Event updated = eventDAOImpl.updateEvent(event);
+		Event updated = eventDAOImpl.updateEvent(eventDate, createDateToParse, event, userCreatedId);
 		
 		User loggedInUser = (User) session.getAttribute("user");
 		mv.addObject("user", loggedInUser);

@@ -10,7 +10,7 @@ public interface EventDAO {
 	
 	public Event createEvent(Event event, User user, int venueId, String eventDate);
 	
-	public Event updateEvent(Event event);
+	public Event updateEvent(String eventDate, String createDate, Event event, int userCreatedId);
 
 	public boolean destroy(int id);
 	
