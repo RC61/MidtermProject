@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Delete ${user.name} Profile</title>
+<title>Delete ${user.username} Profile</title>
 </head>
 <body>
 <h3>${user.username } Are you sure you want to delete your profile?</h3>
