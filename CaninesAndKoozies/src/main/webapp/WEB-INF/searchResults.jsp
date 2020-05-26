@@ -11,6 +11,12 @@
 </head>
 <body>
 
+<h1>Event Search Results:</h1>
+<br>
+<br>
+<br>
+<br>
+
 
 		<!-- PUT SOME USER SHIT HERE  -->
 
@@ -41,6 +47,13 @@
 							type="hidden" name="id" value="${event.id}">
 					</form>
 				</c:forEach>
+				
+				
+				<h1> look for another event:</h1>
+			<form action = "search.do" method = "GET">
+			<input type = "text" name = "keyword">
+			<input type = "submit" value = "Search Events">
+			</form>
 
 </body>
 </html>
