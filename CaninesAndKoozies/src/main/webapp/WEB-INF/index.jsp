@@ -66,19 +66,22 @@
 	
 	<c:otherwise>
 	
+	<h3>Login:</h3>
 	<form action = "login.do" method = "POST">
 		<input type = "text" name = "username">
 		<input type = "password" name = "password">
 		<input type = "submit" value = "Login">
 	</form>
 
+	<h3>Register:</h3>
 	<form action = "register.do" method = "GET">
 		<input type = "submit" value = "Register">
 	</form>
 	
+	<h3>Search:</h3>
 	<form action = "search.do" method = "GET">
 		<input type = "text" name = "keyword">
-		<input type = "submit" value = "submit">
+		<input type = "submit" value = "Search">
 	</form>
 	
 	<c:choose>
