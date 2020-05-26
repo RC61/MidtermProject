@@ -33,11 +33,11 @@
 				<c:forEach var="event" items="${events}">
 					<h1>Event: ${event.name}</h1>
 					<h2>Event Time: ${event.eventDateTime}</h2>
-			<h2>Venue: ${event.venue}</h2> 
+			<h2>Venue: ${event.venue.name}</h2> 
 					<h2>Dog Size Preference: ${event.dogSizePreference}</h2>
-	${event.pictureURL}
+					<img src="${event.pictureURL}">
 	<form action="eventDetails.do" method=GET>
-						<input type="submit" value="View Event Details"> <input
+						<input type="submit" value="View Full Event Details"> <input
 							type="hidden" name="id" value="${event.id}">
 					</form>
 				</c:forEach>
