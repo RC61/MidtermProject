@@ -189,7 +189,7 @@ public class UserDAOImpl implements UserDAO{
 	public List<User> findUserByKeyword(String keyword) {
 		List<User> resultPool = null;
 		String jpql = "SELECT search FROM User search WHERE search.username like :key or search.fname like :key or search.lname like :key";
-		resultPool = em.createQuery(jpql, User.class).setParameter("key", keyword).getResultList();
+		resultPool = em.createQuery(jpql, User.class).setParameter("key", "%" + keyword + "%").getResultList();
 		return resultPool;
 	}
 
