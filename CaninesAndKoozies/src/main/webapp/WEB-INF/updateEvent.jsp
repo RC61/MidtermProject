@@ -37,16 +37,36 @@
 				<td>
 				<c:choose>
 					<c:when test='${event.dogSizePreference == "small" }'>
-				<label><input type="radio"name="dogSizePreference" value="small" selected>Small</label> 
+						<label><input type="radio"name="dogSizePreference" value="small" checked>Small</label> 
 					</c:when>
 					<c:otherwise>
-					
-				<label><input type="radio"name="dogSizePreference" value="small">Small</label> 
+						<label><input type="radio"name="dogSizePreference" value="small">Small</label> 
 					</c:otherwise>				
 				</c:choose>
-				<label><input type="radio" name="dogSizePreference" value="medium">Medium</label> 
-				<label><input type="radio" name="dogSizePreference" value="large">Large</label>
-				<label><input type="radio" name="dogSizePreference" value="no preference">No preference</label>
+				<c:choose>
+					<c:when test='${event.dogSizePreference == "medium" }'>
+						<label><input type="radio"name="dogSizePreference" value="medium" checked>Medium</label> 
+					</c:when>
+					<c:otherwise>
+						<label><input type="radio"name="dogSizePreference" value="medium">Medium</label> 
+					</c:otherwise>				
+				</c:choose>
+				<c:choose>
+					<c:when test='${event.dogSizePreference == "large" }'>
+						<label><input type="radio"name="dogSizePreference" value="large" checked>Large</label> 
+					</c:when>
+					<c:otherwise>
+						<label><input type="radio"name="dogSizePreference" value="large">Large</label> 
+					</c:otherwise>				
+				</c:choose>
+				<c:choose>
+					<c:when test='${event.dogSizePreference == "no preference" }'>
+						<label><input type="radio"name="dogSizePreference" value="no preference" checked>No Preference</label> 
+					</c:when>
+					<c:otherwise>
+						<label><input type="radio"name="dogSizePreference" value="no preference">No Preference</label> 
+					</c:otherwise>				
+				</c:choose>
 				</td>
 			</tr>
 			<tr>
@@ -54,8 +74,22 @@
 			</tr>
 			<tr>
 				<td>
-				<label><input type="radio"name="singleOnlyPreference" value="1">Singles only</label> 
-				<label><input type="radio" name="singleOnlyPreference" value="0">No preference</label> 
+				<c:choose>
+					<c:when test='${event.singleOnlyPreference == true }'>
+						<label><input type="radio"name="singleOnlyPreference" value="1" checked>Singles Only</label> 
+					</c:when>
+					<c:otherwise>
+						<label><input type="radio"name="singleOnlyPreference" value="1">Singles Only</label> 
+					</c:otherwise>				
+				</c:choose>
+				<c:choose>
+					<c:when test='${event.singleOnlyPreference == false }'>
+						<label><input type="radio"name="singleOnlyPreference" value="0" checked>No Preference</label> 
+					</c:when>
+					<c:otherwise>
+						<label><input type="radio"name="singleOnlyPreference" value="0">No Preference</label> 
+					</c:otherwise>				
+				</c:choose>
 				</td>
 			</tr>
 			<tr>
@@ -70,7 +104,14 @@
 				<td> 
 					<c:forEach items = "${venues }" var = "venue">
 					
-						<label><input type="radio" name="venue.id" value="${venue.id }">${venue.name }</label>
+						<c:choose>
+							<c:when test='${event.venue == venue }'>
+								<label><input type="radio"name="venue.id" value="${venue.id }" checked>${venue.name }</label> 
+							</c:when>
+							<c:otherwise>
+								<label><input type="radio"name="venue.id" value="${venue.id }">${venue.name }</label> 
+							</c:otherwise>				
+						</c:choose>
 					
 					</c:forEach>
   				</td>

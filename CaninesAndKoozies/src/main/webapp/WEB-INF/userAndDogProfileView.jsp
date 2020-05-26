@@ -26,7 +26,7 @@
         <form action = "userUpdatedPage.do" method = "GET">
 					<input type = "submit" value = "Update User">
 					<input type = "hidden" value = "${user.id }" name = "id">
-				</form></class></p>
+				</form>
         <p><button class="button">Stub Delete</button></p>
       </div>
     </div>

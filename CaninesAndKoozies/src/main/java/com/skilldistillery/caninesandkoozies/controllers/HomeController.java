@@ -10,23 +10,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.caninesandkoozies.data.EventDAOImpl;
+import com.skilldistillery.caninesandkoozies.data.UserDAOImpl;
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
 
 @Controller
 public class HomeController {
-	
+
 	@Autowired
 	private EventDAOImpl eventDAOImpl;
-	
-	
-	@RequestMapping(path = {"/", "home.do"})
-	private ModelAndView homehome() {
+	@Autowired
+	private UserDAOImpl userDAOImpl;
+
+	@RequestMapping(path = { "/", "home.do" })
+	private ModelAndView homehome(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		User loggedInUser = (User) session.getAttribute("user");
+		System.out.println(loggedInUser);
+		if (loggedInUser != null) {
+			List<Event> eventsCreated = userDAOImpl.findAllCreatedEvents(loggedInUser.getId());
+			List<Event> events = userDAOImpl.findAllUsersEvents(loggedInUser.getId());
+			mv.addObject("user", loggedInUser);
+			mv.addObject("eventsCreated", eventsCreated);
+			mv.addObject("events", events);
+			System.out.println(eventsCreated);
+			System.out.println(events);
+		}
 		mv.setViewName("index");
-		List<Event> events = eventDAOImpl.findAllEvents();
-		mv.addObject("events" , events);
 		return mv;
 	}
-	
 }
