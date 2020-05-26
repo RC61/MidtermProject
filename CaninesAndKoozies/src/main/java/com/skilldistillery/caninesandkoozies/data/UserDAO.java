@@ -20,6 +20,7 @@ public interface UserDAO {
 	public Dog updateDog(int id, Dog dog);
 	public boolean deleteDog(int id);
 	public List<Dog> findAllUserDogs(int id);
+	public List<Event> findAllUsersEvents(int id);
 	
 	public User getUserByUsernameAndPassword(String username, String password);
 	
