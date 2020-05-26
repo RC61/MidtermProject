@@ -22,32 +22,21 @@ public class EventDAOImpl implements EventDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	public Event createEvent(Event event, User user, Venue venue, String eventDate) {
-//		User managedUser = em.find(User.class, user.getId());
+	@Override
+	public Event createEvent(Event event, User user, int venueId, String eventDate) {
 		LocalDateTime timey = LocalDateTime.parse(eventDate);
-//		Venue venue = em.find(Venue.class, venueId);
-		event.setVenue(venue);
-		event.setEventDateTime(timey);
-		event.setUserCreated(user);
-		
-		UserEvent ue = new UserEvent();
-		ue.setEvent(event);
-		em.persist(ue);
-		em.flush();
-		
-		user.addEvent(event);
-		venue.addEvent(event);
-				
-//		em.persist(managedUser);
-		em.persist(venue);
-		em.flush();
-		
-		em.persist(event);
-		em.flush();
-		
-		UserEventId ueid = new UserEventId();
-		ueid.setEventId(event.getId());
-//		System.err.println(event.getId());
+		Venue venue = em.find(Venue.class, venueId);
+		user = em.find(User.class, user.getId());
+		System.out.println(user);
+		if (venue != null && user != null) {
+			System.out.println(user);
+			event.setVenue(venue);
+			event.setEventDateTime(timey);
+			event.setUserCreated(user);
+			System.out.println(event);
+			em.persist(event);
+			System.out.println(event);
+		}
 		em.flush();
 
 		return event;
@@ -112,7 +101,7 @@ public class EventDAOImpl implements EventDAO {
 
 		return !stillContains;
 	}
-	
+
 	public Event findEventById(int id) {
 		return em.find(Event.class, id);
 	}

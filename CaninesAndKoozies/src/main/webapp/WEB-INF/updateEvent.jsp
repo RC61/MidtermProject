@@ -62,7 +62,7 @@
 					<c:forEach items = "${venues }" var = "venue">
 					
 						<label><input type="radio" name="venueName" value="${venue.name }">${venue.name }</label>
-						<input type="hidden" value = "${venue.id}" name = "id">
+						<input type="hidden" value = "${venue.id}" name = "venueId">
 					</c:forEach>
   				</td>
 			</tr>

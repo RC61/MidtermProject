@@ -8,7 +8,7 @@ import com.skilldistillery.caninesandkoozies.entities.Venue;
 
 public interface EventDAO {
 	
-	public Event createEvent(Event event, User user, Venue venue, String eventDate);
+	public Event createEvent(Event event, User user, int venueId, String eventDate);
 	
 	public Event updateEvent(Event event);
 

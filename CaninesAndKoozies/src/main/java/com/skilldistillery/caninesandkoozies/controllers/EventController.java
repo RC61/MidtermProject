@@ -49,12 +49,13 @@ public class EventController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "forwardEventForCreation.do", params = {"id", "eventDate"})
-	public ModelAndView eventForward(String eventDate, Event event, HttpSession session, int id) {
+	@RequestMapping(path = "forwardEventForCreation.do", params = {"venueId", "eventDate"})
+	public ModelAndView eventForward(String eventDate, Event event, HttpSession session, int venueId) {
 		ModelAndView mv = new ModelAndView();
 		User loggedInUser = (User) session.getAttribute("user");
-		Venue venue = venueDAOImpl.findVenueById(id);
-		Event newEvent = eventDAOImpl.createEvent(event, loggedInUser, venue, eventDate);
+//		Venue venue = venueDAOImpl.findVenueById(id);
+		System.out.println(event);
+		Event newEvent = eventDAOImpl.createEvent(event, loggedInUser, venueId, eventDate);
 		mv.addObject("event", newEvent);
 		mv.setViewName("eventDetails");
 		
@@ -63,11 +64,21 @@ public class EventController {
 	}
 	
 	@RequestMapping(path = "updateEvent.do")
-	public ModelAndView updateEvent(int id) {
+	public ModelAndView updateEvent(int id, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		
-		
+		User loggedInUser = (User) session.getAttribute("user");
 		Event toUpdate = eventDAOImpl.findEventById(id);
+		
+		if (loggedInUser != null) {
+			mv.addObject("user", loggedInUser);
+			List<Venue> venues = venueDAOImpl.findAllVenues();
+			mv.addObject("venues", venues);
+			mv.setViewName("createEvent");
+		}
+		else {
+			mv.setViewName("index");
+		}
 		
 
 		mv.addObject("event", toUpdate);
