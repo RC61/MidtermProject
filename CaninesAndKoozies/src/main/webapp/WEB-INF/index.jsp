@@ -33,21 +33,21 @@
 			<input type = "submit" value = "Logout">
 			
 		</form>
-		
+		<h3>You are attending these events!</h3>
 		<c:choose>
-		<c:when test = "${! empty user.userEvents }">
+		<c:when test = "${! empty events }">
 		
-			<c:forEach var = "userEvent" items = "${user.userEvents}" >
-				<h3>${userEvent.event.name}</h3>
+			<c:forEach var = "event" items = "${events}" >
+				<h3>${event.name}</h3>
 				
 				<c:choose>
-					<c:when test="${! empty userEvent.event.pictureURL}">
-						<a href="searchId.do?id=${userEvent.event.id}">
-							<img src ="${userEvent.event.pictureURL}">
+					<c:when test="${! empty event.pictureURL}">
+						<a href="searchId.do?id=${event.id}">
+							<img src ="${event.pictureURL}">
 						</a>
 					</c:when>
 					<c:otherwise>
-						<a href="searchId.do?id=${userEvent.event.id}">
+						<a href="searchId.do?id=${event.id}">
 							<img src = "https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
 						</a>
 					</c:otherwise>
@@ -61,8 +61,24 @@
 			<h1>No events at this time. Try creating one!</h1>
 		</c:otherwise>
 	
-		</c:choose>
-	</c:when>
+	
+	
+	</c:choose>
+	<h4>You are hosting these events:</h4>
+		<c:choose>
+		<c:when test = "${! empty eventsCreated }">
+		
+			<c:forEach var = "eventCreated" items = "${eventsCreated}" >
+				<h3>${eventCreated.name}</h3>
+				
+			</c:forEach>
+		
+		</c:when>
+	</c:choose>
+	
+	
+		<%-- </c:choose> --%>
+</c:when> 
 	
 	<c:otherwise>
 	

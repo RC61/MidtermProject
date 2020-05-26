@@ -32,7 +32,7 @@ public class LoginRegisterController {
 		
 		session.setAttribute("user", loggedInUser);
 
-		mv.setViewName("index");
+		mv.setViewName("redirect:home.do");
 		return mv;
 	}
 
