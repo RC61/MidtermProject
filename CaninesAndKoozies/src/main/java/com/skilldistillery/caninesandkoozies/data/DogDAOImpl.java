@@ -21,9 +21,10 @@ public class DogDAOImpl implements DogDAO{
 	
 	@Override
 	public Dog createDog(Dog newDog, User user) {
-	user.addDog(newDog);
+	User managedUser = em.find(User.class, user.getId());
+	newDog.setUser(managedUser);
 	em.persist(newDog);
-	newDog.setUser(user);
+	managedUser.addDog(newDog);
 	em.flush();
 	
 	return newDog;
