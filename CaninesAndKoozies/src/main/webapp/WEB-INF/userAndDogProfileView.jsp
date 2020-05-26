@@ -40,7 +40,11 @@
         <h2>${dog.name }</h2>
         <p>${dog.breed}</p>
         <p>${dog.size}</p>
-        <p><button class="button">Stub Edit</button></p>
+        <p><class="button">
+        <form action = "dogUpdatedPage.do" method = "GET">
+					<input type = "submit" value = "Update Dog">
+					<input type = "hidden" value = "${dog.id }" name = "id">
+				</form></class></p>
         <p><button class="button">Stub Delete</button></p>
         <p><button class="button">Stub Create</button></p>
         </c:forEach>

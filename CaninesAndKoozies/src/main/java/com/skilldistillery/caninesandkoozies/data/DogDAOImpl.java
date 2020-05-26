@@ -58,4 +58,8 @@ public List<Dog> findAllUserDogs(int id) {
 	return dogs;
 }
 
+public Dog findDogById(int id) {
+	return em.find(Dog.class, id);
+}
+
 }

@@ -11,5 +11,6 @@ public interface DogDAO {
 	public Dog updateDog(int id, Dog dog);
 	public boolean deleteDog(int id);
 	public List<Dog> findAllUserDogs(int id);
+	public Dog findDogById(int id);
 	
 }

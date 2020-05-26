@@ -104,6 +104,12 @@ public class UserDAOImpl implements UserDAO{
 		return dogs;
 	}
 
+	public List<Event> findAllUsersEvents(int id) {
+		String jpql = "SELECT e from Event e JOIN UserEvent ue ON e.id = ue.event.id JOIN User u on u.id = ue.user.id WHERE u.id = :id ";
+		List<Event>events;
+		events=em.createQuery(jpql, Event.class).setParameter("id", id).getResultList();
+		return events;
+		}
 
 	@Override
 	public Event createEvent(Event newEvent) {
@@ -183,7 +189,7 @@ public class UserDAOImpl implements UserDAO{
 	public List<User> findUserByKeyword(String keyword) {
 		List<User> resultPool = null;
 		String jpql = "SELECT search FROM User search WHERE search.username like :key or search.fname like :key or search.lname like :key";
-		resultPool = em.createQuery(jpql, User.class).setParameter("key", keyword).getResultList();
+		resultPool = em.createQuery(jpql, User.class).setParameter("key", "%" + keyword + "%").getResultList();
 		return resultPool;
 	}
 

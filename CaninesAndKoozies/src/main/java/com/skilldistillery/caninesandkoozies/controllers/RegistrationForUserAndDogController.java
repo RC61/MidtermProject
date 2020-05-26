@@ -17,6 +17,7 @@ import com.skilldistillery.caninesandkoozies.entities.Address;
 import com.skilldistillery.caninesandkoozies.entities.Dog;
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
+import com.skilldistillery.caninesandkoozies.entities.UserEvent;
 
 @Controller
 public class RegistrationForUserAndDogController {
@@ -55,11 +56,10 @@ public class RegistrationForUserAndDogController {
 	public ModelAndView viewProfile(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		User dogUser = (User)session.getAttribute("user");
-//		List<Dog> dogs = dogUser.getDogs();
 		List<Dog> dogs = userDAOImpl.findAllUserDogs(dogUser.getId());
-//		List<Event> events = dogUser.getEvents();
+		List<Event> events = userDAOImpl.findAllUsersEvents(dogUser.getId());
 		mv.addObject("dogs", dogs);
-//		mv.addObject("events", events);
+		mv.addObject("events", events);
 		mv.setViewName("userAndDogProfileView");
 		return mv;
 	}
