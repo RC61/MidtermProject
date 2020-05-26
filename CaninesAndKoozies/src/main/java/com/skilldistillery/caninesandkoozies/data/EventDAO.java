@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
+import com.skilldistillery.caninesandkoozies.entities.Venue;
 
 public interface EventDAO {
 	
-	public Event createEvent(Event event, User user, int venueId);
+	public Event createEvent(Event event, User user, Venue venue, String eventDate);
 	
 	public Event updateEvent(Event event);
 

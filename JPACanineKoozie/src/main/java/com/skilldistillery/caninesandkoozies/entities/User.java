@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -73,7 +74,8 @@ public class User {
 	private List<UserEvent> userEvents;
 	
 
-	
+	@ManyToOne
+	private List<Comment> comments;
 	
 	
 	public User() {
@@ -236,6 +238,20 @@ public class User {
 		this.dogs = dogs;
 	}
 	
+	
+	
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+
+
 	public void addDog(Dog dog) {
 		if (dogs == null) {
 			dogs = new ArrayList<>(); }
@@ -321,9 +337,26 @@ public class User {
 	}
 	
 	
+	public void addComment(Comment comment) {
+		if (comments == null) {
+			comments = new ArrayList<>();
+		}
+		
+		if (!comments.contains(comment)) {
+			comments.add(comment);
+			if(comment.getUser() != null) {
+				comment.getUser().getComments().remove(comment);
+			}
+			comment.setUser(this);
+		}
+	}
 
-
-
+	public void removeComment(Comment comment) {
+		comment.setUser(null);
+		if (comments != null) {
+			comments.remove(comment);
+		}
+	}
 
 	@Override
 	public int hashCode() {

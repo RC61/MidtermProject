@@ -1,5 +1,6 @@
 package com.skilldistillery.caninesandkoozies.data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
+import com.skilldistillery.caninesandkoozies.entities.UserEvent;
+import com.skilldistillery.caninesandkoozies.entities.UserEventId;
 import com.skilldistillery.caninesandkoozies.entities.Venue;
 
 @Service
@@ -19,19 +22,33 @@ public class EventDAOImpl implements EventDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	public Event createEvent(Event event, User user, int venueId) {
+	public Event createEvent(Event event, User user, Venue venue, String eventDate) {
+//		User managedUser = em.find(User.class, user.getId());
+		LocalDateTime timey = LocalDateTime.parse(eventDate);
+//		Venue venue = em.find(Venue.class, venueId);
+		event.setVenue(venue);
+		event.setEventDateTime(timey);
+		event.setUserCreated(user);
+		
+		UserEvent ue = new UserEvent();
+		ue.setEvent(event);
+		em.persist(ue);
+		em.flush();
 		
 		user.addEvent(event);
-//		event.setUserCreated(user);
-//		em.persist(event);
-		
-		event.setUserCreated(user);
-		Venue venue = em.find(Venue.class, venueId);
-		event.setVenue(venue);
 		venue.addEvent(event);
+				
+//		em.persist(managedUser);
 		em.persist(venue);
 		em.flush();
-//		em.close();
+		
+		em.persist(event);
+		em.flush();
+		
+		UserEventId ueid = new UserEventId();
+		ueid.setEventId(event.getId());
+//		System.err.println(event.getId());
+		em.flush();
 
 		return event;
 	}

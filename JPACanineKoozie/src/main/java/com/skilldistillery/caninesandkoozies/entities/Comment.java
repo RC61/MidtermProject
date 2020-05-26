@@ -10,18 +10,25 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 public class Comment {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@CreationTimestamp
 	@Column(name="create_date")
 	private LocalDateTime commentCreateDate;
+	
 	private String description;
+	
 	@ManyToOne
 	@JoinColumn(name="event_id")
 	private Event event;
+	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
