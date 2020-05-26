@@ -15,7 +15,8 @@
 
 	
 		<input type = "hidden" value = "${event.id }" name = "id">
-		<input type = "hidden" value = "${event.createDate }" name = "createDate">
+		<input type = "hidden" value = "${event.createDate }" name = "createDateToParse">
+		<input type = "hidden" value = "${event.userCreated.id}" name = "userCreatedId">
 		<table>
 			<tr>
 				<td>Event Name:</td>
@@ -27,14 +28,22 @@
 				<td>Event Date and Time:</td>
 			</tr>
 			<tr>
-				<td><input type="datetime-local" name="eventDateTime" /></td>
+				<td><input type="datetime-local" name="eventDate" value = "${event.eventDateTime }" /></td>
 			</tr>
 			<tr>
 				<td>Dog Size Preference:</td>
 			</tr>
 			<tr>
 				<td>
+				<c:choose>
+					<c:when test='${event.dogSizePreference == "small" }'>
+				<label><input type="radio"name="dogSizePreference" value="small" selected>Small</label> 
+					</c:when>
+					<c:otherwise>
+					
 				<label><input type="radio"name="dogSizePreference" value="small">Small</label> 
+					</c:otherwise>				
+				</c:choose>
 				<label><input type="radio" name="dogSizePreference" value="medium">Medium</label> 
 				<label><input type="radio" name="dogSizePreference" value="large">Large</label>
 				<label><input type="radio" name="dogSizePreference" value="no preference">No preference</label>
@@ -61,8 +70,8 @@
 				<td> 
 					<c:forEach items = "${venues }" var = "venue">
 					
-						<label><input type="radio" name="venueName" value="${venue.name }">${venue.name }</label>
-						<input type="hidden" value = "${venue.id}" name = "venueId">
+						<label><input type="radio" name="venue.id" value="${venue.id }">${venue.name }</label>
+					
 					</c:forEach>
   				</td>
 			</tr>
