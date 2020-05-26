@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.caninesandkoozies.entities.Address;
+import com.skilldistillery.caninesandkoozies.entities.Comment;
 import com.skilldistillery.caninesandkoozies.entities.Dog;
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
@@ -58,7 +59,39 @@ public class UserDAOImpl implements UserDAO{
 	
 	@Override
 	public boolean deleteUser(int id) {
-		em.remove(em.find(User.class, id));
+		User user = em.find(User.class, id);
+		List<Comment> comments = user.getComments();
+		if (comments != null) {
+			for (Comment comment : comments) {
+				em.remove(comment);
+				em.flush();
+			}
+		}
+		
+		List<Dog> dogs = user.getDogs();
+		if (dogs != null) {
+			for (Dog dog : dogs) {
+				em.remove(dog);
+				em.flush();
+			}
+		}
+		
+		List<UserEvent> userEvents = user.getUserEvents();
+		if (userEvents != null) {
+			for (UserEvent userEvent : userEvents) {
+				em.remove(userEvent);
+				em.flush();
+			}
+		}
+		
+		List<Event> eventsCreated = user.getEvents();
+		if (eventsCreated != null) {
+			for (Event event : eventsCreated) {
+				em.remove(event);
+				em.flush();
+			}
+		}
+		em.remove(user);
 		em.flush();
 		boolean stillContains = em.contains(em.find(User.class, id));
 		System.out.println(stillContains);
