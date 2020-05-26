@@ -78,7 +78,10 @@
 		
         <h2>${event.name }</h2>
 		<img src=${event.pictureURL } style="width:100%">
-		
+		<form action = "removeEventFromList.do" method = "GET">
+					<input type = "submit" value = "Remove Event From List">
+					<input type = "hidden" value = "${event.id }" name = "id">
+				</form>
         </c:forEach>
         </c:when>
         <c:otherwise>

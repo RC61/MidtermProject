@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.caninesandkoozies.data.DogDAOImpl;
 import com.skilldistillery.caninesandkoozies.data.UserDAOImpl;
 import com.skilldistillery.caninesandkoozies.entities.Dog;
+import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
 
 @Controller
@@ -146,6 +147,15 @@ public class UserAndDogProfileController {
 		Dog newDog = dogDAOImpl.createDog(dog, loggedInUser);
 		mv.addObject("user", loggedInUser);
 		mv.addObject("dog", newDog);
+		mv.setViewName("userAndDogProfileView");
+		return mv;
+	}
+	
+	@RequestMapping(path="removeEventFromList.do")
+	public ModelAndView removeEventFromYourList(HttpSession session, Event event) {
+		ModelAndView mv = new ModelAndView();
+		User loggedInUser = (User) session.getAttribute("user");
+		userDAOImpl.removeEventFromUserEventList(event.getId(), loggedInUser);
 		mv.setViewName("userAndDogProfileView");
 		return mv;
 	}
