@@ -21,6 +21,28 @@ public class UserAndDogProfileController {
 	@Autowired
 	private DogDAOImpl dogDAOImpl;
 	
+	@RequestMapping(path="userUpdatedPage.do")
+	public ModelAndView updateUserPage(HttpSession session, int id) {
+		ModelAndView mv = new ModelAndView();
+		User loggedInUser = (User) session.getAttribute("user");
+		User userUpdate = userDAOImpl.findUserById(id);
+		mv.addObject("user", loggedInUser);
+		mv.addObject("user", userUpdate);
+		mv.setViewName("updateUserProfile");
+		return mv;
+	}
+	
+	@RequestMapping(path="updateUser.do")
+	public ModelAndView updateUserInfo(HttpSession session, User user) {
+		ModelAndView mv = new ModelAndView();
+		User loggedInUser = (User) session.getAttribute("user");
+		User updatedUser = userDAOImpl.updateUser(user.getId(), user);
+		mv.addObject("user", loggedInUser);
+		mv.addObject("user", updatedUser);
+		mv.setViewName("userAndDogProfileView");
+		return mv;
+		
+	}
 	@RequestMapping(path="dogUpdatedPage.do")
 	public ModelAndView updateDogPage(HttpSession session, int id) {
 		ModelAndView mv = new ModelAndView();
