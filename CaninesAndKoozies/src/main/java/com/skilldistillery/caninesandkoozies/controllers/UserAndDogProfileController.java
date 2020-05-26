@@ -43,6 +43,36 @@ public class UserAndDogProfileController {
 		return mv;
 		
 	}
+	
+	@RequestMapping(path="confirmDeleteUser.do")
+	public ModelAndView deleteUserConfirm(HttpSession session, int id) {
+		ModelAndView mv = new ModelAndView();
+		User loggedInUser = (User) session.getAttribute("user");
+		User userDelete = userDAOImpl.findUserById(id);
+		mv.addObject("user", loggedInUser);
+		mv.addObject("user", userDelete);
+		mv.setViewName("deleteUserConfirmationPage");
+		return mv;
+	}
+	
+	@RequestMapping(path="deleteUser.do")
+	public ModelAndView deleteUser(int id) {
+		ModelAndView mv = new ModelAndView();
+		boolean result = userDAOImpl.deleteUser(id);
+		String printOut;
+		if (result == true) {
+			printOut = "Your User Profile has been deleted.";
+		}
+		else {
+			printOut = "We cannot delete your profile at this time.";
+		}
+		mv.addObject("result", printOut);
+		mv.setViewName("userDeleted");
+		return mv;
+		
+	}
+	
+	
 	@RequestMapping(path="dogUpdatedPage.do")
 	public ModelAndView updateDogPage(HttpSession session, int id) {
 		ModelAndView mv = new ModelAndView();
