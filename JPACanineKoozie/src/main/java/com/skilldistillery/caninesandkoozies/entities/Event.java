@@ -227,13 +227,13 @@ public class Event {
 		this.updateDate = updateDate;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Event [id=" + id + ", name=" + name + ", eventDateTime=" + eventDateTime + ", dogSizePreference="
-//				+ dogSizePreference + ", singleOnlyPreference=" + singleOnlyPreference + ", pictureURL=" + pictureURL
-//				+ ", description=" + description + ", createDate=" + createDate + ", updateDate=" + updateDate
-//				+ ", comments=" + comments + ", venue=" + venue + ", userCreated=" + userCreated + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", name=" + name + ", eventDateTime=" + eventDateTime + ", dogSizePreference="
+				+ dogSizePreference + ", singleOnlyPreference=" + singleOnlyPreference + ", pictureURL=" + pictureURL
+				+ ", description=" + description + ", createDate=" + createDate + ", updateDate=" + updateDate
+				+ ", userCreated=" + userCreated + "]";
+	}
 	
 	
 }
