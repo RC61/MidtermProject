@@ -45,7 +45,11 @@
 					<input type = "submit" value = "Update Dog">
 					<input type = "hidden" value = "${dog.id }" name = "id">
 				</form></class></p>
-        <p><button class="button">Stub Delete</button></p>
+         <p><class="button">
+        <form action = "confirmDeleteDog.do" method = "GET">
+					<input type = "submit" value = "Delete Dog">
+					<input type = "hidden" value = "${dog.id }" name = "id">
+				</form></class></p>
         <p><button class="button">Stub Create</button></p>
         </c:forEach>
         </c:when>
