@@ -74,7 +74,7 @@ public class User {
 	private List<UserEvent> userEvents;
 	
 
-	@ManyToOne
+	@OneToMany(mappedBy = "user")
 	private List<Comment> comments;
 	
 	
@@ -104,6 +104,8 @@ public class User {
 		this.updateDate = updateDate;
 		this.address = address;
 	}
+	
+	
 	
 	
 

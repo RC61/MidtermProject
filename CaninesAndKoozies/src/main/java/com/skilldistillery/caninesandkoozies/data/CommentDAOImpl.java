@@ -28,6 +28,7 @@ public class CommentDAOImpl implements CommentDAO {
 	public Comment createComment(Comment newComment, User user, Event event) {
 		
 		event.addComment(newComment);
+		user.addComment(newComment);
 		
 		
 		em.persist(newComment);

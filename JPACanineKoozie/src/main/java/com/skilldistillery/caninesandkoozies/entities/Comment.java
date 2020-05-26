@@ -2,6 +2,7 @@ package com.skilldistillery.caninesandkoozies.entities;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class Comment {
 	@JoinColumn(name="event_id")
 	private Event event;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="user_id")
 	private User user;
 	
