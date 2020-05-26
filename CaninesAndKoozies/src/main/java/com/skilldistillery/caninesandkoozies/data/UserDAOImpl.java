@@ -172,6 +172,21 @@ public class UserDAOImpl implements UserDAO{
 //		em.persist(userEvent);
 		return userEvent;
 	}
+	
+	public void removeEventFromUserEventList(int id, User user) {
+		Event event = em.find(Event.class, id);
+		User managedUser = em.find(User.class, user.getId());
+		
+		List <UserEvent> usersEvents = managedUser.getUserEvents();
+		
+		for (UserEvent userEvent : usersEvents) {
+			if (userEvent.getEvent().equals(event)) {
+				em.remove(userEvent);
+			}
+		}
+		
+		em.persist(managedUser);
+	}
 
 	@Override
 	public User getUserByUsernameAndPassword(String username, String password) {
