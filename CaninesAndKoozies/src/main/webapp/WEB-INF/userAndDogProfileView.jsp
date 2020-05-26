@@ -23,6 +23,10 @@
         <p>${user.alcoholPreference }</p>
         <p>${user.username }</p>
         <p><button class="button">Stub Edit</button></p>
+        <form action = "userUpdatedPage.do" method = "GET">
+					<input type = "submit" value = "Update User">
+					<input type = "hidden" value = "${user.id }" name = "id">
+				</form></class></p>
         <p><button class="button">Stub Delete</button></p>
       </div>
     </div>
