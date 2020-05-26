@@ -25,13 +25,17 @@ public class CommentDAOImpl implements CommentDAO {
 	}
 	
 	@Override
-	public Comment createComment(Comment newComment, User user, Event event) {
+	public Comment createComment(String description, int userId, int eventId) {
+		Event event = em.find(Event.class, eventId);
+		User user = em.find(User.class, userId);
+		
+		Comment newComment = new Comment(description, event, user);
+		
+		em.persist(newComment);
+		em.flush();
 		
 		event.addComment(newComment);
 		user.addComment(newComment);
-		
-		
-		em.persist(newComment);
 		
 		em.flush();
 		em.close();

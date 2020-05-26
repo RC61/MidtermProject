@@ -87,8 +87,8 @@
 						<c:when test="${! empty user }">
 							<form action = "addComment.do" method = "POST" >
 								<input type = "text" placeholder = "Add a Comment" name = "description">
-								<input type = "hidden" value = "${user}" name = "user">
-								<input type = "hidden" value = "${event}" name = "event">
+								<input type = "hidden" value = "${user.id}" name = "userId">
+								<input type = "hidden" value = "${event.id}" name = "eventId">
 								<input type = "submit" value = "Submit">
 							</form>
 						</c:when>

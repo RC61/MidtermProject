@@ -37,6 +37,17 @@ public class Comment {
 	
 	public Comment() {}
 	
+	
+	
+	public Comment(String description, Event event, User user) {
+		super();
+		this.description = description;
+		this.event = event;
+		this.user = user;
+	}
+
+
+
 	public int getId() {
 		return id;
 	}

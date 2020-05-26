@@ -25,12 +25,12 @@ public class CommentController {
 	private EventDAOImpl eventDAOImpl;
 	
 	@RequestMapping(path="addComment.do")
-	public ModelAndView addComment(User user, Event event, Comment comment) {
+	public ModelAndView addComment(String description, int userId, int eventId) {
 		ModelAndView mv = new ModelAndView();
 		
-		Comment newComment = commentDAOImpl.createComment(comment, user, event);
+		Comment newComment = commentDAOImpl.createComment(description, userId, eventId);
 		
-		mv.addObject("event", event);
+		mv.addObject("event", eventDAOImpl.findEventById(eventId));
 		mv.setViewName("eventDetails");
 		
 		return mv;
