@@ -7,11 +7,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Delete Your Event</title>
+<title>${venue.name }</title>
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
-	<h1>${result}</h1>
+${venue.name }
+<c:choose>
+	<c:when test = "${venue.alcoholProvided == true }">
+		We serve beer bitches
+	</c:when>
+	<c:otherwise>
+		BYOB friendos
+	</c:otherwise>
+</c:choose>
+<img src="${venue.pictureURL }">
+
+<a href = "${venue.venueLink }">Visit ${venue.name}</a>
 
 </body>
 </html>

@@ -235,5 +235,14 @@ public class Event {
 				+ ", userCreated=" + userCreated + "]";
 	}
 	
-	
+	public boolean containsUser(User user) {
+		boolean found = false;
+		for (UserEvent ue : userEvents) {
+			if(ue.getUser().equals(user)) {
+				found = true;
+				break;
+			}
+		}
+		return found;
+	}
 }

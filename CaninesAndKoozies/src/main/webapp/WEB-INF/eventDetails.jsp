@@ -10,7 +10,7 @@
 <title>${event.name }</title>
 </head>
 <body>
-
+<%@ include file="navLoggedIn.jsp" %>
 
 
 <input type = "hidden" value = "${event.createDate}">
@@ -21,6 +21,12 @@
 			</tr>
 			<tr>
 				<td>${event.name }</td>
+			</tr>
+			<tr>
+				<td>Venue:</td>
+			</tr>
+			<tr>
+				<td><a href="searchVenueId.do?id=${event.venue.id}" >${event.venue.name }</a></td>
 			</tr>
 			<tr>
 				<td>Event Date and Time:</td>
@@ -69,6 +75,8 @@
 				<c:forEach items = "${ event.userEvents}" var = "userEvent">
 					<p>${userEvent.user.username}</p>
 				</c:forEach>
+				
+				
 				</td>
 			</tr>
 			<%-- <tr>
@@ -126,12 +134,12 @@
 			</c:when>
 		</c:choose>
 		<c:choose>
-		<c:when test="${event.userCreated != user && ! empty user }">
-		<form action="signUpForEvent.do" method = "POST">
-		<input type="submit" value="Sign Up For Event">
-		<input type = "hidden" value = "${event.id }" name = "id">
-		</form>
-		</c:when>
+			<c:when test="${! empty user &&  event.userCreated.id != user.id  && !event.containsUser(user) }">
+				<form action="signUpForEvent.do" method = "POST">
+					<input type="submit" value="Sign Up For Event">
+					<input type = "hidden" value = "${event.id }" name = "id">
+				</form>
+			</c:when>
 		</c:choose>
 </body>
 </html>

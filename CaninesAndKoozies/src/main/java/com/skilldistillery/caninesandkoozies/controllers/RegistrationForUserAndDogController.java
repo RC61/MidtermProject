@@ -58,6 +58,7 @@ public class RegistrationForUserAndDogController {
 		User dogUser = (User)session.getAttribute("user");
 		List<Dog> dogs = userDAOImpl.findAllUserDogs(dogUser.getId());
 		List<Event> events = userDAOImpl.findAllUsersEvents(dogUser.getId());
+		mv.addObject("user", dogUser);
 		mv.addObject("dogs", dogs);
 		mv.addObject("events", events);
 		mv.setViewName("userAndDogProfileView");

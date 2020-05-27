@@ -7,6 +7,7 @@
 <title>New Dog</title>
 </head>
 <body>
+<%@ include file="navLoggedIn.jsp" %>
 <form action="createDog.do" method="POST">
 <table>
 			<tr>

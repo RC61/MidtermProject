@@ -7,6 +7,7 @@
 <title>Delete ${user.username} Profile</title>
 </head>
 <body>
+<%@ include file="navLoggedIn.jsp" %>
 <h3>${user.username } Are you sure you want to delete your profile?</h3>
 
 <form action ="deleteUser.do" method="POST">

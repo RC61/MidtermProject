@@ -1,5 +1,6 @@
 package com.skilldistillery.caninesandkoozies.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -74,6 +75,7 @@ public class UserEvent {
 	public String toString() {
 		return "UserEvent [id=" + id + ", rating=" + rating + "]";
 	}
+	
 	
 	
 	

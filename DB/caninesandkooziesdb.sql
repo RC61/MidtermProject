@@ -278,7 +278,7 @@ USE `caninesandkooziesdb`;
 INSERT INTO `venue` (`id`, `name`, `alcohol_provided`, `picture_url`, `venue_link`, `address_id`) VALUES (1, 'Sample Venue', 1, NULL, NULL, 2);
 INSERT INTO `venue` (`id`, `name`, `alcohol_provided`, `picture_url`, `venue_link`, `address_id`) VALUES (2, 'Denver Beer Co', 1, 'https://i.imgur.com/OhmqRiF.png', 'https://denverbeerco.com/', 6);
 INSERT INTO `venue` (`id`, `name`, `alcohol_provided`, `picture_url`, `venue_link`, `address_id`) VALUES (3, 'Bigsby\'s Folly', 1, 'https://i.imgur.com/Cya5ijB.png', 'https://www.bigsbysfolly.com/', 7);
-INSERT INTO `venue` (`id`, `name`, `alcohol_provided`, `picture_url`, `venue_link`, `address_id`) VALUES (4, 'Wellshire Golf Course', 0, 'https://i.imgur.com/LMxFnN2.jpg', 'https://www.cityofdenvergolf.com/wellshire', 8);
+INSERT INTO `venue` (`id`, `name`, `alcohol_provided`, `picture_url`, `venue_link`, `address_id`) VALUES (4, 'Wellshire Golf Course', 0, 'https://i.imgur.com/lKV4Zv0.jpg', 'https://www.cityofdenvergolf.com/wellshire', 8);
 INSERT INTO `venue` (`id`, `name`, `alcohol_provided`, `picture_url`, `venue_link`, `address_id`) VALUES (5, 'Denver Distillery', 1, 'https://i.imgur.com/Pt4HVeK.jpg', 'https://www.denverdistillery.com/', 17);
 
 COMMIT;

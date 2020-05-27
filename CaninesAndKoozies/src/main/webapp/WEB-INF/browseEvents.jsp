@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="navLoggedIn.jsp" %>
 	<c:choose>
 		<c:when test="${! empty events }">
 			<div class="column">

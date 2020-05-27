@@ -7,6 +7,7 @@
 <title>Registration</title>
 </head>
 <body>
+<%@ include file="navLoggedIn.jsp" %>
 	<form action="registerUser.do" method="POST">
 
 		<table>
@@ -26,7 +27,7 @@
 				<td>Password:</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="password" size="30" /></td>
+				<td><input type="password" name="password" size="30" /></td>
 			</tr>
 			<tr>
 				<td>First Name:</td>
@@ -76,13 +77,13 @@
 				<td>Alcohol Preference:</td>
 			</tr>
 			<tr>
-				<td><label><input type="checkbox"
+				<td><label><input type="radio"
 						name="alcoholPreference" value="beer" />Beer</label> <label><input
-						type="checkbox" name="alcoholPreference" value="wine" />Wine</label> <label><input
-						type="checkbox" name="alcoholPreference" value="spirits" />Spirits</label>
-					<label><input type="checkbox" name="alcoholPreference"
+						type="radio" name="alcoholPreference" value="wine" />Wine</label> <label><input
+						type="radio" name="alcoholPreference" value="spirits" />Spirits</label>
+					<label><input type="radio" name="alcoholPreference"
 						value="no preference" />No Preference</label> <label><input
-						type="checkbox" name="alcoholPreference" value="non drinker" />Non-drinker</label>
+						type="radio" name="alcoholPreference" value="non drinker" />Non-drinker</label>
 				</td>
 			</tr>
 			<tr>

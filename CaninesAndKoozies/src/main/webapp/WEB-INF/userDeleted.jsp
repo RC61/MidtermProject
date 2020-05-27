@@ -7,6 +7,7 @@
 <title>User Delete Confirmation</title>
 </head>
 <body>
+<%@ include file="navLoggedIn.jsp" %>
 <h4>You Profile has been deleted</h4>
 
 		<form action = "logout.do" method = "GET">

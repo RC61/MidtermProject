@@ -7,6 +7,7 @@
 <title>Update ${dog.name }'s Profile</title>
 </head>
 <body>
+<%@ include file="navLoggedIn.jsp" %>
 <form action ="updateDog.do" method="POST">
 <input type = "hidden" value = "${dog.id }" name = "id">
 <table>

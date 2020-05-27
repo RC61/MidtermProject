@@ -10,8 +10,8 @@
 <title>Search Results</title>
 </head>
 <body>
-
-<h1>Event Search Results:</h1>
+<%@ include file="navLoggedIn.jsp" %>
+<h1>Event and User Search Results:</h1>
 <br>
 <br>
 <br>
@@ -44,14 +44,14 @@
 			<h2>Venue: ${event.venue.name}</h2> 
 					<h2>Dog Size Preference: ${event.dogSizePreference}</h2>
 					<img src="${event.pictureURL}">
-	<form action="eventDetails.do" method=GET>
+			<form action="searchId.do" method=GET>
 						<input type="submit" value="View Full Event Details"> <input
 							type="hidden" name="id" value="${event.id}">
 					</form>
 				</c:forEach>
 				
 				
-				<h1> look for another event:</h1>
+				<h1> look for another event or user:</h1>
 			<form action = "search.do" method = "GET">
 			<input type = "text" name = "keyword">
 			<input type = "submit" value = "Search Events">
