@@ -13,9 +13,6 @@
 <form action = "viewSinglesEvents.do" method = "GET">
 	<input type = "submit" value = "View events for Singles only">
 </form>
-<form action = "viewSinglesEvents.do" method = "GET">
-	<input type = "submit" value = "View events for Singles only">
-</form>
 	<c:choose>
 		<c:when test = "${! empty events }">
 		
