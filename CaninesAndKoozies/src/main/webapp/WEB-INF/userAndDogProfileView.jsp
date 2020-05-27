@@ -15,7 +15,14 @@
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src=${user.userPicture } alt=${user.fname } style="width:100%">
+    	<c:choose>
+			<c:when test = "${! empty user.userPicture }">   	
+     			 <img src=${user.userPicture } alt=${user.fname } style="width:100%">
+      		</c:when> 
+      		<c:otherwise>
+     			 <img src="https://i.imgur.com/IngcWEC.png" alt=${user.fname } style="width:100%">
+      		</c:otherwise>
+    	</c:choose>
       <div class="container">
         <h2>${user.fname } ${user.lname }</h2>
         <p>${user.birthDate }</p>
@@ -42,9 +49,14 @@
     <c:choose>
 		<c:when test = "${! empty dogs }">
 		<c:forEach var = "dog" items = "${dogs }" >
-		
-		<img src=${dog.dogPicture } style="width:100%">
-		
+		<c:choose>
+			<c:when test = "${! empty dog.dogPicture }">
+				<img src=${dog.dogPicture } style="width:100%">
+			</c:when>
+			<c:otherwise>
+				<img src="https://i.imgur.com/hhRHTjv.png" style="width:100%">			
+			</c:otherwise>
+		</c:choose>
       <div class="container">
         <h2>${dog.name }</h2>
         <p>${dog.breed}</p>
@@ -77,7 +89,18 @@
 		<c:forEach var = "event" items = "${events }" >
 		
         <h2>${event.name }</h2>
-		<img src=${event.pictureURL } style="width:100%">
+		<c:choose>
+			<c:when test="${! empty event.pictureURL}">
+						
+				<img src ="${event.pictureURL}">
+					
+			</c:when>
+			<c:otherwise>
+						
+				<img src = "https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
+						
+			</c:otherwise>
+		</c:choose>	
 		<form action = "removeEventFromList.do" method = "GET">
 					<input type = "submit" value = "Remove Event From List">
 					<input type = "hidden" value = "${event.id }" name = "id">

@@ -5,23 +5,37 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Browse Events</title>
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
 	<c:choose>
-		<c:when test="${! empty events }">
-			<div class="column">
-				<div class="card">
-					<c:forEach var="event" items="${events }">
-						<h1>${event.name }</h1>
+		<c:when test = "${! empty events }">
+		
+			<c:forEach var = "event" items = "${events}" >
+				<h3>${event.name}</h3>
+				
+				<c:choose>
+					<c:when test="${! empty event.pictureURL}">
 						<a href="searchId.do?id=${event.id}">
-						<img src=${event.pictureURL } style="width: 100%">
+							<img src ="${event.pictureURL}">
 						</a>
-					</c:forEach>
-				</div>
-			</div>
+					</c:when>
+					<c:otherwise>
+						<a href="searchId.do?id=${event.id}">
+							<img src = "https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
+						</a>
+					</c:otherwise>
+				</c:choose>	
+				
+			</c:forEach>
+		
 		</c:when>
+		
+		<c:otherwise>
+			<h1>No events at this time. Try creating one!</h1>
+		</c:otherwise>
+	
 	</c:choose>
 </body>
 </html>

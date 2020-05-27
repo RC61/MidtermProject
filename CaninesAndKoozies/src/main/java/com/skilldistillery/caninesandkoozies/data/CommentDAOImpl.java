@@ -38,7 +38,6 @@ public class CommentDAOImpl implements CommentDAO {
 		user.addComment(newComment);
 		
 		em.flush();
-		em.close();
 		
 		return newComment;
 	}
@@ -65,7 +64,6 @@ public class CommentDAOImpl implements CommentDAO {
 		updatedComment.setUser(comment.getUser());
 		
 		em.flush();
-		em.close();
 		
 		return updatedComment;
 	}
@@ -79,7 +77,6 @@ public class CommentDAOImpl implements CommentDAO {
 		boolean stillContains = em.contains(comment);
 		
 		em.flush();
-		em.close();
 		
 		return !stillContains;
 	}

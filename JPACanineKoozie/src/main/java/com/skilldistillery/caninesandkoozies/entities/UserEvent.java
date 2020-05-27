@@ -73,7 +73,7 @@ public class UserEvent {
 
 	@Override
 	public String toString() {
-		return "UserEvent [id=" + id + ", rating=" + rating + "]";
+		return "UserEvent [id=" + id + ", rating=" + rating + " " +user.getUsername()+ "]";
 	}
 	
 	
