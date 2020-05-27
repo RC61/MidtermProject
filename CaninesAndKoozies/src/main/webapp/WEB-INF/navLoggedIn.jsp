@@ -1,29 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<nav>
-	<a href="home.do">Home</a>
-	<c:choose>
-		<c:when test="${not empty user}">
 
-			<div class="navbar">
-				<a href="logout.do">Logout (Search Stub)</a>
-				<div class="dropdown">
-					<button class="dropbtn">${user.username }
-					</button>
-					<div class="dropdown-content">
-						<a href="viewYourProfile.do">Your Profile</a> 
-						<a href="createEvent.do">Create Event Stub</a>
-						<a href="viewAllEvents.do">Browse Events</a>
-						<a href="logout.do">Logout</a>
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="//netdna.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
-					</div>
-				</div>
-			</div>
-		</c:when>
-		<c:otherwise>
-			<a href="register.do">Register</a>
-			<a href="viewAllEvents.do">Browse Events</a>
-		</c:otherwise>
-	</c:choose>
+<nav class="navbar sticky-top navbar-toggleable-md "
+	style="background-color: #38228c;">
+	<div>
+
+		<div class="float-left">
+			<a class="nav-link" href="home.do">
+				<button type="button" class="btn btn-secondary">Home</button>
+			</a>
+		</div>
+		<div>
+			<ul class="navbar-nav">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" role="button"
+					id="navbarDropdownMenuLink" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+						<button type="button" class="btn btn-secondary">${user.username }</button>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="viewYourProfile.do">View Profile</a>
+							<a class="dropdown-item" href="userUpdatedPage.do">Update Profile</a> 
+							<a class="dropdown-item" href="https://www.youtube.com/watch?v=9sXlaBa75Iw">Easter Egg</a>
+						<a class="dropdown-item" href="createEvent.do">Create Event</a> 
+						<a class="dropdown-item" href="logout.do">Logout</a>
+      					
+
+					</div></li>
+			</ul>
+
+		</div>
+
+	</div>
+
+	<div>
+		<form class="form-inline" action = "search.do" method = "GET">
+			<input class="form-control mr-sm-2" type="search" name="keyword"
+				placeholder="Search" aria-label="Search">
+			<button class="btn btn-success ml-auto mr-1" type="submit">Search</button>
+		</form>
+	</div>
+
 </nav>
+
+
