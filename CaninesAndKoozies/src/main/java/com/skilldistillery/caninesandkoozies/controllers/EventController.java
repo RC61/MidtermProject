@@ -98,14 +98,6 @@ public class EventController {
 	@RequestMapping(path = "deleteEvent.do")
 	public ModelAndView deleteEvent(int id) {
 		ModelAndView mv = new ModelAndView();
-		Event event = eventDAOImpl.findEventById(id);
-//		List<Comment> comments = event.getComments();
-//		for (Comment comment : comments) {
-//			System.out.println(comment.getDescription());
-//		}
-//		if (comments != null) {
-//			comments.clear();
-//		}
 
 		boolean result = eventDAOImpl.destroy(id);
 		String printOut;
@@ -125,9 +117,20 @@ public class EventController {
 		User loggedInUser = (User) session.getAttribute("user");
 		UserEvent userEvent = userDAOImpl.addEventToUserEventList(loggedInUser, id);
 		mv.addObject("event", eventDAOImpl.findEventById(id));
+//		mv.addObject("userEvent", userEvent);
+		mv.addObject("user", loggedInUser);
 		mv.setViewName("eventDetails");
 		return mv;
 
+	}
+	
+	@RequestMapping(path = "searchVenueId.do")
+	public ModelAndView findVenue(int id) {
+		ModelAndView mv = new ModelAndView();
+		Venue venue = venueDAOImpl.findVenueById(id);
+		mv.addObject("venue", venue);
+		mv.setViewName("venueDetails");
+		return mv;
 	}
 
 }

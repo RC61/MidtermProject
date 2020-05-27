@@ -10,7 +10,7 @@
 <title>Create Event</title>
 </head>
 <body>
-
+<%@ include file="navLoggedIn.jsp" %>
 <form action ="forwardEventForCreation.do" method="POST">
 
 		<table>

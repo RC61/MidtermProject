@@ -10,7 +10,7 @@
 <title>Create Event</title>
 </head>
 <body>
-
+<%@ include file="navLoggedIn.jsp" %>
 <form action ="forwardEventForUpdate.do" method="POST">
 	
 		<input type = "hidden" value = "${event.id }" name = "id">

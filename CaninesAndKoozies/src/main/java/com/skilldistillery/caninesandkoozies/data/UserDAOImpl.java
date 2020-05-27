@@ -42,18 +42,27 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	@Override
-	public User updateUser(int id, User user) {
+	public User updateUser(int id, User user, Address address) {
 		
 		User updatedUser = em.find(User.class, id);
 		
+		Address addressToUpdate = updatedUser.getAddress();
+		
+		addressToUpdate.setStreet(address.getStreet());
+		addressToUpdate.setCity(address.getCity());
+		addressToUpdate.setState(address.getState());
+		addressToUpdate.setZipCode(address.getZipCode());
+		
 		updatedUser.setFname(user.getFname());
 		updatedUser.setLname(user.getLname());
-		updatedUser.setAddress(user.getAddress());
+//		updatedUser.setAddress(user.getAddress());
 		updatedUser.setAlcoholPreference(user.getAlcoholPreference());
+		updatedUser.setRelationshipStatus(user.getRelationshipStatus());
 		updatedUser.setEmail(user.getEmail());
 		updatedUser.setUsername(user.getUsername());
 		updatedUser.setPassword(user.getPassword());
 		updatedUser.setUserPicture(user.getUserPicture());
+		em.flush();
 		return updatedUser;
 	}
 	
@@ -103,7 +112,6 @@ public class UserDAOImpl implements UserDAO{
 		newDog.setUser(em.find(User.class, newDog.getUser()));
 		em.persist(newDog);
 		em.flush();
-		em.close();
 		
 		return newDog;
 	}
