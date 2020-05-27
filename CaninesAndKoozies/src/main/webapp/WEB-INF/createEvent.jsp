@@ -65,7 +65,12 @@
 			</tr>
 			<tr><td>Please describe your event:</td>
 			</tr>
-			<tr><td><input type = "text" name = "description"></td></tr>
+			<tr>
+				<td>
+<!-- 					<input type = "text" name = "description">-->				
+				<textarea name = "description" rows = "4" cols = "30"></textarea>
+				</td>
+			</tr>
 			
 		</table>
 		<input type="submit" class="button" value="Submit" />

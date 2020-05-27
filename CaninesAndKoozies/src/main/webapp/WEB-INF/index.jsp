@@ -136,6 +136,6 @@
 
 	</c:otherwise>
 </c:choose> 
-
+<a href = "about.do">About</a>
 </body>
 </html>

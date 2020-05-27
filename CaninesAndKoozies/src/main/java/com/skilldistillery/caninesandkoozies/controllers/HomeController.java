@@ -42,4 +42,9 @@ public class HomeController {
 		mv.setViewName("index");
 		return mv;
 	}
+	
+	@RequestMapping(path = "about.do")
+	public String about() {
+		return "about";
+	}
 }

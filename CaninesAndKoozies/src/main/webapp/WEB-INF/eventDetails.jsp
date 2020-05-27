@@ -43,11 +43,18 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Singles Only Preference:</td>
+				<td>Is the event for singles only:</td>
 			</tr>
 			<tr>
 				<td>
-				${event.singleOnlyPreference }
+				<c:choose>
+					<c:when test="${event.singleOnlyPreference == true }">
+						Yes
+					</c:when>
+					<c:otherwise>
+						No
+					</c:otherwise>
+				</c:choose>
 				</td>
 			</tr>
 			<tr>
