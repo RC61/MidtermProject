@@ -43,7 +43,7 @@
 
 	<div>
 		<form class="form-inline" action = "search.do" method = "GET">
-			<input class="form-control mr-sm-2" type="search"
+			<input class="form-control mr-sm-2" type="search" name="keyword"
 				placeholder="Search" aria-label="Search">
 			<button class="btn btn-success ml-auto mr-1" type="submit">Search</button>
 		</form>
