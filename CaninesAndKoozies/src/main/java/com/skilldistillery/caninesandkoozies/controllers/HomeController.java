@@ -43,8 +43,16 @@ public class HomeController {
 		return mv;
 	}
 	
+	@RequestMapping(path= "nightCapNightCap.do")
+	private ModelAndView ncnc() {
+	ModelAndView mv = new ModelAndView();
+	mv.setViewName("nightCatNightCap");
+	return mv;
+}
+
 	@RequestMapping(path = "about.do")
 	public String about() {
 		return "about";
 	}
+
 }
