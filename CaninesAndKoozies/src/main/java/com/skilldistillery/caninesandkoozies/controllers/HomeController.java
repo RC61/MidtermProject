@@ -49,4 +49,10 @@ public class HomeController {
 	mv.setViewName("nightCatNightCap");
 	return mv;
 }
+
+	@RequestMapping(path = "about.do")
+	public String about() {
+		return "about";
+	}
+
 }
