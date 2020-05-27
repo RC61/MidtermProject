@@ -85,13 +85,12 @@ public class Event {
 		if (userEvents == null) {
 			userEvents = new ArrayList<>();
 		}
-		
 		if (!userEvents.contains(userEvent)) {
-			userEvents.add(userEvent);
 			if(userEvent.getEvent() != null) {
 				userEvent.getEvent().getUserEvents().remove(userEvent);
 			}
 			userEvent.setEvent(this);
+			userEvents.add(userEvent);
 		}
 	}
 	
