@@ -58,7 +58,7 @@
 		</c:when>
 		
 		<c:otherwise>
-			<h1>No events at this time. Try creating one!</h1>
+			<h4>You're not attending any events; try <a href = "viewAllEvents.do">browsing</a> events others have made!</h4>
 		</c:otherwise>
 	
 	
@@ -68,12 +68,28 @@
 		<c:choose>
 		<c:when test = "${! empty eventsCreated }">
 		
-			<c:forEach var = "eventCreated" items = "${eventsCreated}" >
-				<h3>${eventCreated.name}</h3>
+			<c:forEach var = "event" items = "${eventsCreated}" >
+				<h3>${event.name}</h3>
+				
+				<c:choose>
+					<c:when test="${! empty event.pictureURL}">
+						<a href="searchId.do?id=${event.id}">
+							<img src ="${event.pictureURL}">
+						</a>
+					</c:when>
+					<c:otherwise>
+						<a href="searchId.do?id=${event.id}">
+							<img src = "https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
+						</a>
+					</c:otherwise>
+				</c:choose>	
 				
 			</c:forEach>
 		
 		</c:when>
+		<c:otherwise>
+			<h4>You're not hosting any events yet; try <a href="createEvent.do">making one!</a></h4>
+		</c:otherwise>
 	</c:choose>
 	
 	
@@ -105,14 +121,20 @@
 		
 			<c:forEach var = "event" items = "${events}" >
 				<h3>${event.name}</h3>
+				
 				<c:choose>
 					<c:when test="${! empty event.pictureURL}">
-						<img src ="${event.pictureURL}">
+						<a href="searchId.do?id=${event.id}">
+							<img src ="${event.pictureURL}">
+						</a>
 					</c:when>
 					<c:otherwise>
-						No image found for event
+						<a href="searchId.do?id=${event.id}">
+							<img src = "https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
+						</a>
 					</c:otherwise>
 				</c:choose>	
+				
 			</c:forEach>
 		
 		</c:when>

@@ -35,6 +35,9 @@ public class HomeController {
 			mv.addObject("events", events);
 			System.out.println(eventsCreated);
 			System.out.println(events);
+		}else {
+			List<Event> events = eventDAOImpl.findAllEvents();
+			mv.addObject("events", events);
 		}
 		mv.setViewName("index");
 		return mv;
