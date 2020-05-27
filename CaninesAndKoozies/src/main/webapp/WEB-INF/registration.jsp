@@ -7,6 +7,7 @@
 <title>Registration</title>
 </head>
 <body>
+<%@ include file="navLoggedIn.jsp" %>
 	<form action="registerUser.do" method="POST">
 
 		<table>

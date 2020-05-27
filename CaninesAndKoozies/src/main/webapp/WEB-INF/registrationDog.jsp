@@ -8,7 +8,7 @@
 <title>Add your dog</title>
 </head>
 <body>
-
+<%@ include file="navLoggedIn.jsp" %>
 	<h1>woo</h1>
 
 

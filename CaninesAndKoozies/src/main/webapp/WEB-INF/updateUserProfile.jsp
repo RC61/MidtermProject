@@ -10,6 +10,7 @@
 <title>Update ${user.username }'s Profile</title>
 </head>
 <body>
+<%@ include file="navLoggedIn.jsp" %>
 <form action ="updateUser.do" method="POST">
 <input type = "hidden" value = "${user.id }" name = "id">
 <table>

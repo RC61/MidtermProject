@@ -10,7 +10,7 @@
 <title>Delete Your Event</title>
 </head>
 <body>
-
+<%@ include file="navLoggedIn.jsp" %>
 	<h1>${result}</h1>
 
 </body>

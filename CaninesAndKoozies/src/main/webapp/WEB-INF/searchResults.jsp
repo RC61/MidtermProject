@@ -10,7 +10,7 @@
 <title>Search Results</title>
 </head>
 <body>
-
+<%@ include file="navLoggedIn.jsp" %>
 <h1>Event and User Search Results:</h1>
 <br>
 <br>

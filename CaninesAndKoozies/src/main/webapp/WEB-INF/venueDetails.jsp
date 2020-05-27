@@ -10,6 +10,7 @@
 <title>${venue.name }</title>
 </head>
 <body>
+<%@ include file="navLoggedIn.jsp" %>
 ${venue.name }
 <c:choose>
 	<c:when test = "${venue.alcoholProvided == true }">

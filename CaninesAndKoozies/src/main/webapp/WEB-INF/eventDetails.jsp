@@ -10,7 +10,7 @@
 <title>${event.name }</title>
 </head>
 <body>
-
+<%@ include file="navLoggedIn.jsp" %>
 
 
 <input type = "hidden" value = "${event.createDate}">

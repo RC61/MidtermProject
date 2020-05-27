@@ -7,6 +7,7 @@
 <title>Remove ${dog.name} From Profile</title>
 </head>
 <body>
+<%@ include file="navLoggedIn.jsp" %>
 <h3>Are you sure you want to remove ${dog.name} from your profile?</h3>
 
 <form action ="deleteDog.do" method="POST">
