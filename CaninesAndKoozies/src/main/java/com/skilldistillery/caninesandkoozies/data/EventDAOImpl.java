@@ -95,6 +95,7 @@ public class EventDAOImpl implements EventDAO {
 
 	public boolean destroy(int id) {
 		Event event = em.find(Event.class, id);
+		
 		List<Comment> comments = event.getComments();
 		if (comments != null) {
 			for (Comment comment : comments) {
@@ -117,10 +118,10 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	@Override
-	public List<Event> findEventsByKeyword(String keyword) {
+	public List<Event> findEventsByKeyword(String keyword) {   
 		List<Event> resultPool = null;
 		String jpql = "Select search from Event search where search.venue.name like :key or search.name like :key or search.eventDateTime like :key or search.userCreated like :key";
-		resultPool = em.createQuery(jpql, Event.class).setParameter("key", keyword).getResultList();
+		resultPool = em.createQuery(jpql, Event.class).setParameter("key", "%" + keyword + "%").getResultList();
 		return resultPool;
 	}
 

@@ -98,14 +98,6 @@ public class EventController {
 	@RequestMapping(path = "deleteEvent.do")
 	public ModelAndView deleteEvent(int id) {
 		ModelAndView mv = new ModelAndView();
-		Event event = eventDAOImpl.findEventById(id);
-//		List<Comment> comments = event.getComments();
-//		for (Comment comment : comments) {
-//			System.out.println(comment.getDescription());
-//		}
-//		if (comments != null) {
-//			comments.clear();
-//		}
 
 		boolean result = eventDAOImpl.destroy(id);
 		String printOut;

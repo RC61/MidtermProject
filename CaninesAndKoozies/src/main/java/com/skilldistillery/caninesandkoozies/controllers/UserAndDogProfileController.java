@@ -49,9 +49,9 @@ public class UserAndDogProfileController {
 	public ModelAndView deleteUserConfirm(HttpSession session, int id) {
 		ModelAndView mv = new ModelAndView();
 		User loggedInUser = (User) session.getAttribute("user");
-		User userDelete = userDAOImpl.findUserById(id);
+//		User userDelete = userDAOImpl.findUserById(id);
 		mv.addObject("user", loggedInUser);
-		mv.addObject("user", userDelete);
+//		mv.addObject("user", userDelete);
 		mv.setViewName("deleteUserConfirmationPage");
 		return mv;
 	}
