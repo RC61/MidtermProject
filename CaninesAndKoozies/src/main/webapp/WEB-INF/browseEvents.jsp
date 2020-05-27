@@ -9,6 +9,10 @@
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
+
+<form action = "viewSinglesEvents.do" method = "GET">
+	<input type = "submit" value = "View events for Singles only">
+</form>
 	<c:choose>
 		<c:when test = "${! empty events }">
 		
