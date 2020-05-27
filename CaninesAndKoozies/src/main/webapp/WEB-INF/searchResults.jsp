@@ -26,7 +26,7 @@
 						<c:forEach var="dogs" items="${user.dogs}">
 						<h2>Pups: ${dogs.name}</h2>
 						</c:forEach>
-					<form action="userAndDogProfileView.do" method=GET>
+					<form action="viewTheirProfile.do" method=GET>
 						<input type="submit" value="View User Profile"> <input
 							type="hidden" name="id" value="${user.id}">
 					</form>

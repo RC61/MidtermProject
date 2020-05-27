@@ -90,17 +90,17 @@
 		
         <h2>${event.name }</h2>
 		<c:choose>
-			<c:when test="${! empty event.pictureURL}">
-						
-				<img src ="${event.pictureURL}">
-					
-			</c:when>
-			<c:otherwise>
-						
-				<img src = "https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
-						
-			</c:otherwise>
-		</c:choose>	
+					<c:when test="${! empty event.pictureURL}">
+						<a href="searchId.do?id=${event.id}">
+							<img src ="${event.pictureURL}">
+						</a>
+					</c:when>
+					<c:otherwise>
+						<a href="searchId.do?id=${event.id}">
+							<img src = "https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
+						</a>
+					</c:otherwise>
+				</c:choose>	
 		<form action = "removeEventFromList.do" method = "GET">
 					<input type = "submit" value = "Remove Event From List">
 					<input type = "hidden" value = "${event.id }" name = "id">
