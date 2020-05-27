@@ -75,6 +75,8 @@
 				<c:forEach items = "${ event.userEvents}" var = "userEvent">
 					<p>${userEvent.user.username}</p>
 				</c:forEach>
+				
+				
 				</td>
 			</tr>
 			<%-- <tr>

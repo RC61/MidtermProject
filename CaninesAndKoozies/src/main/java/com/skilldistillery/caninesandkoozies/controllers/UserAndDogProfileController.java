@@ -1,6 +1,8 @@
 package com.skilldistillery.caninesandkoozies.controllers;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,23 +26,26 @@ public class UserAndDogProfileController {
 	private DogDAOImpl dogDAOImpl;
 	
 	@RequestMapping(path="userUpdatedPage.do")
-	public ModelAndView updateUserPage(HttpSession session, int id) {
+	public ModelAndView updateUserPage(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		User loggedInUser = (User) session.getAttribute("user");
-		User userUpdate = userDAOImpl.findUserById(id);
 		mv.addObject("user", loggedInUser);
-		mv.addObject("user", userUpdate);
 		mv.setViewName("updateUserProfile");
 		return mv;
 	}
 	
 	@RequestMapping(path="updateUser.do")
-	public ModelAndView updateUserInfo(HttpSession session) {
+	public ModelAndView updateUserInfo(HttpSession session, User user, Address address) {
 		ModelAndView mv = new ModelAndView();
 		User loggedInUser = (User) session.getAttribute("user");
-		Address address = loggedInUser.getAddress();
-		User updatedUser = userDAOImpl.updateUser(loggedInUser.getId(), loggedInUser, address);
-		mv.setViewName("redirect:viewYourProfile.do");
+		User updatedUser = userDAOImpl.updateUser(loggedInUser.getId(), user, address);
+		List<Dog> dogs = userDAOImpl.findAllUserDogs(updatedUser.getId());
+		List<Event> events = userDAOImpl.findAllUsersEvents(updatedUser.getId());
+		mv.addObject("dogs",dogs);
+		mv.addObject("events", events);
+		session.setAttribute("user", updatedUser);
+		mv.addObject("user", updatedUser);
+		mv.setViewName("userAndDogProfileView");
 		return mv;
 		
 	}
@@ -154,6 +159,10 @@ public class UserAndDogProfileController {
 		ModelAndView mv = new ModelAndView();
 		User loggedInUser = (User) session.getAttribute("user");
 		userDAOImpl.removeEventFromUserEventList(event.getId(), loggedInUser);
+		List<Dog> dogs = userDAOImpl.findAllUserDogs(loggedInUser.getId());
+		List<Event> events = userDAOImpl.findAllUsersEvents(loggedInUser.getId());
+		mv.addObject("dogs",dogs);
+		mv.addObject("events", events);
 		mv.setViewName("userAndDogProfileView");
 		return mv;
 	}

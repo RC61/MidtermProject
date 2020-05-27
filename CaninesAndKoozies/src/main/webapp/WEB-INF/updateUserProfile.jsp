@@ -39,7 +39,7 @@
 				<td>Password:</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="password" size="30" value = "${user.password }" /></td>
+				<td><input type="password" name="password" size="30" value = "${user.password }" /></td>
 				
 			</tr>
 			<tr>

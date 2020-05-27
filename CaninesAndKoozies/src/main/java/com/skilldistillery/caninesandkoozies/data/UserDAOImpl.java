@@ -55,8 +55,9 @@ public class UserDAOImpl implements UserDAO{
 		
 		updatedUser.setFname(user.getFname());
 		updatedUser.setLname(user.getLname());
-		updatedUser.setAddress(user.getAddress());
+//		updatedUser.setAddress(user.getAddress());
 		updatedUser.setAlcoholPreference(user.getAlcoholPreference());
+		updatedUser.setRelationshipStatus(user.getRelationshipStatus());
 		updatedUser.setEmail(user.getEmail());
 		updatedUser.setUsername(user.getUsername());
 		updatedUser.setPassword(user.getPassword());
