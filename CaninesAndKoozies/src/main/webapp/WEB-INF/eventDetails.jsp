@@ -73,7 +73,9 @@
 			<tr>
 				<td>
 				<c:forEach items = "${ event.userEvents}" var = "userEvent">
-					<p>${userEvent.user.username}</p>
+					
+							<p>${userEvent.user.username}</p>
+						
 				</c:forEach>
 				
 				
@@ -100,6 +102,9 @@
 								<input type = "submit" value = "Submit">
 							</form>
 						</c:when>
+						<c:otherwise>
+							<h4><a href = "home.do">Login</a> or <a href = "register.do">Register</a> to add a comment.</h4>
+						</c:otherwise>
 					</c:choose>
   				</td>
 			</tr>
