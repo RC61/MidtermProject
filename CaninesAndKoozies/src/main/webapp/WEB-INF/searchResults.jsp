@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<h1>Event Search Results:</h1>
+<h1>Event and User Search Results:</h1>
 <br>
 <br>
 <br>
@@ -51,7 +51,7 @@
 				</c:forEach>
 				
 				
-				<h1> look for another event:</h1>
+				<h1> look for another event or user:</h1>
 			<form action = "search.do" method = "GET">
 			<input type = "text" name = "keyword">
 			<input type = "submit" value = "Search Events">
