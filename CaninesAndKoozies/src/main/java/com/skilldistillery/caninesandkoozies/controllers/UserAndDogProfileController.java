@@ -95,7 +95,11 @@ public class UserAndDogProfileController {
 		Dog updatedDog = userDAOImpl.updateDog(dog.getId(), dog);
 		mv.addObject("user", loggedInUser);
 		mv.addObject("dog",updatedDog);
-		mv.setViewName("redirect: userAndDogProfileView.do");
+		List<Dog> dogs = userDAOImpl.findAllUserDogs(loggedInUser.getId());
+		List<Event> events = userDAOImpl.findAllUsersEvents(loggedInUser.getId());
+		mv.addObject("dogs",dogs);
+		mv.addObject("events", events);
+		mv.setViewName("userAndDogProfileView");
 		return mv;
 		
 	}
