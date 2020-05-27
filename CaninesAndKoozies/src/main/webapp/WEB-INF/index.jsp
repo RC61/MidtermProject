@@ -137,5 +137,7 @@
 	</c:otherwise>
 </c:choose> 
 <a href = "about.do">About</a>
+<br>
+<a href = "nightCatNightCap.do">Coming soon to NYC</a>
 </body>
 </html>
