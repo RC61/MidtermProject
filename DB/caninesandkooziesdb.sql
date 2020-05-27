@@ -205,7 +205,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `caninesandkooziesdb`;
 INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (1, '123 Main Street', 'Englewood', 'CO', 80110);
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (2, '678 Venue Lane', 'Denver', 'CO', 80104);
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (2, '701 S Franklin St', 'Denver', 'CO', 80209);
 INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (3, '78 North Littleton Avenue', 'Littleton', 'CO', 80113);
 INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (4, '98 Leper Way', 'Denver', 'CO', 80112);
 INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (5, '767 Skill Distillery Road', 'Greenwood Village', 'CO', 80112);
@@ -275,7 +275,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `caninesandkooziesdb`;
-INSERT INTO `venue` (`id`, `name`, `alcohol_provided`, `picture_url`, `venue_link`, `address_id`) VALUES (1, 'Sample Venue', 1, NULL, NULL, 2);
+INSERT INTO `venue` (`id`, `name`, `alcohol_provided`, `picture_url`, `venue_link`, `address_id`) VALUES (1, 'Washington Park', 0, NULL, 'https://www.denvergov.org/content/denvergov/en/denver-parks-and-recreation/parks.html', 2);
 INSERT INTO `venue` (`id`, `name`, `alcohol_provided`, `picture_url`, `venue_link`, `address_id`) VALUES (2, 'Denver Beer Co', 1, 'https://i.imgur.com/OhmqRiF.png', 'https://denverbeerco.com/', 6);
 INSERT INTO `venue` (`id`, `name`, `alcohol_provided`, `picture_url`, `venue_link`, `address_id`) VALUES (3, 'Bigsby\'s Folly', 1, 'https://i.imgur.com/Cya5ijB.png', 'https://www.bigsbysfolly.com/', 7);
 INSERT INTO `venue` (`id`, `name`, `alcohol_provided`, `picture_url`, `venue_link`, `address_id`) VALUES (4, 'Wellshire Golf Course', 0, 'https://i.imgur.com/lKV4Zv0.jpg', 'https://www.cityofdenvergolf.com/wellshire', 8);
@@ -289,7 +289,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `caninesandkooziesdb`;
-INSERT INTO `event` (`id`, `name`, `event_date_time`, `dog_size_preference`, `single_only_preference`, `picture_url`, `description`, `create_date`, `update_date`, `venue_id`, `creator_id`) VALUES (1, 'Wine and Pup', '2020-06-01 16:00:00', 'small', 1, 'https://i.imgur.com/dw0ZYa3.jpg', 'Drink wine and bring pups', '2020-05-22 12:00:00', NULL, 1, 2);
+INSERT INTO `event` (`id`, `name`, `event_date_time`, `dog_size_preference`, `single_only_preference`, `picture_url`, `description`, `create_date`, `update_date`, `venue_id`, `creator_id`) VALUES (1, 'Wine and Pup', '2020-06-01 16:00:00', 'small', 1, 'https://i.imgur.com/dw0ZYa3.jpg', 'Drink wine and bring pups', '2020-05-22 12:00:00', NULL, 3, 2);
 INSERT INTO `event` (`id`, `name`, `event_date_time`, `dog_size_preference`, `single_only_preference`, `picture_url`, `description`, `create_date`, `update_date`, `venue_id`, `creator_id`) VALUES (2, 'iPupAs', '2020-07-01 17:00:00', 'none', 0, 'https://i.imgur.com/vTI4oDl.jpg', 'Bring your pups (all welcome) and join us in an ipa socialization event! Bring a friend to join in on the fun. There will be small snacks provided in the venue. All riverblend IPAs and well drinks will be 50% off.', '2020-05-22 14:00:00', NULL, 2, 3);
 INSERT INTO `event` (`id`, `name`, `event_date_time`, `dog_size_preference`, `single_only_preference`, `picture_url`, `description`, `create_date`, `update_date`, `venue_id`, `creator_id`) VALUES (3, 'Doggy Labor Day', '2020-09-07 14:00:00', 'none', 0, 'https://i.imgur.com/LzMS8Mu.jpg', 'Labor Day is around the corner and we have a special event for you. Spend some time golfing and sunbathing in the beautiful Wellshire Golf Course. Bring Your Own Drinks and Bring Your Own Dogs and we will bring the snacks.', '2020-05-22 14:06:00', NULL, 4, 4);
 INSERT INTO `event` (`id`, `name`, `event_date_time`, `dog_size_preference`, `single_only_preference`, `picture_url`, `description`, `create_date`, `update_date`, `venue_id`, `creator_id`) VALUES (4, 'Memorial Day And Dogs', '2020-05-25 13:00:00', 'none', 0, 'https://i.imgur.com/9fQcQrZ.jpg', 'Honor those who have served our country in our annual barbeque at the wonderful Wellshire Golf Course. This will be BYOB only and the barbeque food and snacks will keep coming all afternoon. We will pause food services at 18:00 as we will have a special firework show starting at approximately 20:30. During this break of time, we ask that you bring your doggos back home so they are not around the fire works as we do not want to scare them.  ', '2020-04-01 12:00:00', NULL, 4, 3);
