@@ -17,22 +17,11 @@
 <c:choose>
 	<c:when test ="${! empty user}">
 		<h3> Hello ${user.username}</h3>
-		${user.fname}
 		
-		<form action = "search.do" method = "GET">
-			<input type = "text" name = "keyword">
-			<input type = "submit" value = "submit">
+		<form action = "viewAllEvents.do" method = "GET">
+			<input type = "submit" value = "Browse Events">
 		</form>
 		
-		<form action = "createEvent.do" method = "GET">
-			<input type = "submit" value = "Create event">
-			
-		</form>
-		
-		<form action = "logout.do" method = "GET">
-			<input type = "submit" value = "Logout">
-			
-		</form>
 		<h3>You are attending these events!</h3>
 		<c:choose>
 		<c:when test = "${! empty events }">

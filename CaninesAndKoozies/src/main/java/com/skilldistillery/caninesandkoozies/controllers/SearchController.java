@@ -63,5 +63,14 @@ public class SearchController {
 		mv.setViewName("viewTheirProfile");
 		return mv;
 	}
+	
+	@RequestMapping(path = "viewSinglesEvents.do")
+	public ModelAndView singlesEvents() {
+		ModelAndView mv = new ModelAndView();
+		List<Event> singlesEvents = eventDAOImpl.eventsBySinglesOnlyPreference(true);
+		mv.addObject("events", singlesEvents);
+		mv.setViewName("browseEvents");
+		return mv;
+	}
 
 }
