@@ -42,4 +42,11 @@ public class HomeController {
 		mv.setViewName("index");
 		return mv;
 	}
+	
+	@RequestMapping(path= "nightCapNightCap.do")
+	private ModelAndView ncnc() {
+	ModelAndView mv = new ModelAndView();
+	mv.setViewName("nightCatNightCap");
+	return mv;
+}
 }
