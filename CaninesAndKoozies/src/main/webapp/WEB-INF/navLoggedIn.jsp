@@ -15,7 +15,7 @@
 
 		<div class="float-left">
 			<a class="nav-link" href="home.do">
-				<button type="button" class="btn btn-secondary">Home</button>
+				<button type="button" class="btn btn-outline-light">Home</button>
 			</a>
 		</div>
 		<div>
@@ -24,14 +24,14 @@
 					class="nav-link dropdown-toggle" role="button"
 					id="navbarDropdownMenuLink" data-toggle="dropdown"
 					aria-haspopup="true" aria-expanded="false">
-						<button type="button" class="btn btn-secondary">${user.username }</button>
+						<button type="button" class="btn btn-outline-light">${user.username }</button>
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="viewYourProfile.do">View Profile</a>
-							<a class="dropdown-item" href="userUpdatedPage.do">Update Profile</a> 
-							<a class="dropdown-item" href="https://www.youtube.com/watch?v=9sXlaBa75Iw">Easter Egg</a>
-						<a class="dropdown-item" href="createEvent.do">Create Event</a> 
-						<a class="dropdown-item" href="logout.do">Logout</a>
+						<a class="dropdown-item btn btn-primary" href="viewYourProfile.do">View Profile</a>
+							<a class="dropdown-item btn btn-primary" href="userUpdatedPage.do">Update Profile</a> 
+							<a class="dropdown-item btn btn-primary" href="https://www.youtube.com/watch?v=9sXlaBa75Iw">Easter Egg</a>
+						<a class="dropdown-item btn btn-primary" href="createEvent.do">Create Event</a> 
+						<a class="dropdown-item btn btn-outline-warning" href="logout.do">Logout</a>
       					
 
 					</div></li>
@@ -45,7 +45,7 @@
 		<form class="form-inline" action = "search.do" method = "GET">
 			<input class="form-control mr-sm-2" type="search" name="keyword"
 				placeholder="Search" aria-label="Search">
-			<button class="btn btn-success ml-auto mr-1" type="submit">Search</button>
+			<button class="btn btn-outline-success" type="submit">Search</button>
 		</form>
 	</div>
 
