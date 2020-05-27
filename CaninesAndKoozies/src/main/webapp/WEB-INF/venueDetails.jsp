@@ -20,6 +20,8 @@ ${venue.name }
 	</c:otherwise>
 </c:choose>
 <img src="${venue.pictureURL }">
-${venue.venueLink }
+
+<a href = "${venue.venueLink }">Visit ${venue.name}</a>
+
 </body>
 </html>
