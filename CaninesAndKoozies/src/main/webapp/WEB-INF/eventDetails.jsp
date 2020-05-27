@@ -23,6 +23,12 @@
 				<td>${event.name }</td>
 			</tr>
 			<tr>
+				<td>Venue:</td>
+			</tr>
+			<tr>
+				<td><a href="searchVenueId.do?id=${event.venue.id}" >${event.venue.name }</a></td>
+			</tr>
+			<tr>
 				<td>Event Date and Time:</td>
 			</tr>
 			<tr>

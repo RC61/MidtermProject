@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.caninesandkoozies.data.DogDAOImpl;
 import com.skilldistillery.caninesandkoozies.data.UserDAOImpl;
+import com.skilldistillery.caninesandkoozies.entities.Address;
 import com.skilldistillery.caninesandkoozies.entities.Dog;
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
@@ -34,13 +35,12 @@ public class UserAndDogProfileController {
 	}
 	
 	@RequestMapping(path="updateUser.do")
-	public ModelAndView updateUserInfo(HttpSession session, User user) {
+	public ModelAndView updateUserInfo(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		User loggedInUser = (User) session.getAttribute("user");
-		User updatedUser = userDAOImpl.updateUser(user.getId(), user);
-		mv.addObject("user", loggedInUser);
-		mv.addObject("user", updatedUser);
-		mv.setViewName("userAndDogProfileView");
+		Address address = loggedInUser.getAddress();
+		User updatedUser = userDAOImpl.updateUser(loggedInUser.getId(), loggedInUser, address);
+		mv.setViewName("redirect:viewYourProfile.do");
 		return mv;
 		
 	}
@@ -49,9 +49,7 @@ public class UserAndDogProfileController {
 	public ModelAndView deleteUserConfirm(HttpSession session, int id) {
 		ModelAndView mv = new ModelAndView();
 		User loggedInUser = (User) session.getAttribute("user");
-//		User userDelete = userDAOImpl.findUserById(id);
 		mv.addObject("user", loggedInUser);
-//		mv.addObject("user", userDelete);
 		mv.setViewName("deleteUserConfirmationPage");
 		return mv;
 	}

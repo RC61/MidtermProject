@@ -121,5 +121,14 @@ public class EventController {
 		return mv;
 
 	}
+	
+	@RequestMapping(path = "searchVenueId.do")
+	public ModelAndView findVenue(int id) {
+		ModelAndView mv = new ModelAndView();
+		Venue venue = venueDAOImpl.findVenueById(id);
+		mv.addObject("venue", venue);
+		mv.setViewName("venueDetails");
+		return mv;
+	}
 
 }

@@ -44,7 +44,7 @@
 			<h2>Venue: ${event.venue.name}</h2> 
 					<h2>Dog Size Preference: ${event.dogSizePreference}</h2>
 					<img src="${event.pictureURL}">
-	<form action="eventDetails.do" method=GET>
+			<form action="searchId.do" method=GET>
 						<input type="submit" value="View Full Event Details"> <input
 							type="hidden" name="id" value="${event.id}">
 					</form>
