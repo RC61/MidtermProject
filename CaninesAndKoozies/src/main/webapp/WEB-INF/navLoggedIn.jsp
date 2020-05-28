@@ -19,6 +19,21 @@
 			</a>
 		</div>
 		
+		<c:choose>
+		
+		<c:when test = "${!empty user}">
+		</c:when>
+			<c:otherwise>
+			<div class="float-left">
+			<a class="nav-link" href="register.do">
+			<button type="button" class="btn btn-outline-light">Register</button>
+			</a>
+			</div>
+			</c:otherwise>
+		</c:choose>
+		
+		
+		
 		
 		<c:choose>
 		
@@ -47,8 +62,26 @@
 		</div>
 		</c:when>
 			<c:otherwise>
-						No events at this time. Try creating one!
-					</c:otherwise>
+			
+			<div>
+			<ul class="navbar-nav">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" role="button"
+					id="navbarDropdownMenuLink" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+						<button type="button" class="btn btn-outline-light">Login</button>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<form action="login.do" method="POST">
+					Username: <input type="text" name="username" size="18" required> <br>
+					Password: <input type="password" name="password" size="18" required> <br>
+					<input type="submit" value="Login">
+					</form>
+					</div></li>
+			</ul>
+			</div>
+						
+			</c:otherwise>
 		</c:choose>
 
 	</div>
@@ -57,7 +90,7 @@
 		<form class="form-inline" action = "search.do" method = "GET">
 			<input class="form-control mr-sm-2" type="search" name="keyword"
 				placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success" type="submit">Search</button>
+			<button class="btn btn-outline-warning" type="submit">Search</button>
 		</form>
 	</div>
 
