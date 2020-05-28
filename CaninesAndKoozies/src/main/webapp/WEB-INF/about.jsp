@@ -89,13 +89,9 @@
 				<div class="container">
 					<h2>Rory Coleman</h2>
 					<p class="title">Repo Owner</p>
-					<p>Rory followed in his grandfather’s footsteps and joined the
-						Army after HighSchool where he served 8 years as a combat medic.
-						After leaving active duty and entering into the reserves, Rory
-						obtained his Bachelors while playing 2 years of Division 1
-						football at UCF. Upon finishing his bachelor’s degree, he spent
-						the next 2 years working for a congressional committee in
-						Washington D.C. Rory is now learning to code at Skill Distillery.</p>
+					<p>Rory worked in Washington D.C. before attending Skill Distillery.
+					 Somewhat of an adrenaline junky, Rory enjoys contact sports and two-way petting zoos.
+					 He likes Dogs and thinks Cats are ok too. He has never watched Game of Thrones. </p>
 					<p>
 
 
