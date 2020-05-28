@@ -9,6 +9,7 @@
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
+<jsp:include page="bootstrapHead.jsp" />
 
 <div class="row">
   <div class="column">

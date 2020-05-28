@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Remove ${dog.name} From Profile</title>
 <%@ include file="navLoggedIn.jsp" %>
+<jsp:include page="bootstrapHead.jsp" />
 
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/deleteDogAndConfirmation.css">
