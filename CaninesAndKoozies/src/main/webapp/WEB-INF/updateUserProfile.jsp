@@ -8,12 +8,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Update ${user.username }'s Profile</title>
+
+<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/updateUserProfile.css">
+
+
+<link
+	href="https://fonts.googleapis.com/css2?family=Sniglet&display=swap"
+	rel="stylesheet">
+
+
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
 <jsp:include page="bootstrapHead.jsp" />
+<div class="page">
 <form action ="updateUser.do" method="POST">
 <input type = "hidden" value = "${user.id }" name = "id">
+<div class="tableFont">
 <table>
 			<tr>
 				<td>First Name:</td>
@@ -159,8 +171,9 @@
 			</tr>
 
 			</table>
+			</div>
 			<input type="submit" class="button" value="Submit" />
 		</form>
-
+</div>
 </body>
 </html>
