@@ -11,6 +11,7 @@
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
+<jsp:include page="bootstrapHead.jsp" />
 ${venue.name }
 <c:choose>
 	<c:when test = "${venue.alcoholProvided == true }">

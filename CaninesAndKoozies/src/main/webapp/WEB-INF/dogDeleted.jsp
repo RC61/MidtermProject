@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Confirmation</title>
 <%@ include file="navLoggedIn.jsp" %>
+<jsp:include page="bootstrapHead.jsp" />
 
 
 <link type="text/css" rel="stylesheet"

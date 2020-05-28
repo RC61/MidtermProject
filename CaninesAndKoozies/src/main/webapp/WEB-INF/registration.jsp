@@ -7,6 +7,7 @@
 <title>Registration</title>
 
 <%@ include file="navLoggedIn.jsp"%>
+<jsp:include page="bootstrapHead.jsp" />
 
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/registration.css">

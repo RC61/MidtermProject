@@ -22,6 +22,7 @@
 </head>
 <body>
 	<%@ include file="navLoggedIn.jsp"%>
+	<jsp:include page="bootstrapHead.jsp" />
 	<!-- <h1>Our Vision</h1>
 
 	<p> A website for dog and alcohol enthusiasts to organize and attend events. 
