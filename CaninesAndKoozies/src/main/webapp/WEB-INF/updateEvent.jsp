@@ -11,6 +11,7 @@
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
+<jsp:include page="bootstrapHead.jsp" />
 <form action ="forwardEventForUpdate.do" method="POST">
 	
 		<input type = "hidden" value = "${event.id }" name = "id">

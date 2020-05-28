@@ -11,6 +11,7 @@
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
+<jsp:include page="bootstrapHead.jsp" />
 <h1>Event and User Search Results:</h1>
 <br>
 <br>

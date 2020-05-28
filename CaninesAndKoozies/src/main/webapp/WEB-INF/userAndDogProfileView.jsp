@@ -10,6 +10,7 @@
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
+<jsp:include page="bootstrapHead.jsp" />
 <h1>woo</h1>
 
 <div class="row">

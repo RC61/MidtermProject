@@ -11,6 +11,7 @@
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
+<jsp:include page="bootstrapHead.jsp" />
 <form action ="forwardEventForCreation.do" method="POST">
 
 		<table>

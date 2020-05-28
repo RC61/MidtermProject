@@ -8,6 +8,7 @@
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
+<jsp:include page="bootstrapHead.jsp" />
 <h1>Welcome ${user.fname } and ${dog.name }!</h1>
 	<c:choose>
 		<c:when test="${! empty user}">
