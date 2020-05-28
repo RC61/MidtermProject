@@ -10,7 +10,7 @@
 	href="//netdna.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
 <nav class="navbar sticky-top navbar-toggleable-md "
-	style="background-color: #38228c;">
+	style="background-color: #6B7A8F;">
 	<div>
 
 		<div class="float-left">
