@@ -7,13 +7,9 @@ body, html {
 	background-color: #DCC7AA;
 }
 
-h1 {
+h3, h4 {
 	font-family: 'Sniglet', cursive;
 	color: #F7882F;
-}
-
-.labelFont {
-	font-family: 'Sniglet', cursive;
 }
 
 .footer {
@@ -34,5 +30,5 @@ h1 {
 
 .button {
 	font-family: 'Sniglet', cursive;
-	 margin: 20px 0;
+	 margin: 25px 20;
 }
