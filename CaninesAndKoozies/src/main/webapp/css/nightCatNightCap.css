@@ -32,23 +32,37 @@ h4 {
 }
 
 .lezlie {
+	float: right; 
+	width: 320px; 
+	height: 430px;
 	position: absolute;
-	top: 60px;
-	right: 20px;
+	top: 65px;
+	right: 0px;
 	z-index: -1;
 }
 
 .bubba {
+	float: left; 
+	width: 370px; 
+	height: 460px;
 	position: absolute;
-	top: 20px;
+	top: 50px;
 	left: 0px;
+	z-index: -1;
 }
 
 .button {
+	font-family: futura;
+	position:absolute; 
+   	margin-left:37%;   
+   	width:300px;
+   	bottom:10px;
   transition-duration: 0.4s;
+  background-color: #fdfd96;
+  color: #40E0D0;
 }
 
 .button:hover {
-  background-color: #4CAF50; 
-  color: white;
+  background-color: #fdfd96; 
+  color: #191970;
 }
