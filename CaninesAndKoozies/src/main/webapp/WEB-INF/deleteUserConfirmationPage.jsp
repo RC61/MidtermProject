@@ -10,7 +10,7 @@
 <jsp:include page="bootstrapHead.jsp" />
 
 <link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/createNewDogPage.css">
+	href="${pageContext.request.contextPath}/css/deleteUserAndConfirmation.css">
 
 <!--Title  -->
 <link
@@ -29,6 +29,8 @@
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
+
+<div class = "page">
 <h3>${user.username } Are you sure you want to delete your profile?</h3>
 
 <form action ="deleteUser.do" method="POST">
@@ -37,7 +39,7 @@
 </form>
 
 <form action ="home.do" method="POST">
-<input type="submit" class="button" value="Nevermind take me back home" />
+<input type="submit" class="button" value="Nevermind, take me back home" />
 </form>
 
 
