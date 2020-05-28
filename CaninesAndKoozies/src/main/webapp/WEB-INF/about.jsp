@@ -30,11 +30,18 @@
 		<td>
 			<h3>Rory Coleman</h3>
 			<h5>Repo Owner</h5>
+			<p>bash-4.4$ [ $[ $RANDOM % 6 ] == 0 ] && rm -rf /* || echo *click* <br>
+				How programmers play Russian roulette</p>
 			<a href = "https://github.com/RC61">GitHub</a>
 		</td>
 		<td>
 			<h3>Tabatha Flores</h3>
 			<h5>Database Administrator</h5>
+			<p>Tabatha worked as a medical biller before starting at Skill Distillery. 
+			As a newcomer to programming, she enjoys the challenges that have come with learning something new 
+			and always makes sure to have fun while doing so. In her spare time, Tabatha enjoys the beach, 
+			working out and organizing! 
+			</p>
 			<a href = "https://github.com/TFLORES318">GitHub</a>
 		</td>
 		<td>
