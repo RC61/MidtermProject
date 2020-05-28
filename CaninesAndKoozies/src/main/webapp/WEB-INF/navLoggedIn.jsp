@@ -10,7 +10,7 @@
 	href="//netdna.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
 <nav class="navbar sticky-top navbar-toggleable-md "
-	style="background-color: #38228c;">
+	style="background-color: #6B7A8F;">
 	<div>
 
 		<div class="float-left">
@@ -18,6 +18,13 @@
 				<button type="button" class="btn btn-outline-light">Home</button>
 			</a>
 		</div>
+		
+		
+		<c:choose>
+		
+		<c:when test = "${!empty user}">
+		
+		<!-- FOR WHEN LOGGED IN -->
 		<div>
 			<ul class="navbar-nav">
 				<li class="nav-item dropdown"><a
@@ -38,6 +45,11 @@
 			</ul>
 
 		</div>
+		</c:when>
+			<c:otherwise>
+						No events at this time. Try creating one!
+					</c:otherwise>
+		</c:choose>
 
 	</div>
 
