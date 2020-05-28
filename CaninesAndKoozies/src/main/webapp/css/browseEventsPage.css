@@ -3,14 +3,6 @@ body, html {
 	background-color: #DCC7AA
 }
 
-.userNotLoggedIn {
-	background-color: #DCC7AA
-}
-
-.userLoggedIn {
-	background-color: #DCC7AA
-}
-
 /* The hero image */
 .hero-image {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -38,27 +30,22 @@ body, html {
 	color: #F7882F;
 }
 
-.headerEvents>h3, h4 {
-	font-family: 'Sniglet', cursive;
-	color: #F7882F;
+.browseEvents{
+	background-color: #DCC7AA
 }
 
-h3, h4 {
+.button {
 	font-family: 'Sniglet', cursive;
-	color: #F7882F;
-}
-
-.headerEvents {
-	margin: 30px auto 20px;
-	vertical-align: middle;
-	text-align: center;
 }
 
 img {
+
 	width: 200px;
 	height: 200px;
 	object-fit: cover;
+	border-radius: 8px;
 }
+
 
 .footer {
 	left: 0;
@@ -73,8 +60,4 @@ img {
 	color: black;
 	margin: 30px 0 0px;
 	margin: 0 1em;
-}
-
-.headerEvents>.alignEvents {
-	text-align: center;
 }
