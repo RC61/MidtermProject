@@ -34,82 +34,93 @@
 		</div>
 	</div>
 
+	<!--LOGGED IN USER-->
+
 
 	<c:choose>
 		<c:when test="${! empty user}">
-			<h3>Hello ${user.username}</h3>
+			<div class="userLoggedIn">
+				<h3>Hello ${user.username}</h3>
 
-			<form action="viewAllEvents.do" method="GET">
-				<input type="submit" value="Browse Events">
-			</form>
+				<form action="viewAllEvents.do" method="GET">
+					<input type="submit" value="Browse Events">
+				</form>
 
-			<h3>You are attending these events!</h3>
-			<c:choose>
-				<c:when test="${! empty events }">
+				<h3>You are attending these events!</h3>
+				<c:choose>
 
-					<c:forEach var="event" items="${events}">
-						<%-- <h3>${event.name}</h3> --%>
+					<c:when test="${! empty events }">
+						<div class="container">
+							<div class="row">
+								<c:forEach var="event" items="${events}">
+									<%-- <h3>${event.name}</h3> --%>
+									<div class="col-sm">
+										<c:choose>
+											<c:when test="${! empty event.pictureURL}">
+												<a href="searchId.do?id=${event.id}"> <img
+													src="${event.pictureURL}">
+												</a>
+											</c:when>
+											<c:otherwise>
+												<a href="searchId.do?id=${event.id}"> <img
+													src="https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
+												</a>
+											</c:otherwise>
+										</c:choose>
+										<h3>${event.name}</h3>
+									</div>
+								</c:forEach>
+							</div>
+						</div>
+					</c:when>
 
-						<c:choose>
-							<c:when test="${! empty event.pictureURL}">
-								<a href="searchId.do?id=${event.id}"> <img
-									src="${event.pictureURL}">
-								</a>
-							</c:when>
-							<c:otherwise>
-								<a href="searchId.do?id=${event.id}"> <img
-									src="https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
-								</a>
-							</c:otherwise>
-						</c:choose>
-						<h3>${event.name}</h3>
-					</c:forEach>
-
-				</c:when>
-
-				<c:otherwise>
-					<h4>
-						You're not attending any events; try <a href="viewAllEvents.do">browsing</a>
-						events others have made!
-					</h4>
-				</c:otherwise>
-
-
-
-			</c:choose>
-			<h4>You are hosting these events:</h4>
-			<c:choose>
-				<c:when test="${! empty eventsCreated }">
-
-					<c:forEach var="event" items="${eventsCreated}">
-						<h3>${event.name}</h3>
-
-						<c:choose>
-							<c:when test="${! empty event.pictureURL}">
-								<a href="searchId.do?id=${event.id}"> <img
-									src="${event.pictureURL}">
-								</a>
-							</c:when>
-							<c:otherwise>
-								<a href="searchId.do?id=${event.id}"> <img
-									src="https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
-								</a>
-							</c:otherwise>
-						</c:choose>
-
-					</c:forEach>
-
-				</c:when>
-				<c:otherwise>
-					<h4>
-						You're not hosting any events yet; try <a href="createEvent.do">making
-							one!</a>
-					</h4>
-				</c:otherwise>
-			</c:choose>
+					<c:otherwise>
+						<h4>
+							You're not attending any events; try <a href="viewAllEvents.do">browsing</a>
+							events others have made!
+						</h4>
+					</c:otherwise>
 
 
-			<%-- </c:choose> --%>
+
+				</c:choose>
+				<h4>You are hosting these events:</h4>
+				<c:choose>
+					<c:when test="${! empty eventsCreated }">
+						<div class="container">
+							<div class="row">
+								<c:forEach var="event" items="${eventsCreated}">
+									<div class="col-sm">
+
+										<c:choose>
+											<c:when test="${! empty event.pictureURL}">
+												<a href="searchId.do?id=${event.id}"> <img
+													src="${event.pictureURL}">
+												</a>
+											</c:when>
+											<c:otherwise>
+												<a href="searchId.do?id=${event.id}"> <img
+													src="https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
+												</a>
+											</c:otherwise>
+										</c:choose>
+										<h3>${event.name}</h3>
+									</div>
+								</c:forEach>
+							</div>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<h4>
+							You're not hosting any events yet; try <a href="createEvent.do">making
+								one!</a>
+						</h4>
+					</c:otherwise>
+				</c:choose>
+
+
+				<%-- </c:choose> --%>
+			</div>
 		</c:when>
 
 		<c:otherwise>
@@ -133,30 +144,35 @@
 
 				<c:choose>
 					<c:when test="${! empty events }">
-							<h3>Events</h3>
+						<h3>Events</h3>
 
-							<c:forEach var="event" items="${events}">
+						<div class="container">
+							<div class="row">
+								<c:forEach var="event" items="${events}">
+									<div class="col-sm">
 
 
 
-						
-								<c:choose>
-									<c:when test="${! empty event.pictureURL}">
-										<a class="headerEvents" href="searchId.do?id=${event.id}"> 
-										<img
-											src="${event.pictureURL}" />
-										</a>
-									</c:when>
-									<c:otherwise>
-										<a class="headerEvents" href="searchId.do?id=${event.id}"> <img
-											src="https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg" />
-										</a>
-									</c:otherwise>
-								</c:choose>
-								<%-- <h6>${event.name}</h6> --%>
+										<c:choose>
+											<c:when test="${! empty event.pictureURL}">
+												<a class="headerEvents" href="searchId.do?id=${event.id}">
+													<img src="${event.pictureURL}" />
+												</a>
+											</c:when>
+											<c:otherwise>
+												<a class="headerEvents" href="searchId.do?id=${event.id}">
+													<img
+													src="https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg" />
+												</a>
+											</c:otherwise>
+										</c:choose>
+										<%-- <h6>${event.name}</h6> --%>
 
-							</c:forEach>
-						
+									</div>
+
+								</c:forEach>
+							</div>
+						</div>
 					</c:when>
 
 					<c:otherwise>
@@ -164,15 +180,15 @@
 					</c:otherwise>
 
 				</c:choose>
-				</div>
+			</div>
 		</c:otherwise>
 	</c:choose>
 	<div class="footer">
-	<div class = "footerText">
-	<a class = "footerText" href="about.do">About Us</a>
-	<a class = "footerText" href="nightCatNightCap.do">Coming soon to NYC</a>
-	<jsp:include page="bootstrapFoot.jsp" />
-	</div>
+		<div class="footerText">
+			<a class="footerText" href="about.do">About Us</a> <a
+				class="footerText" href="nightCatNightCap.do">Coming soon to NYC</a>
+			<jsp:include page="bootstrapFoot.jsp" />
+		</div>
 	</div>
 </body>
 </html>

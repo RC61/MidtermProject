@@ -7,6 +7,10 @@ body, html{
 	background-color: #DCC7AA
 }
 
+ .userLoggedIn {
+ background-color: #DCC7AA
+ }
+
 /* The hero image */
 .hero-image {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -72,6 +76,10 @@ img {
 	color: black;
 	margin: 30px 0 0px;
 	margin: 0 1em;
+}
+
+.headerEvents > .alignEvents {
+	text-align: center;
 }
 
 
