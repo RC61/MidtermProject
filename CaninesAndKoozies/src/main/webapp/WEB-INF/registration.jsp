@@ -21,7 +21,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Sniglet&display=swap"
 	rel="stylesheet">
-
+<jsp:include page="bootstrapHead.jsp" />
 
 </head>
 <body>
