@@ -38,6 +38,12 @@ body, html {
 	font-family: 'Sniglet', cursive;
 }
 
+h6 {
+	text-align: center;
+	font-family: 'Sniglet', cursive;
+	color: #F7882F;
+}
+
 img {
 
 	width: 200px;
