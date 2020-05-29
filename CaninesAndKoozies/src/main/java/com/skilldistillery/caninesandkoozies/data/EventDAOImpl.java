@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.caninesandkoozies.entities.Comment;
 import com.skilldistillery.caninesandkoozies.entities.Event;
 import com.skilldistillery.caninesandkoozies.entities.User;
+import com.skilldistillery.caninesandkoozies.entities.UserEvent;
 import com.skilldistillery.caninesandkoozies.entities.Venue;
 
 @Service
@@ -95,6 +96,14 @@ public class EventDAOImpl implements EventDAO {
 
 	public boolean destroy(int id) {
 		Event event = em.find(Event.class, id);
+		
+		List<UserEvent> userEvents = event.getUserEvents();
+		if(userEvents != null) {
+			for (UserEvent userEvent : userEvents) {
+				em.remove(userEvent);
+				em.flush();
+			}
+		}
 		
 		List<Comment> comments = event.getComments();
 		if (comments != null) {
