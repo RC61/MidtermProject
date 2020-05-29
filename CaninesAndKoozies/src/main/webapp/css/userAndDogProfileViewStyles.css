@@ -1,0 +1,61 @@
+body, html {
+	height: 110%;
+	background-color: #DCC7AA
+}
+
+.page {
+	
+	min-height: 50%;
+	color: #F7882F;
+	font-family: 'Sniglet', cursive;
+	background-color: #DCC7AA
+}
+
+
+
+img {
+	
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+.button {
+	margin: 5px;
+	color: #6B7A8F;
+	background-color: transparent;
+	border: 2px solid #6B7A8F;
+	border-radius: 8px;
+	transition-duration: 0.4s;
+}
+.button:hover{
+	margin: 5px;
+	color: white;
+	background-color: #6B7A8F;
+	border: 2px solid white;
+	border-radius: 8px;
+}
+
+.footer {
+	
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #6B7A8F;
+	text-align: center;
+}
+
+.footerText {
+	font-family: 'Sniglet', cursive;
+	color: black;
+	margin: 30px 0 0px;
+	margin: 0 1em;
+}
+
+.column {
+	  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}

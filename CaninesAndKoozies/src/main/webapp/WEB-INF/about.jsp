@@ -114,8 +114,7 @@
 					<p>Tabatha worked as a medical biller before starting at Skill
 						Distillery. As a newcomer to programming, she enjoys the
 						challenges that have come with learning something new and always
-						makes sure to have fun while doing so. In her spare time, Tabatha
-						enjoys the beach and working out.</p>
+						makes sure to have fun while doing so.</p>
 					<p>
 						<a href="https://github.com/TFLORES318">
 							<button class="button">GitHub</button>
