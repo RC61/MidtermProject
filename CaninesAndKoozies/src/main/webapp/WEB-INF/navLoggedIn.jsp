@@ -45,7 +45,6 @@
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<a class="dropdown-item btn btn-primary" href="viewYourProfile.do">View Profile</a>
 							<a class="dropdown-item btn btn-primary" href="userUpdatedPage.do">Update Profile</a> 
-							<a class="dropdown-item btn btn-primary" href="#">Easter Egg</a>
 						<a class="dropdown-item btn btn-primary" href="createEvent.do">Create Event</a> 
 						<a class="dropdown-item btn btn-outline-warning" href="logout.do">Logout</a>
       					
