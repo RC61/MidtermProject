@@ -1,13 +1,17 @@
 @charset "UTF-8";
 
-h3, h4 {
-	font-family: 'Sniglet', cursive;
-	color: #F7882F;
+body, html{
+min-height: auto;
+background-color: #DCC7AA
+}
+.results1{
+height: auto;
+background-color: #DCC7AA
 }
 
-body, html{
-	height: auto;
-	background-color: #DCC7AA
+h1, h2, h3, h4 {
+	font-family: 'Sniglet', cursive;
+	color: #F7882F;
 }
 
 .footer {
@@ -16,7 +20,7 @@ body, html{
    width: 100%;
    background-color: #6B7A8F;
    text-align: center;
-   position: absolute;
+   /* position: absolute; */
 }
 
 .footerText {
@@ -26,21 +30,27 @@ body, html{
 	margin: 0 1em;
 }
 
-.form1{
-	height: auto;
-		background-color: #DCC7AA
-}
-
-.button {
+.pic{
+	border: 1px solid #6B7A8F;
+  	padding: 5px; 
+  	width: 500;
+  	height: 300;
+	object-fit: cover;
+  }
+  
+  .button {
 	color: #6B7A8F;
 	background-color: transparent;
 	border: 2px solid #6B7A8F;
 	border-radius: 8px;
 	transition-duration: 0.4s;
+	margin: 5px;
 }
 .button:hover{
 	color: white;
 	background-color: #6B7A8F;
 	border: 2px solid white;
 	border-radius: 8px;
+	margin: 5px;
 }
+
