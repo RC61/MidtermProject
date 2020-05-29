@@ -25,8 +25,10 @@
 <jsp:include page= "bootstrapHead.jsp"/>
 <%@ include file="navLoggedIn.jsp" %>
 
+<div class = "all-details">
 
 <input type = "hidden" value = "${event.createDate}">
+
 
 <div class = "container-fluid">
 
@@ -40,7 +42,7 @@
 				<td ><h4>Venue:</h4></td>
 			</tr>
 			<tr>
-				<td><a href="searchVenueId.do?id=${event.venue.id}" >${event.venue.name }</a></td>
+				<td><a target="_blank" href="searchVenueId.do?id=${event.venue.id}" >${event.venue.name }</a></td>
 			</tr>
 			<tr>
 				<td ><h4>Event Date and Time:</h4></td>
@@ -95,36 +97,46 @@
 			</table>
 			
 			<div class="row">
-			
+			<c:choose>
+				<c:when test = "${ !empty event.userEvents}">
 				<c:forEach items = "${ event.userEvents}" var = "userEvent">
 					<div class="column">
 							<a href="viewTheirProfile.do?id=${userEvent.user.id}"><img src = "${userEvent.user.userPicture}" class="img-user"></a>
 					</div>
 				</c:forEach>
 				
-				
-			
+				</c:when>
+				<c:otherwise>
+					No attendees yet
+				</c:otherwise>
+			</c:choose>
 			</div>
 			
 			</div>
 			<div class="col-md-6">
 			
+			
 				<c:choose>
 					<c:when test="${! empty event.pictureURL}">
-			
-						<img src = "${event.pictureURL }" width = "700" height = "350"/>
-		
+					
+						<img class = "event-pic" src = "${event.pictureURL }" width = "500" height = "300"/>
+					
 					</c:when>
 					<c:otherwise>
-						<img src = "https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg" width = "700" height = "350">
+						<img src = "https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg" width = "500" height = "300">
 					</c:otherwise>
 				</c:choose>
 				<h4>Comments</h4>
-			
+					<c:choose>
+					<c:when test="${!empty event.comments }">
 					<c:forEach items = "${event.comments }" var = "comment">
 						<p>${comment.user.username} says: ${comment.description}</p>
 					</c:forEach>
-					
+					</c:when>
+					<c:otherwise>
+						No comments yet
+					</c:otherwise>
+					</c:choose>
 					<c:choose>
 						<c:when test="${! empty user }">
 							<form action = "addComment.do" method = "POST" >
@@ -139,20 +151,9 @@
 						</c:otherwise>
 					</c:choose>
   			
+		</div>
 		
-		
-	<%-- 	<c:choose>
-			<c:when test="${! empty event.pictureURL}">
-						
-				<img src ="${userEvent.event.pictureURL}">
-					
-			</c:when>
-			<c:otherwise>
-						
-				<img src = "https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
-						
-			</c:otherwise>
-		</c:choose> --%>	 
+	
 		
 		</div>
 		</div>
@@ -180,6 +181,7 @@
 			</c:when>
 		</c:choose>
 	</div>
+	
 		
 		<div class="footer">
 			<div class="footerText">
@@ -188,6 +190,5 @@
 				<jsp:include page="bootstrapFoot.jsp" />
 			</div>
 		</div>
-	<%@ include file="bootstrapFoot.jsp" %>	
 </body>
 </html>
