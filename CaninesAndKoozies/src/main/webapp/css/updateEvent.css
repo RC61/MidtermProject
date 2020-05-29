@@ -1,0 +1,26 @@
+body, html {
+
+	background-color: #DCC7AA;
+}
+
+.pageContainer {
+	background-color: #DCC7AA;
+	font-family: 'Sniglet', cursive;
+	
+}
+
+.footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #6B7A8F;
+	text-align: center;
+}
+
+.footerText {
+	font-family: 'Sniglet', cursive;
+	color: black;
+	margin: 30px 0 0px;
+	margin: 0 1em;
+}
