@@ -43,7 +43,9 @@
 				<h3>Hello ${user.username}</h3>
 
 				<form action="viewAllEvents.do" method="GET">
+
 					<input class = "button" type="submit" value="Browse Events">
+
 				</form>
 
 				<h3>You are attending these events!</h3>
