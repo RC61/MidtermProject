@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body, html{
-height: 110%;
+min-height: 50%;
 background-color: #DCC7AA
 }
 
@@ -20,6 +20,7 @@ h3, h4 {
 }
 
 .footer {
+	position: absolute;
    left: 0;
    bottom: 0;
    width: 100%;
