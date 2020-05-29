@@ -13,15 +13,12 @@
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  border-radius: 8px;
+  border-radius: 25px;
 
 }
 .column2{
 
 	  display: block;
-
-  margin-left: 50px;
-  margin-right: 200px;
 
 	
 }
@@ -71,8 +68,7 @@ h3, h4 {
 .card1{
 	background-color: #DCC7AA;
 	  display: block;
-  margin-left: 50px;
-  margin-right: 200px;
+
 
 
 	
