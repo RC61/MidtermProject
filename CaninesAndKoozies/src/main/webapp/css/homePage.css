@@ -5,6 +5,7 @@ body, html {
 
 .dehWholeThing{
 	height: auto;
+	bottom-padding: 24px;
 }
 
 .userNotLoggedIn {
@@ -74,6 +75,7 @@ img {
 	background-color: #6B7A8F;
 	text-align: center;
  	position: fixed;
+ 	top-padding: 24px;
  }
 
 .footerText {
@@ -86,6 +88,12 @@ img {
 .headerEvents>.alignEvents {
 	text-align: center;
 }
+
+
+.container-fluid{
+	padding-bottom: 24px;
+}
+
 
 .button {
 	color: #6B7A8F;
@@ -100,5 +108,6 @@ img {
 	background-color: #6B7A8F;
 	border: 2px solid white;
 	border-radius: 8px;
-	margin: 5px;
+		margin: 5px;
+	
 }
