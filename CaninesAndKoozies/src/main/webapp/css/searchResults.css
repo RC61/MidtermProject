@@ -1,12 +1,13 @@
 @charset "UTF-8";
 
 body, html{
-min-height: auto;
-background-color: #DCC7AA
+min-height: 40%;
+background-color: #DCC7AA;
 }
 .results1{
-height: auto;
-background-color: #DCC7AA
+	height: inherit;
+ 	background-color: #DCC7AA;
+ 	bottom-padding: 24px;
 }
 
 h1, h2, h3, h4 {
@@ -20,8 +21,8 @@ h1, h2, h3, h4 {
    width: 100%;
    background-color: #6B7A8F;
    text-align: center;
-   /* position: absolute; */
-}
+     position: fixed; 
+ }
 
 .footerText {
 	font-family: 'Sniglet', cursive;
