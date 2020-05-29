@@ -60,11 +60,12 @@ public class UserAndDogProfileController {
 	}
 	
 	@RequestMapping(path="deleteUser.do")
-	public ModelAndView deleteUser(int id) {
+	public ModelAndView deleteUser(int id, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		boolean result = userDAOImpl.deleteUser(id);
 		String printOut;
 		if (result == true) {
+			session.removeAttribute("user");
 			printOut = "Your User Profile has been deleted.";
 		}
 		else {
