@@ -21,13 +21,14 @@ h3, h4 {
 	color: #F7882F;
 }
 
-.footer {
+.event-footer {
    left: 0;
    bottom: 0;
    width: 100%;
    background-color: #6B7A8F;
    text-align: center;
-   position: absolute;
+   position: fixed;
+   top-padding: 250px;
 }
 
 .footerText {
@@ -86,5 +87,7 @@ h3, h4 {
 	color: #F7882F;
 }
 
-
+.container-fluid{
+	padding-bottom: 24px;
+}
 

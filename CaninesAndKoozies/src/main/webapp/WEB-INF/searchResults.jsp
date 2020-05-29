@@ -30,7 +30,7 @@
 
 
 
-		<!-- PUT SOME USER SHIT HERE  -->
+		
 		<c:choose>
 			<c:when test = "${! empty users || ! empty events }">
 				<c:forEach var="user" items="${users}">
@@ -49,7 +49,7 @@
 
 
 
-		<!-- PUT SOME EVENT SHIT HERE  -->
+		
 
 
 				<c:forEach var="event" items="${events}">
