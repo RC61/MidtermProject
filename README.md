@@ -49,3 +49,17 @@ It was important for us as a team to work together and help each other as needed
 ### Lessons Learned
 
 This project further cemented create, update, and delete functions between a user and the database. It was an exercise for JPA, DAO, controller, and JSP implementation. This was also the first time we were tasked with creating a database with multiple tables and determining the relationships therein. As such, we were also able to learn more about entities and relationship mapping between them. The relationship mapping also heavily affected the CRUD operations and forced us to learn a kind of sequence of how to create entities that have other entities, (such as having to set venues to events as events are created), or having to delete child entities before actually removing the parent entity. Overall, this was a great learning experience for our whole team.
+
+From the overall experience, some team take-aways were:
+
+* Communicate well and communicate often so that everyone is on the same page
+* Never wait too long to ask for help
+* Do not get stressed out - everything has a solution
+* Establish a uniform standard operating procedure in regards to naming and code placement
+
+### Stretch Goals
+
+* Implementation of vendor entity that can accept invitations to events
+* Implementation of admin privileges that can approve or deny events
+* Ratings tied to events that are displayed with a modern "star" rating
+* Embedded Google Maps feature on venue details page
