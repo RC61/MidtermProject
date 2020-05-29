@@ -72,8 +72,8 @@
 				<td> 
 					<c:forEach items = "${venues }" var = "venue">
 					
-						<label><input type="radio" name="venueName" value="${venue.name }">${venue.name }</label>
-						<input type="hidden" value = "${venue.id}" name = "venueId">
+						<label><input type="radio" name="venueId" value="${venue.id }">${venue.name }</label>
+						<%-- <input type="hidden" value = "${venue.id}" name = "venueId"> --%>
 					</c:forEach>
   				</td>
 			</tr>
