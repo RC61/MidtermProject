@@ -156,7 +156,7 @@
 		</c:choose>
 		</div>
 	</div>
-	<div class="footer">
+	<div class="event-footer">
 			<div class="footerText">
 				<a class="footerText" href="about.do">About Us</a> <a
 				class="footerText" href="nightCatNightCap.do">Coming soon to NYC</a>
