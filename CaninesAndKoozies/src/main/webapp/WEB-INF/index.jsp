@@ -69,7 +69,7 @@
 												</a>
 											</c:otherwise>
 										</c:choose>
-										<h3>${event.name}</h3>
+										<h6>${event.name}</h6>
 									</div>
 								</c:forEach>
 							</div>
@@ -106,7 +106,7 @@
 												</a>
 											</c:otherwise>
 										</c:choose>
-										<h3>${event.name}</h3>
+										<h6>${event.name}</h6>
 									</div>
 								</c:forEach>
 							</div>
@@ -151,7 +151,7 @@
 						<div class="container">
 							<div class="row">
 								<c:forEach var="event" items="${events}">
-									<div class="col-sm">
+									<div class="col-md-4">
 
 
 
