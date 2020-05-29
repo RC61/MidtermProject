@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>Create Event</title>
 
+
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/updateEvent.css">
 
@@ -17,7 +18,6 @@
 	rel="stylesheet">
 
 <jsp:include page="bootstrapHead.jsp" />
-
 
 </head>
 <body>
@@ -146,6 +146,7 @@
 			</table>
 			<input type="submit" class="button" value="Submit" />
 		</form>
+
 	</div>
 	<div class="footer">
 		<div class="footerText">
@@ -154,6 +155,7 @@
 			<jsp:include page="bootstrapFoot.jsp" />
 		</div>
 	</div>
+
 
 </body>
 </html>
