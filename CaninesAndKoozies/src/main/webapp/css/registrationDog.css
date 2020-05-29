@@ -55,3 +55,19 @@ body, html {
 	font-family: 'Sniglet', cursive;
 	 margin: 20px 0;
 }
+
+.button {
+	color: #6B7A8F;
+	background-color: transparent;
+	border: 2px solid #6B7A8F;
+	border-radius: 8px;
+	transition-duration: 0.4s;
+	margin: 5px;
+}
+.button:hover{
+	color: white;
+	background-color: #6B7A8F;
+	border: 2px solid white;
+	border-radius: 8px;
+	margin: 5px;
+}
