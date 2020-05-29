@@ -28,7 +28,7 @@
     <div class="card1">
     	<c:choose>
 			<c:when test = "${! empty lookedUpUser.userPicture }">   	
-     			 <img class="meh" src=${lookedUpUser.userPicture } alt=${lookedUpUser.fname }">
+     			 <img class="meh" src=${lookedUpUser.userPicture } alt=${lookedUpUser.fname }" width = "150" height = "200">
       		</c:when> 
       		<c:otherwise>
      			 <img src="https://i.imgur.com/IngcWEC.png" alt=${lookedUpUser.fname }">
