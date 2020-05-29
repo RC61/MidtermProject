@@ -35,22 +35,22 @@
 		</div>
 	</div>
 
-
+<form action="viewSinglesEvents.do" method="GET">
+			<input type="submit" class="button"
+				value="View events for Singles only">
+		</form>
 
 
 
 	<div class="browseEvents">
-		<form action="viewSinglesEvents.do" method="GET">
-			<input type="submit" class="button"
-				value="View events for Singles only">
-		</form>
+		
 		<c:choose>
 			<c:when test="${! empty events }">
 				<div class="container">
 					<div class="row">
 						<c:forEach var="event" items="${events}">
 
-							<div class="col-sm">
+							<div class="col-md-4">
 								<c:choose>
 									<c:when test="${! empty event.pictureURL}">
 
@@ -78,6 +78,12 @@
 			</c:otherwise>
 
 		</c:choose>
+		
+		
+	
+		
+		
+		
 	</div>
 	<div class="footer">
 		<div class="footerText">

@@ -8,27 +8,40 @@
 <head>
 <meta charset="UTF-8">
 <title>Create Event</title>
+	<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/createEvent.css">
+<!--Title  -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap"
+	rel="stylesheet">
+
+<!--Headers  -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Sniglet&display=swap"
+	rel="stylesheet">
+<jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
 <%@ include file="navLoggedIn.jsp" %>
-<jsp:include page="bootstrapHead.jsp" />
+<div class = "form1">
+<div class = "container-fluid">
 <form action ="forwardEventForCreation.do" method="POST">
 
 		<table>
 			<tr>
-				<td>Event Name:</td>
+				<td><h4>Event Name:</h4></td>
 			</tr>
 			<tr>
 				<td><input type="text" name="name" size="30" /></td>
 			</tr>
 			<tr>
-				<td>Event Date and Time:</td>
+				<td><h4>Event Date and Time:</h4></td>
 			</tr>
 			<tr>
 				<td><input type="datetime-local" name="eventDate" /></td>
 			</tr>
 			<tr>
-				<td>Dog Size Preference:</td>
+				<td><h4>Dog Size Preference:</h4></td>
 			</tr>
 			<tr>
 				<td>
@@ -39,7 +52,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Singles Only Preference:</td>
+				<td><h4>Singles Only Preference:</h4></td>
 			</tr>
 			<tr>
 				<td>
@@ -48,12 +61,12 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Event picture URL:</td>
+				<td><h4>Event picture URL:</h4></td>
 			</tr>
 			<tr>
 				<td><input type="text" name="pictureURL" size = "100" /></td>
 			<tr>
-				<td>Please select a venue:</td>
+				<td><h4>Please select a venue:</h4></td>
 			</tr>
 			<tr>
 				<td> 
@@ -64,7 +77,7 @@
 					</c:forEach>
   				</td>
 			</tr>
-			<tr><td>Please describe your event:</td>
+			<tr><td><h4>Please describe your event:</h4></td>
 			</tr>
 			<tr>
 				<td>
@@ -76,5 +89,14 @@
 		</table>
 		<input type="submit" class="button" value="Submit" />
 		</form>
+		</div>
+		</div>
+		<div class="footer">
+			<div class="footerText">
+				<a class="footerText" href="about.do">About Us</a> <a
+				class="footerText" href="nightCatNightCap.do">Coming soon to NYC</a>
+				<jsp:include page="bootstrapFoot.jsp" />
+			</div>
+		</div>
 </body>
 </html>
