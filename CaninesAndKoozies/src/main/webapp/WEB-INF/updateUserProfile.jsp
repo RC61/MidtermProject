@@ -175,5 +175,13 @@
 			<input type="submit" class="button" value="Submit" />
 		</form>
 </div>
+
+	<div class="footer">
+		<div class="footerText">
+			<a class="footerText" href="about.do">About Us</a> <a
+				class="footerText" href="nightCatNightCap.do">Coming soon to NYC</a>
+			<jsp:include page="bootstrapFoot.jsp" />
+		</div>
+	</div>
 </body>
 </html>
