@@ -24,6 +24,10 @@
 
 * When a user views the profile of another user, they are able to see details about the user, their dogs, and the events they're going to.
 
+### Implementation
+
+The overall project is mapped out by seven tables in our database. There are entities for the users, dogs, comments, events, address, and venue. In addition, there is a user_event join table. The purpose of this table is to link the user to the events they're attending and vice-versa and stands in contrast to the direct link between user and event which represents the event a user has created.
+
 ### Technologies Used
 
 * MySQL
