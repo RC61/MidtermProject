@@ -22,6 +22,7 @@
 <jsp:include page= "bootstrapHead.jsp"/>
 <%@ include file="navLoggedIn.jsp" %>
 <input type = "hidden" value = "${event.createDate}">
+<div class = "wholeThing">
 	<div class="container-fluid">
 		<div class="row" id="details">
 			<div class="col-md-6">
@@ -162,6 +163,6 @@
 				<jsp:include page="bootstrapFoot.jsp" />
 			</div>
 		</div>
-	
+	</div>
 </body>
 </html>

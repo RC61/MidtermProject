@@ -6,6 +6,7 @@ h3, h4 {
 }
 
 body, html{
+	height: auto;
 	background-color: #DCC7AA
 }
 
@@ -26,6 +27,7 @@ body, html{
 }
 
 .form1{
+	height: auto;
 		background-color: #DCC7AA
 }
 

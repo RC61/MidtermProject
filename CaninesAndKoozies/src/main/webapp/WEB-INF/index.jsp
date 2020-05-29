@@ -27,12 +27,12 @@
 </head>
 <body>
 	<%@ include file="navLoggedIn.jsp"%>
-
 	<div class="hero-image">
 		<div class="hero-text">
 			<h1>Canines and Koozies</h1>
 		</div>
 	</div>
+<div class = "dehWholeThing">
 
 	<!--LOGGED IN USER-->
 
@@ -125,7 +125,7 @@
 
 		<c:otherwise>
 			<div class="userNotLoggedIn">
-				<h3>Login</h3>
+				<%-- <h3>Login</h3>
 				<form action="login.do" method="POST">
 					<input type="text" name="username"> <input type="password"
 						name="password"> <input type="submit" value="Login">
@@ -140,11 +140,11 @@
 				<form action="search.do" method="GET">
 					<input type="text" name="keyword"> <input type="submit"
 						value="Search">
-				</form>
+				</form> --%> 
 
 				<c:choose>
 					<c:when test="${! empty events }">
-						<h3>Events</h3>
+						<h3>Upcoming Events</h3>
 
 						<div class="container">
 							<div class="row">
@@ -183,6 +183,7 @@
 			</div>
 		</c:otherwise>
 	</c:choose>
+	</div>
 	<div class="footer">
 		<div class="footerText">
 			<a class="footerText" href="about.do">About Us</a> <a

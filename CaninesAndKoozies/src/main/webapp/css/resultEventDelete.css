@@ -7,11 +7,13 @@ h1, h3, h4 {
 }
 
 .result1{
+	/* min-height: auto; */
 	background-color: #DCC7AA;
 }
 
 body, html{
-	background-color: #DCC7AA
+	/* height: auto; */
+	background-color: #DCC7AA;
 }
 
 .footer {
@@ -34,7 +36,6 @@ body, html{
 	/* font-size: 20px; */
 	color: #6B7A8F;
 	background-color: transparent;
-	/* font-family: 'Fredoka One', cursive; */
 	border: 2px solid white;
 	border-radius: 8px;
 	transition-duration: 0.4s;
@@ -43,7 +44,6 @@ body, html{
 	font-size: 20px;
 	color: white;
 	background-color: #6B7A8F;
-	/* font-family: 'Fredoka One', cursive; */
 	border: 2px solid white;
 	border-radius: 8px;
 }

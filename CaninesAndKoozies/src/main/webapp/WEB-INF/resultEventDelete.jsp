@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>Delete Your Event</title>
 <link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/createEvent.css">
+	href="${pageContext.request.contextPath}/css/resultEventDelete.css">
 <!--Title  -->
 <link
 	href="https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap"
@@ -24,8 +24,8 @@
 <jsp:include page="navLoggedIn.jsp" />
 <jsp:include page="bootstrapHead.jsp" />
 
-<div class = "container-fluid">
 <div class = "result1">
+ <div class = "container-fluid">
 
 	<h4>${result}</h4>
 	</div>

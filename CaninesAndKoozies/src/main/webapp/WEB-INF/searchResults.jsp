@@ -40,7 +40,7 @@
 						<h3>Pups: ${dogs.name}</h3>
 						</c:forEach>
 					<form action="viewTheirProfile.do" method=GET>
-						<input type="submit" value="View User Profile"> <input
+						<input class = "button" type="submit" value="View User Profile"> <input
 							type="hidden" name="id" value="${user.id}">
 					</form>
 							<br>
@@ -59,7 +59,7 @@
 					<h3>Dog Size Preference: ${event.dogSizePreference}</h3>
 					<img class = "pic" src="${event.pictureURL}" width="700" height="350">
 			<form action="searchId.do" method=GET>
-						<input type="submit" value="View Full Event Details"> <input
+						<input class = "button" type="submit" value="View Full Event Details"> <input
 							type="hidden" name="id" value="${event.id}">
 					</form>
 					<br>
