@@ -33,7 +33,7 @@
 		</div>
 	</div>
 <div class = "dehWholeThing">
-
+	<div class = "container-fluid">
 	<!--LOGGED IN USER-->
 
 
@@ -43,7 +43,7 @@
 				<h3>Hello ${user.username}</h3>
 
 				<form action="viewAllEvents.do" method="GET">
-					<input type="submit" value="Browse Events">
+					<input class = "button" type="submit" value="Browse Events">
 				</form>
 
 				<h3>You are attending these events!</h3>
@@ -190,6 +190,7 @@
 				class="footerText" href="nightCatNightCap.do">Coming soon to NYC</a>
 			<jsp:include page="bootstrapFoot.jsp" />
 		</div>
+	</div>
 	</div>
 </body>
 </html>
