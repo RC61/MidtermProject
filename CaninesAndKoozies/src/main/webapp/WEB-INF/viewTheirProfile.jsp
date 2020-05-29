@@ -23,12 +23,12 @@
 <%@ include file="navLoggedIn.jsp" %>
 <jsp:include page="bootstrapHead.jsp" />
 <div class="page">
-<div class="row">
+
   <div class="column">
     <div class="card1">
     	<c:choose>
 			<c:when test = "${! empty lookedUpUser.userPicture }">   	
-     			 <img class="meh" src=${lookedUpUser.userPicture } alt=${lookedUpUser.fname }" width = "150" height = "200">
+     			 <img class="meh" src=${lookedUpUser.userPicture } alt=${lookedUpUser.fname }" width = "auto" height = "500">
       		</c:when> 
       		<c:otherwise>
      			 <img src="https://i.imgur.com/IngcWEC.png" alt=${lookedUpUser.fname }">
@@ -42,7 +42,7 @@
         <p>${lookedUpUser.username }</p>
 
       </div>
-    </div>
+
   </div>
 
   <div class="column2">
@@ -52,7 +52,7 @@
 		<c:forEach var = "dog" items = "${dogs }" >
 		<c:choose>
 			<c:when test = "${! empty dog.dogPicture }">
-				<img class="dogImage" src=${dog.dogPicture } style="width:100%">
+				<img class="dogImage" src=${dog.dogPicture } width = "150" height = "auto">
 			</c:when>
 			<c:otherwise>
 				<img src="https://i.imgur.com/hhRHTjv.png" style="width:100%">			
@@ -68,7 +68,7 @@
         </div>
     </div>
 
-  
+	
   <div class="eventsList">
   <h1>${lookedUpUser.fname }'s Events</h1>
      <c:choose>
@@ -79,7 +79,7 @@
 		<c:choose>
 					<c:when test="${! empty event.pictureURL}">
 						<a href="searchId.do?id=${event.id}">
-							<img class="eventImage" src ="${event.pictureURL}">
+							<img class="eventImage" src ="${event.pictureURL}" width = "300" height = "auto">
 						</a>
 					</c:when>
 					<c:otherwise>
