@@ -88,10 +88,10 @@
 			<div class="col-md-6">
 				<c:choose>
 					<c:when test="${! empty event.pictureURL}">
-						<img src="${event.pictureURL }" width="700" height="350" />
+						<img class = "event-pic" src="${event.pictureURL }" width="700" height="350" />
 					</c:when>
 					<c:otherwise>
-						<img
+						<img class = "event-pic"
 							src="https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg"
 							width="700" height="350">
 					</c:otherwise>
@@ -105,7 +105,8 @@
 						<form action="addComment.do" method="POST">
 							<input type="text" placeholder="Add a Comment" name="description">
 							<input type="hidden" value="${user.id}" name="userId"> <input
-								type="hidden" value="${event.id}" name="eventId"> <input
+								type="hidden" value="${event.id}" name="eventId"> 
+								<input class="button"
 								type="submit" value="Submit">
 						</form>
 					</c:when>
@@ -116,25 +117,18 @@
 						</h4>
 					</c:otherwise>
 				</c:choose>
-				<%-- 	<c:choose>
-			<c:when test="${! empty event.pictureURL}">
-				<img src ="${userEvent.event.pictureURL}">
-			</c:when>
-			<c:otherwise>
-				<img src = "https://cdn.pixabay.com/photo/2017/03/24/12/58/thirst-2171119_1280.jpg">
-			</c:otherwise>
-		</c:choose> --%>
 			</div>
-		</div>
 		<c:choose>
 			<c:when test="${event.userCreated == user && ! empty user }">
 				<h3>This is your event! Would you like to:</h3>
+				
 				<form action="updateEvent.do" method="GET">
-					<input type="submit" value="Update event"> <input
+					<input class="button" type="submit" value="Update event"> <input
 						type="hidden" value="${event.id }" name="id">
 				</form>
+				
 				<form action="deleteEvent.do" method="GET">
-					<input type="submit" value="Delete event"> <input
+					<input class="button" type="submit" value="Delete event"> <input
 						type="hidden" value="${event.id }" name="id">
 				</form>
 			</c:when>
@@ -143,11 +137,12 @@
 			<c:when
 				test="${! empty user &&  event.userCreated.id != user.id  && !event.containsUser(user) }">
 				<form action="signUpForEvent.do" method="POST">
-					<input type="submit" value="Sign Up For Event"> <input
+					<input class="button" type="submit" value="Sign Up For Event"> <input
 						type="hidden" value="${event.id }" name="id">
 				</form>
 			</c:when>
 		</c:choose>
+		</div>
 	</div>
 	<div class="footer">
 			<div class="footerText">

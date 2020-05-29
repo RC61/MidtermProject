@@ -2,17 +2,15 @@
 
 body, html{
 height: 110%;
-background-color: #DCC7AA;
+background-color: #DCC7AA
 }
 
 #details{
-	background-color: #DCC7AA;
-		font-family: 'Sniglet', cursive;
+	background-color: #DCC7AA
 }
 
 .all-details{
-		background-color: #DCC7AA;
-		font-family: 'Sniglet', cursive;
+		background-color: #DCC7AA
 	
 }
 

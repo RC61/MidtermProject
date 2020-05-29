@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+body, html{
+height: 110%;
+background-color: #DCC7AA
+}
+.results1{
+height: 110%;
+background-color: #DCC7AA
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Sniglet', cursive;
+	color: #F7882F;
+}
+
+.footer {
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #6B7A8F;
+   text-align: center;
+}
+
+.footerText {
+	font-family: 'Sniglet', cursive;
+	color: black;
+	margin: 30px 0 0px;
+	margin: 0 1em;
+}
+
+.pic{
+	border: 1px solid #6B7A8F;
+  	padding: 5px; 
+  	width: 500;
+  	height: 300;
+	object-fit: cover;
+  }
+
