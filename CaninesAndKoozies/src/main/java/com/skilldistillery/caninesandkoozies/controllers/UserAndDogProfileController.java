@@ -60,11 +60,12 @@ public class UserAndDogProfileController {
 	}
 	
 	@RequestMapping(path="deleteUser.do")
-	public ModelAndView deleteUser(int id) {
+	public ModelAndView deleteUser(int id, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		boolean result = userDAOImpl.deleteUser(id);
 		String printOut;
 		if (result == true) {
+			session.removeAttribute("user");
 			printOut = "Your User Profile has been deleted.";
 		}
 		else {
@@ -152,8 +153,12 @@ public class UserAndDogProfileController {
 		ModelAndView mv = new ModelAndView();
 		User loggedInUser = (User) session.getAttribute("user");
 		Dog newDog = dogDAOImpl.createDog(dog, loggedInUser);
+		List<Dog> dogs = userDAOImpl.findAllUserDogs(loggedInUser.getId());
+		List<Event> events = userDAOImpl.findAllUsersEvents(loggedInUser.getId());
+		mv.addObject("dogs",dogs);
+		mv.addObject("events", events);
 		mv.addObject("user", loggedInUser);
-		mv.addObject("dog", newDog);
+//		mv.addObject("dog", newDog);
 		mv.setViewName("userAndDogProfileView");
 		return mv;
 	}
