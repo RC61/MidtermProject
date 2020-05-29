@@ -152,8 +152,12 @@ public class UserAndDogProfileController {
 		ModelAndView mv = new ModelAndView();
 		User loggedInUser = (User) session.getAttribute("user");
 		Dog newDog = dogDAOImpl.createDog(dog, loggedInUser);
+		List<Dog> dogs = userDAOImpl.findAllUserDogs(loggedInUser.getId());
+		List<Event> events = userDAOImpl.findAllUsersEvents(loggedInUser.getId());
+		mv.addObject("dogs",dogs);
+		mv.addObject("events", events);
 		mv.addObject("user", loggedInUser);
-		mv.addObject("dog", newDog);
+//		mv.addObject("dog", newDog);
 		mv.setViewName("userAndDogProfileView");
 		return mv;
 	}
