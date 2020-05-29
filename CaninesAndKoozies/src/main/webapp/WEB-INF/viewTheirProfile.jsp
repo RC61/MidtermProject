@@ -28,7 +28,7 @@
     <div class="card1">
     	<c:choose>
 			<c:when test = "${! empty lookedUpUser.userPicture }">   	
-     			 <img class="meh" src=${lookedUpUser.userPicture } alt=${lookedUpUser.fname }" width = "auto" height = "500">
+     			 <img class="meh" src=${lookedUpUser.userPicture } alt=${lookedUpUser.fname }" >
       		</c:when> 
       		<c:otherwise>
      			 <img src="https://i.imgur.com/IngcWEC.png" alt=${lookedUpUser.fname }">
@@ -36,13 +36,14 @@
     	</c:choose>
       <div class="container">
         <h1>${lookedUpUser.fname } ${lookedUpUser.lname }</h1>
-        <p>${lookedUpUser.birthDate }</p>
-        <p>${lookedUpUser.relationshipStatus }</p>
-        <p>${lookedUpUser.alcoholPreference }</p>
-        <p>${lookedUpUser.username }</p>
+        <h3>${lookedUpUser.birthDate }</h3>
+        <h3>${lookedUpUser.relationshipStatus }</h3>
+        <h3>${lookedUpUser.alcoholPreference }</h3>
+        <h3>${lookedUpUser.username }</h3>
 
       </div>
-
+<br>
+<br>
   </div>
 
   <div class="column2">
@@ -52,10 +53,10 @@
 		<c:forEach var = "dog" items = "${dogs }" >
 		<c:choose>
 			<c:when test = "${! empty dog.dogPicture }">
-				<img class="dogImage" src=${dog.dogPicture } width = "150" height = "auto">
+				<img class="dogImage" src=${dog.dogPicture }>
 			</c:when>
 			<c:otherwise>
-				<img src="https://i.imgur.com/hhRHTjv.png" style="width:100%">			
+				<img src="https://i.imgur.com/hhRHTjv.png">			
 			</c:otherwise>
 		</c:choose>
       <div class="container">
@@ -67,6 +68,8 @@
         </c:choose>    
         </div>
     </div>
+<br>
+<br>
 
 	
   <div class="eventsList">
@@ -79,7 +82,7 @@
 		<c:choose>
 					<c:when test="${! empty event.pictureURL}">
 						<a href="searchId.do?id=${event.id}">
-							<img class="eventImage" src ="${event.pictureURL}" width = "300" height = "auto">
+							<img class="eventImage" src ="${event.pictureURL}">
 						</a>
 					</c:when>
 					<c:otherwise>
