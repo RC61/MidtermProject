@@ -79,8 +79,17 @@
 				<div class="row">
 					<c:forEach items="${ event.userEvents}" var="userEvent">
 						<div class="column">
-							<a href="viewTheirProfile.do?id=${userEvent.user.id}"><img
-								src="${userEvent.user.userPicture}" class="img-user"></a>
+							<a href="viewTheirProfile.do?id=${userEvent.user.id}">
+							<c:choose>
+							<c:when test="${! empty userEvent.user.userPicture}">
+								<img
+								src="${userEvent.user.userPicture}" class="img-user" width = "150" height = "200">
+								</c:when>
+								<c:otherwise>
+								<img src = "https://i.imgur.com/IngcWEC.png" class="img-user" width = "150" height = "200">
+								</c:otherwise>
+								</c:choose>
+								</a>
 						</div>
 					</c:forEach>
 				</div>
@@ -97,9 +106,11 @@
 					</c:otherwise>
 				</c:choose>
 				<h4>Comments</h4>
+				
 				<c:forEach items="${event.comments }" var="comment">
-					<p>${comment.user.username}says: ${comment.description}</p>
+					<div class = "commentee">${comment.user.username} says:</div> ${comment.description}</p>
 				</c:forEach>
+				
 				<c:choose>
 					<c:when test="${! empty user }">
 						<form action="addComment.do" method="POST">

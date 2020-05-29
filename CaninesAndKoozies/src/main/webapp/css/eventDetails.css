@@ -42,6 +42,7 @@ h3, h4 {
   	padding: 5px;
  	width: 150px;
  	height:200px;
+ 	object-fit: cover;
 }
 
 .column {
@@ -80,3 +81,7 @@ h3, h4 {
 	border-radius: 8px;
 	margin: 5px;
 }
+.commentee{
+	color: #F7882F;
+}
+
