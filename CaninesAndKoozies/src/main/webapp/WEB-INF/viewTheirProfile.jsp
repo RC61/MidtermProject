@@ -6,24 +6,36 @@
 <head>
 <meta charset="UTF-8">
 <title>${lookedUpUser.username }'s Profile</title>
+<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/viewTheirProfile.css">
+	
+	<!--Title  -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap"
+	rel="stylesheet">
+
+<!--Headers  -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Sniglet&display=swap"
+	rel="stylesheet">
 </head>
-<body>
+<body class="body">
 <%@ include file="navLoggedIn.jsp" %>
 <jsp:include page="bootstrapHead.jsp" />
-
+<div class="page">
 <div class="row">
   <div class="column">
-    <div class="card">
+    <div class="card1">
     	<c:choose>
 			<c:when test = "${! empty lookedUpUser.userPicture }">   	
-     			 <img src=${lookedUpUser.userPicture } alt=${lookedUpUser.fname } style="width:100%">
+     			 <img class="meh" src=${lookedUpUser.userPicture } alt=${lookedUpUser.fname }">
       		</c:when> 
       		<c:otherwise>
-     			 <img src="https://i.imgur.com/IngcWEC.png" alt=${lookedUpUser.fname } style="width:100%">
+     			 <img src="https://i.imgur.com/IngcWEC.png" alt=${lookedUpUser.fname }">
       		</c:otherwise>
     	</c:choose>
       <div class="container">
-        <h2>${lookedUpUser.fname } ${lookedUpUser.lname }</h2>
+        <h1>${lookedUpUser.fname } ${lookedUpUser.lname }</h1>
         <p>${lookedUpUser.birthDate }</p>
         <p>${lookedUpUser.relationshipStatus }</p>
         <p>${lookedUpUser.alcoholPreference }</p>
@@ -33,14 +45,14 @@
     </div>
   </div>
 
-  <div class="column">
-    <div class="card">
+  <div class="column2">
+   <h1>${lookedUpUser.fname }'s Dogs</h1>
     <c:choose>
 		<c:when test = "${! empty dogs }">
 		<c:forEach var = "dog" items = "${dogs }" >
 		<c:choose>
 			<c:when test = "${! empty dog.dogPicture }">
-				<img src=${dog.dogPicture } style="width:100%">
+				<img class="dogImage" src=${dog.dogPicture } style="width:100%">
 			</c:when>
 			<c:otherwise>
 				<img src="https://i.imgur.com/hhRHTjv.png" style="width:100%">			
@@ -54,12 +66,11 @@
         </c:when>
         </c:choose>    
         </div>
-        </div>
     </div>
-  </div>
+
   
   <div class="eventsList">
-  <h3>${lookedUpUser.fname }'s Events</h3>
+  <h1>${lookedUpUser.fname }'s Events</h1>
      <c:choose>
 		<c:when test = "${! empty events }">
 		<c:forEach var = "event" items = "${events }" >
@@ -68,7 +79,7 @@
 		<c:choose>
 					<c:when test="${! empty event.pictureURL}">
 						<a href="searchId.do?id=${event.id}">
-							<img src ="${event.pictureURL}">
+							<img class="eventImage" src ="${event.pictureURL}">
 						</a>
 					</c:when>
 					<c:otherwise>
@@ -84,8 +95,9 @@
        They do not have any events yet! 
         </c:otherwise>
         </c:choose>
-  
-  </div>
 
+  </div>
+  </div>
+			<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>
